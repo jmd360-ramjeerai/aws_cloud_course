@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:01,000
+Welcome to this session
+
+2
+00:00:01,000 --> 00:00:04,000
+on Elastic Load Balancing and Auto Scaling Groups.
+
+3
+00:00:04,000 --> 00:00:06,000
+This is a section where we really see the power
+
+4
+00:00:06,000 --> 00:00:09,000
+of the AWS cloud and the cloud in general,
+
+5
+00:00:09,000 --> 00:00:12,000
+and see how these new paradigms we saw
+
+6
+00:00:12,000 --> 00:00:13,000
+really help us shine
+
+7
+00:00:13,000 --> 00:00:16,000
+and make our application scales seamlessly.
+
+8
+00:00:16,000 --> 00:00:17,000
+So let's discuss the concept
+
+9
+00:00:17,000 --> 00:00:20,000
+of Scalability and High Availability.
+
+10
+00:00:20,000 --> 00:00:22,000
+So if your applications can scale,
+
+11
+00:00:22,000 --> 00:00:25,000
+that means that it can handle greater loads by adapting.
+
+12
+00:00:25,000 --> 00:00:28,000
+And there are two kinds of scalability in the cloud.
+
+13
+00:00:28,000 --> 00:00:31,000
+There is vertical scalability and horizontal scalability,
+
+14
+00:00:31,000 --> 00:00:33,000
+also called elasticity.
+
+15
+00:00:33,000 --> 00:00:35,000
+So the scalability is going to be linked,
+
+16
+00:00:35,000 --> 00:00:37,000
+but different to high availability.
+
+17
+00:00:37,000 --> 00:00:40,000
+And these things are going to be discussed in this lecture.
+
+18
+00:00:40,000 --> 00:00:41,000
+So let's do a deep dive.
+
+19
+00:00:41,000 --> 00:00:43,000
+And we'll be using a call center as an example.
+
+20
+00:00:43,000 --> 00:00:46,000
+So imagine, we have a call center and we just receive calls.
+
+21
+00:00:46,000 --> 00:00:49,000
+Now let's see what it means to be scalable in that case.
+
+22
+00:00:49,000 --> 00:00:52,000
+So first, let's deal with vertical scalability.
+
+23
+00:00:52,000 --> 00:00:55,000
+In AWS, when you are vertically scalable,
+
+24
+00:00:55,000 --> 00:00:59,000
+that means that you can increase the size of the instance.
+
+25
+00:00:59,000 --> 00:01:03,000
+So for our call center, say we have a junior operator
+
+26
+00:01:03,000 --> 00:01:06,000
+and say we were able to upgrade that operator,
+
+27
+00:01:06,000 --> 00:01:07,000
+we would get a senior operator.
+
+28
+00:01:07,000 --> 00:01:09,000
+And for example, the senior operator
+
+29
+00:01:09,000 --> 00:01:12,000
+can handle a lot more calls than the junior operator
+
+30
+00:01:12,000 --> 00:01:14,000
+because it's more experienced.
+
+31
+00:01:14,000 --> 00:01:16,000
+So this would be what vertical scalability looks like
+
+32
+00:01:16,000 --> 00:01:17,000
+in a call center.
+
+33
+00:01:17,000 --> 00:01:19,000
+If we could upgrade obviously,
+
+34
+00:01:19,000 --> 00:01:21,000
+a junior operator into a senior operator.
+
+35
+00:01:21,000 --> 00:01:23,000
+So in AWS, for example,
+
+36
+00:01:23,000 --> 00:01:26,000
+say your application runs on the t2.micro,
+
+37
+00:01:26,000 --> 00:01:30,000
+and to do a vertical scalability for that application,
+
+38
+00:01:30,000 --> 00:01:33,000
+that means that now we run our application on a t2.large.
+
+39
+00:01:33,000 --> 00:01:37,000
+So we've changed the size of our EC2 instance.
+
+40
+00:01:37,000 --> 00:01:39,000
+And vertical scalability is very common
+
+41
+00:01:39,000 --> 00:01:42,000
+when you have a non-distributed system,
+
+42
+00:01:42,000 --> 00:01:43,000
+for example, a database.
+
+43
+00:01:43,000 --> 00:01:46,000
+If you want to give more performance to your database,
+
+44
+00:01:46,000 --> 00:01:50,000
+you would just increase the size of your database.
+
+45
+00:01:50,000 --> 00:01:52,000
+But usually with vertical scalability,
+
+46
+00:01:52,000 --> 00:01:55,000
+there is a limit to how much you can vertically scale
+
+47
+00:01:55,000 --> 00:01:58,000
+and that is a limit of the hardware.
+
+48
+00:01:58,000 --> 00:01:59,000
+Even though nowadays
+
+49
+00:01:59,000 --> 00:02:01,000
+these limits can be very, very, very high.
+
+50
+00:02:01,000 --> 00:02:04,000
+Okay, next is horizontal scalability.
+
+51
+00:02:04,000 --> 00:02:05,000
+So that means that
+
+52
+00:02:05,000 --> 00:02:09,000
+now instead of increasing the size of your EC2 instance,
+
+53
+00:02:09,000 --> 00:02:11,000
+you increase the number of instances
+
+54
+00:02:11,000 --> 00:02:13,000
+or systems for your application.
+
+55
+00:02:13,000 --> 00:02:15,000
+So back into our call center example,
+
+56
+00:02:15,000 --> 00:02:17,000
+we have an operator,
+
+57
+00:02:17,000 --> 00:02:20,000
+and we want to do horizontal scalability for that operator,
+
+58
+00:02:20,000 --> 00:02:22,000
+that means we will add another operator.
+
+59
+00:02:22,000 --> 00:02:24,000
+And if we need to handle more calls,
+
+60
+00:02:24,000 --> 00:02:27,000
+we will add another operator, and so on.
+
+61
+00:02:27,000 --> 00:02:30,000
+So maybe we can scale horizontally from one operator
+
+62
+00:02:30,000 --> 00:02:33,000
+all the way to six operators.
+
+63
+00:02:33,000 --> 00:02:34,000
+So when you have horizontal scaling,
+
+64
+00:02:34,000 --> 00:02:37,000
+that implies as you can see on the right hand side,
+
+65
+00:02:37,000 --> 00:02:39,000
+that you need to have a distributed system.
+
+66
+00:02:39,000 --> 00:02:41,000
+And for call center, that makes sense.
+
+67
+00:02:41,000 --> 00:02:43,000
+You don't need these people to be talking constantly.
+
+68
+00:02:43,000 --> 00:02:46,000
+For a call center, each of the individual operators
+
+69
+00:02:46,000 --> 00:02:48,000
+can take calls on their own.
+
+70
+00:02:48,000 --> 00:02:50,000
+In AWS, or for web applications,
+
+71
+00:02:50,000 --> 00:02:52,000
+so this is going to be very common,
+
+72
+00:02:52,000 --> 00:02:54,000
+so if you have a web application or a modern application,
+
+73
+00:02:54,000 --> 00:02:58,000
+you usually design it with horizontal scalability in mind.
+
+74
+00:02:58,000 --> 00:03:01,000
+And it's super easy on AWS to scale,
+
+75
+00:03:01,000 --> 00:03:04,000
+thanks to Amazon EC2 and auto scaling groups,
+
+76
+00:03:04,000 --> 00:03:06,000
+and we'll see this in the section.
+
+77
+00:03:06,000 --> 00:03:08,000
+So now let's talk about High Availability.
+
+78
+00:03:08,000 --> 00:03:12,000
+And it goes hand in hand with horizontal scaling.
+
+79
+00:03:12,000 --> 00:03:13,000
+High availability means
+
+80
+00:03:13,000 --> 00:03:15,000
+that you are running your application and system
+
+81
+00:03:15,000 --> 00:03:19,000
+in at least two availability zones on AWS.
+
+82
+00:03:19,000 --> 00:03:21,000
+But for our call center, what does it mean?
+
+83
+00:03:21,000 --> 00:03:24,000
+That means that we have a call center in New York,
+
+84
+00:03:24,000 --> 00:03:28,000
+and maybe a second call center in San Francisco.
+
+85
+00:03:28,000 --> 00:03:32,000
+And somehow, if one of these call centers is down,
+
+86
+00:03:32,000 --> 00:03:35,000
+for example, say there's a power outage in New York,
+
+87
+00:03:35,000 --> 00:03:37,000
+then we can still take calls in San Francisco.
+
+88
+00:03:37,000 --> 00:03:40,000
+And so we are highly available.
+
+89
+00:03:40,000 --> 00:03:42,000
+Obviously, San Francisco will be more busy,
+
+90
+00:03:42,000 --> 00:03:47,000
+but we are at least surviving the disaster of a power outage
+
+91
+00:03:47,000 --> 00:03:48,000
+in one of our buildings.
+
+92
+00:03:48,000 --> 00:03:52,000
+So in AWS you use two availability zones, obviously.
+
+93
+00:03:52,000 --> 00:03:53,000
+And the goal of it
+
+94
+00:03:53,000 --> 00:03:56,000
+is to usually survive a data center loss, a disaster.
+
+95
+00:03:56,000 --> 00:03:58,000
+And in AWS, it could be an earthquake,
+
+96
+00:03:58,000 --> 00:04:01,000
+that could be a power outage that could a lot of things.
+
+97
+00:04:01,000 --> 00:04:03,000
+Okay, so to summarize,
+
+98
+00:04:03,000 --> 00:04:06,000
+High Availability and Scalability for EC2.
+
+99
+00:04:06,000 --> 00:04:07,000
+If we have vertical scaling,
+
+100
+00:04:07,000 --> 00:04:09,000
+that means that we're increasing the instance size.
+
+101
+00:04:09,000 --> 00:04:11,000
+So we can scale up if we're increasing it
+
+102
+00:04:11,000 --> 00:04:13,000
+or scale down if you're decreasing it.
+
+103
+00:04:13,000 --> 00:04:15,000
+So we can go all the way
+
+104
+00:04:15,000 --> 00:04:18,000
+from a T2.nano of 0.5 gigabytes of RAM,
+
+105
+00:04:18,000 --> 00:04:21,000
+and one vCPU, all the way to,
+
+106
+00:04:21,000 --> 00:04:22,000
+and obviously they can change over time,
+
+107
+00:04:22,000 --> 00:04:26,000
+a u-12tb1.metal, which is a very scary name,
+
+108
+00:04:26,000 --> 00:04:31,000
+but has 12.3 terabytes of RAM, and 448 vCPUs.
+
+109
+00:04:32,000 --> 00:04:34,000
+That is for vertical scalability.
+
+110
+00:04:34,000 --> 00:04:35,000
+Now for horizontal,
+
+111
+00:04:35,000 --> 00:04:38,000
+this is when you increase the number of instances,
+
+112
+00:04:38,000 --> 00:04:39,000
+it's called scaling out,
+
+113
+00:04:39,000 --> 00:04:41,000
+or when you decrease the number of instances,
+
+114
+00:04:41,000 --> 00:04:42,000
+it's called scaling in.
+
+115
+00:04:42,000 --> 00:04:44,000
+And for this, we'll be using an auto scaling group
+
+116
+00:04:44,000 --> 00:04:45,000
+and a load balancer.
+
+117
+00:04:45,000 --> 00:04:48,000
+This is the topic of this section,
+
+118
+00:04:48,000 --> 00:04:51,000
+and then when we have high availability,
+
+119
+00:04:51,000 --> 00:04:54,000
+that means that we run the instances of the same application
+
+120
+00:04:54,000 --> 00:04:56,000
+across multiple availability zones,
+
+121
+00:04:56,000 --> 00:04:58,000
+and this will be again leveraged by an auto scaling group
+
+122
+00:04:58,000 --> 00:05:00,000
+in multi AZ mode.
+
+123
+00:05:00,000 --> 00:05:02,000
+And a load balancer in multi AZ.
+
+124
+00:05:03,000 --> 00:05:04,000
+One last word.
+
+125
+00:05:04,000 --> 00:05:05,000
+So the exam will as could you figure out
+
+126
+00:05:05,000 --> 00:05:09,000
+is this scalability, is it elasticity, is it agility?
+
+127
+00:05:09,000 --> 00:05:11,000
+And so I just wanna give you some formal definitions,
+
+128
+00:05:11,000 --> 00:05:12,000
+so to summarize.
+
+129
+00:05:12,000 --> 00:05:16,000
+Scalability is the ability for a system
+
+130
+00:05:16,000 --> 00:05:18,000
+to accommodate a larger load
+
+131
+00:05:18,000 --> 00:05:20,000
+by making the hardware stronger or scaling up,
+
+132
+00:05:20,000 --> 00:05:22,000
+or by adding nodes scaling out.
+
+133
+00:05:22,000 --> 00:05:25,000
+This is when your application can scale.
+
+134
+00:05:25,000 --> 00:05:29,000
+Now, elasticity is something a bit more cloud native.
+
+135
+00:05:29,000 --> 00:05:31,000
+This is once a system is actually scalable,
+
+136
+00:05:31,000 --> 00:05:34,000
+so you can either scale up or scale it out.
+
+137
+00:05:34,000 --> 00:05:36,000
+Elasticity means that there will be some sort
+
+138
+00:05:36,000 --> 00:05:37,000
+of auto scaling in it,
+
+139
+00:05:37,000 --> 00:05:39,000
+so that the system can scale
+
+140
+00:05:39,000 --> 00:05:41,000
+based on the load that it's receiving.
+
+141
+00:05:41,000 --> 00:05:43,000
+And in this case, we're going to pay per use,
+
+142
+00:05:43,000 --> 00:05:45,000
+we're going to match the demand we're receiving
+
+143
+00:05:45,000 --> 00:05:47,000
+with a number of servers,
+
+144
+00:05:47,000 --> 00:05:49,000
+and obviously, we're going to pay just the right amount
+
+145
+00:05:49,000 --> 00:05:51,000
+so we will optimize cost.
+
+146
+00:05:51,000 --> 00:05:54,000
+So in AWS, elasticity is a key concept.
+
+147
+00:05:54,000 --> 00:05:58,000
+And agility is absolutely not related to scalability
+
+148
+00:05:58,000 --> 00:06:00,000
+or elasticities, it is a distractor.
+
+149
+00:06:00,000 --> 00:06:02,000
+But just to remind you what it means,
+
+150
+00:06:02,000 --> 00:06:04,000
+agility means that the new IT resources
+
+151
+00:06:04,000 --> 00:06:06,000
+are only a click away,
+
+152
+00:06:06,000 --> 00:06:07,000
+which means that you can reduce the time
+
+153
+00:06:07,000 --> 00:06:10,000
+to make these resources available to your developers
+
+154
+00:06:10,000 --> 00:06:11,000
+from weeks to just minutes.
+
+155
+00:06:11,000 --> 00:06:13,000
+And so your organization is more agile,
+
+156
+00:06:13,000 --> 00:06:15,000
+it can iterate more quickly
+
+157
+00:06:15,000 --> 00:06:17,000
+and you are going faster, okay?
+
+158
+00:06:17,000 --> 00:06:20,000
+So that's it for this section on introduction.
+
+159
+00:06:20,000 --> 00:06:21,000
+I hope you liked it
+
+160
+00:06:21,000 --> 00:06:23,000
+and I will see you in the next lecture.
+

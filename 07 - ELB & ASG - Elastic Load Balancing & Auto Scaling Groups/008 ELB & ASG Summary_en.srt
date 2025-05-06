@@ -1,0 +1,192 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so let's summarize the section
+
+2
+00:00:02,000 --> 00:00:04,000
+on the ELB and the ASG.
+
+3
+00:00:04,000 --> 00:00:07,000
+So first, we discussed the concept of high availability.
+
+4
+00:00:07,000 --> 00:00:10,000
+Scalability would be vertical and horizontal,
+
+5
+00:00:10,000 --> 00:00:13,000
+elasticity and agility in the Cloud.
+
+6
+00:00:13,000 --> 00:00:15,000
+It is very important for you to understand
+
+7
+00:00:15,000 --> 00:00:18,000
+to which concept corresponds to which features.
+
+8
+00:00:18,000 --> 00:00:20,000
+For example, high availability
+
+9
+00:00:20,000 --> 00:00:22,000
+means that you are having your applications
+
+10
+00:00:22,000 --> 00:00:24,000
+across multiple availability zone.
+
+11
+00:00:24,000 --> 00:00:27,000
+Vertical scaling means that you're increasing the size
+
+12
+00:00:27,000 --> 00:00:28,000
+of an instance.
+
+13
+00:00:28,000 --> 00:00:29,000
+And horizontal scaling,
+
+14
+00:00:29,000 --> 00:00:32,000
+is that you are increasing the number of instances.
+
+15
+00:00:32,000 --> 00:00:35,000
+Elasticity is the ability to scale up and down
+
+16
+00:00:35,000 --> 00:00:36,000
+based on demand.
+
+17
+00:00:36,000 --> 00:00:39,000
+And agility is a concept of the Cloud that is going
+
+18
+00:00:39,000 --> 00:00:41,000
+to be able to make you work faster,
+
+19
+00:00:41,000 --> 00:00:43,000
+because you can create and delete resources
+
+20
+00:00:43,000 --> 00:00:44,000
+very, very quickly.
+
+21
+00:00:44,000 --> 00:00:46,000
+Now, our load balancers, or ELB,
+
+22
+00:00:46,000 --> 00:00:48,000
+are allowing us to distribute traffic
+
+23
+00:00:48,000 --> 00:00:52,000
+across backend EC2 instances, and they can be spread out
+
+24
+00:00:52,000 --> 00:00:54,000
+across multiple availability zones.
+
+25
+00:00:54,000 --> 00:00:56,000
+We support health checks to make sure
+
+26
+00:00:56,000 --> 00:00:59,000
+that the backend EC2 instances are indeed healthy.
+
+27
+00:00:59,000 --> 00:01:01,000
+And we have four kinds of load bouncers.
+
+28
+00:01:01,000 --> 00:01:03,000
+The classic one is old and retired.
+
+29
+00:01:03,000 --> 00:01:06,000
+We have the application balancer for HTTP type of workload
+
+30
+00:01:06,000 --> 00:01:07,000
+at the layer seven.
+
+31
+00:01:07,000 --> 00:01:10,000
+Network load balancer for very high performance
+
+32
+00:01:10,000 --> 00:01:14,000
+and TCP level load balancing, layer four.
+
+33
+00:01:14,000 --> 00:01:17,000
+And finally, the gateway load balancer, layer three,
+
+34
+00:01:17,000 --> 00:01:21,000
+to route the network itself, and make it go by, for example,
+
+35
+00:01:21,000 --> 00:01:24,000
+through some virtual appliances.
+
+36
+00:01:24,000 --> 00:01:25,000
+We have auto scaling groups that allow us
+
+37
+00:01:25,000 --> 00:01:28,000
+to implement elasticity for our application,
+
+38
+00:01:28,000 --> 00:01:31,000
+therefore spreading our load across multiple AZ
+
+39
+00:01:31,000 --> 00:01:33,000
+and scaling accordingly.
+
+40
+00:01:33,000 --> 00:01:35,000
+So we scale these EC2 instances
+
+41
+00:01:35,000 --> 00:01:37,000
+based on the demand on your system,
+
+42
+00:01:37,000 --> 00:01:39,000
+and we can replace unhealthy instances.
+
+43
+00:01:39,000 --> 00:01:43,000
+There's a tight integration between the ASG and the ELB.
+
+44
+00:01:43,000 --> 00:01:46,000
+So this is why they are a great combination,
+
+45
+00:01:46,000 --> 00:01:50,000
+and together, we achieve high availability, scalability,
+
+46
+00:01:50,000 --> 00:01:52,000
+elasticity, and agility in the Cloud.
+
+47
+00:01:52,000 --> 00:01:53,000
+All right, that's it.
+
+48
+00:01:53,000 --> 00:01:57,000
+I hope you liked it and I will see you in the next lecture.
+

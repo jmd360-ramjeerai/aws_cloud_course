@@ -1,0 +1,724 @@
+1
+00:00:00,000 --> 00:00:02,000
+So here I am in Amazon S3,
+
+2
+00:00:02,000 --> 00:00:05,000
+and I'm going to go ahead and create a bucket.
+
+3
+00:00:05,000 --> 00:00:08,000
+Now you will notice here that there's a region selected,
+
+4
+00:00:08,000 --> 00:00:10,000
+which is Europe, Stockholm, eu-north-1.
+
+5
+00:00:10,000 --> 00:00:12,000
+And this is because I have the region selection in here.
+
+6
+00:00:12,000 --> 00:00:16,000
+So choose the region you want to create your bucket in,
+
+7
+00:00:16,000 --> 00:00:18,000
+and we'll see that Amazon S3 still has a view
+
+8
+00:00:18,000 --> 00:00:20,000
+over all your buckets across all regions.
+
+9
+00:00:20,000 --> 00:00:23,000
+Now there's a bucket type that you may or may not see.
+
+10
+00:00:23,000 --> 00:00:25,000
+So if you're in some regions where it's available,
+
+11
+00:00:25,000 --> 00:00:28,000
+you will see general purpose or directory new.
+
+12
+00:00:28,000 --> 00:00:31,000
+And over time, it will be in more regions.
+
+13
+00:00:31,000 --> 00:00:33,000
+If you don't see it in your region, this is fine.
+
+14
+00:00:33,000 --> 00:00:34,000
+The option you should choose
+
+15
+00:00:34,000 --> 00:00:36,000
+if you see it is general purpose.
+
+16
+00:00:36,000 --> 00:00:38,000
+And if you don't see this option,
+
+17
+00:00:38,000 --> 00:00:40,000
+it will be automatically general purpose.
+
+18
+00:00:40,000 --> 00:00:41,000
+So don't touch anything
+
+19
+00:00:41,000 --> 00:00:44,000
+and don't feel alarmed if you don't see these options.
+
+20
+00:00:44,000 --> 00:00:47,000
+Directory buckets are for a specific type of use case
+
+21
+00:00:47,000 --> 00:00:48,000
+that is not covered at the exam,
+
+22
+00:00:48,000 --> 00:00:50,000
+so I will not be talking about it.
+
+23
+00:00:50,000 --> 00:00:52,000
+So if you see the screen, choose general purpose.
+
+24
+00:00:52,000 --> 00:00:53,000
+If you don't see the screen,
+
+25
+00:00:53,000 --> 00:00:55,000
+everything is fine, do not worry.
+
+26
+00:00:55,000 --> 00:00:57,000
+Okay, so you choose a region,
+
+27
+00:00:57,000 --> 00:00:59,000
+and next you need to choose a bucket name.
+
+28
+00:00:59,000 --> 00:01:02,000
+And so if you enter a bucket name that is already taken,
+
+29
+00:01:02,000 --> 00:01:03,000
+for example, tests,
+
+30
+00:01:03,000 --> 00:01:07,000
+and you try all the way down to create your bucket,
+
+31
+00:01:07,000 --> 00:01:08,000
+you're going to get an error saying
+
+32
+00:01:08,000 --> 00:01:10,000
+that the bucket with the same name already exists.
+
+33
+00:01:10,000 --> 00:01:15,000
+So your bucket name must be unique across all regions
+
+34
+00:01:15,000 --> 00:01:18,000
+and all accounts ever created in AWS.
+
+35
+00:01:18,000 --> 00:01:21,000
+This is why I name my buckets
+
+36
+00:01:21,000 --> 00:01:23,000
+with something very, very personal.
+
+37
+00:01:23,000 --> 00:01:27,000
+For example, it could be Stephane and then demo, S3,
+
+38
+00:01:27,000 --> 00:01:29,000
+and I usually add version number, v5,
+
+39
+00:01:29,000 --> 00:01:31,000
+because I've been creating this video many, many times over
+
+40
+00:01:31,000 --> 00:01:33,000
+as the interface changes.
+
+41
+00:01:33,000 --> 00:01:37,000
+So, stephane-demo-s3-v5 should be available,
+
+42
+00:01:37,000 --> 00:01:38,000
+and they should have no errors.
+
+43
+00:01:38,000 --> 00:01:40,000
+But if someone already took it,
+
+44
+00:01:40,000 --> 00:01:42,000
+then I will need to change the name.
+
+45
+00:01:42,000 --> 00:01:44,000
+Okay, so next for object ownership.
+
+46
+00:01:44,000 --> 00:01:46,000
+Right now you have ACL disabled.
+
+47
+00:01:46,000 --> 00:01:47,000
+This is recommended.
+
+48
+00:01:47,000 --> 00:01:48,000
+This is a security setting.
+
+49
+00:01:48,000 --> 00:01:51,000
+Don't worry about it. We'll leave it as a default.
+
+50
+00:01:51,000 --> 00:01:54,000
+Now for blocking public access to this bucket,
+
+51
+00:01:54,000 --> 00:01:55,000
+again, we'll leave this enabled.
+
+52
+00:01:55,000 --> 00:01:57,000
+So we'll block all public access,
+
+53
+00:01:57,000 --> 00:01:59,000
+and we want to have maximum security in our bucket,
+
+54
+00:01:59,000 --> 00:02:03,000
+so only us can upload files to it.
+
+55
+00:02:03,000 --> 00:02:05,000
+Next for bucket versioning.
+
+56
+00:02:05,000 --> 00:02:08,000
+So we want to disable bucket versioning right now,
+
+57
+00:02:08,000 --> 00:02:11,000
+and we'll see later on how to enable it.
+
+58
+00:02:11,000 --> 00:02:13,000
+No tags are needed.
+
+59
+00:02:13,000 --> 00:02:14,000
+And for default encryption,
+
+60
+00:02:14,000 --> 00:02:16,000
+I'm going to use server-side encryption
+
+61
+00:02:16,000 --> 00:02:18,000
+with Amazon S3 managed key.
+
+62
+00:02:18,000 --> 00:02:20,000
+So all my objects are going to be encrypted,
+
+63
+00:02:20,000 --> 00:02:21,000
+and I will choose the first option.
+
+64
+00:02:21,000 --> 00:02:23,000
+We'll talk about encryption later on.
+
+65
+00:02:23,000 --> 00:02:25,000
+And bucket key, I will enable it.
+
+66
+00:02:25,000 --> 00:02:28,000
+So we'll leave, as you can see, all the settings as default.
+
+67
+00:02:28,000 --> 00:02:32,000
+The only thing we have set, really, is the bucket name.
+
+68
+00:02:32,000 --> 00:02:34,000
+So I'll go ahead and create my bucket.
+
+69
+00:02:35,000 --> 00:02:37,000
+And now it has been successfully created.
+
+70
+00:02:37,000 --> 00:02:40,000
+And you will see here in this UI all your buckets.
+
+71
+00:02:40,000 --> 00:02:42,000
+If you have directory enabled,
+
+72
+00:02:42,000 --> 00:02:43,000
+you will see also directory buckets,
+
+73
+00:02:43,000 --> 00:02:44,000
+right now I have none.
+
+74
+00:02:44,000 --> 00:02:46,000
+But your general purpose buckets are here.
+
+75
+00:02:46,000 --> 00:02:48,000
+Right now, you should see one bucket
+
+76
+00:02:48,000 --> 00:02:49,000
+if you just created this course.
+
+77
+00:02:49,000 --> 00:02:49,000
+For me, I have 33
+
+78
+00:02:49,000 --> 00:02:52,000
+because I've been using my account quite a lot.
+
+79
+00:02:52,000 --> 00:02:56,000
+And this will deploy buckets for all AWS regions,
+
+80
+00:02:56,000 --> 00:02:58,000
+not just the one you're in right now, but all regions.
+
+81
+00:02:58,000 --> 00:03:00,000
+As you can see, I have Ireland, London.
+
+82
+00:03:00,000 --> 00:03:04,000
+I scroll down, I get us-east-1, Frankfurt, and so on.
+
+83
+00:03:04,000 --> 00:03:06,000
+So all your buckets are going to be displayed here,
+
+84
+00:03:06,000 --> 00:03:08,000
+and you can do a little search.
+
+85
+00:03:08,000 --> 00:03:10,000
+For example, stephane-demo,
+
+86
+00:03:10,000 --> 00:03:12,000
+and here is my bucket.
+
+87
+00:03:12,000 --> 00:03:15,000
+So I'm going to click on it and have a look at it inside.
+
+88
+00:03:16,000 --> 00:03:17,000
+And now in my bucket,
+
+89
+00:03:17,000 --> 00:03:19,000
+I would like to start uploading objects
+
+90
+00:03:19,000 --> 00:03:21,000
+because currently you have zero objects.
+
+91
+00:03:21,000 --> 00:03:25,000
+So let's click on upload, and then we can add files.
+
+92
+00:03:25,000 --> 00:03:28,000
+And navigate into your code, go into the S3 folder,
+
+93
+00:03:28,000 --> 00:03:30,000
+and then you will find a coffee.jpg file.
+
+94
+00:03:30,000 --> 00:03:32,000
+So choose this coffee.jpg file.
+
+95
+00:03:32,000 --> 00:03:35,000
+As you can see, it's an image jpg,
+
+96
+00:03:35,000 --> 00:03:37,000
+it has 100 kilobytes in size.
+
+97
+00:03:37,000 --> 00:03:41,000
+And then the destination is S3 stephane demo,
+
+98
+00:03:41,000 --> 00:03:42,000
+which is my bucket.
+
+99
+00:03:42,000 --> 00:03:44,000
+Okay, so let's upload this file.
+
+100
+00:03:45,000 --> 00:03:46,000
+We're done.
+
+101
+00:03:46,000 --> 00:03:48,000
+So I can close this on the right-hand side.
+
+102
+00:03:48,000 --> 00:03:50,000
+And now back into my S3 bucket.
+
+103
+00:03:50,000 --> 00:03:54,000
+I can see the coffee.jpg file is under my objects.
+
+104
+00:03:54,000 --> 00:03:56,000
+So I can do is now click on it
+
+105
+00:03:56,000 --> 00:03:58,000
+and have more details around that file.
+
+106
+00:03:59,000 --> 00:04:02,000
+So now that we are in the object page,
+
+107
+00:04:02,000 --> 00:04:04,000
+we can have a look at a bunch of overviews.
+
+108
+00:04:04,000 --> 00:04:07,000
+So a bunch of properties where it's been uploaded, the size,
+
+109
+00:04:07,000 --> 00:04:09,000
+the type, and there's an object URL here.
+
+110
+00:04:09,000 --> 00:04:11,000
+We'll be playing it in a moment.
+
+111
+00:04:11,000 --> 00:04:12,000
+So how do we do this?
+
+112
+00:04:12,000 --> 00:04:14,000
+So now we want to open this object
+
+113
+00:04:14,000 --> 00:04:16,000
+and see if we can open it.
+
+114
+00:04:16,000 --> 00:04:18,000
+We can view it because we have uploaded it
+
+115
+00:04:18,000 --> 00:04:20,000
+onto our Amazon S3 buckets.
+
+116
+00:04:20,000 --> 00:04:23,000
+Therefore, I'm going to click on open.
+
+117
+00:04:23,000 --> 00:04:25,000
+And if I do click on open, as you can see,
+
+118
+00:04:25,000 --> 00:04:27,000
+I can see my coffee.jpg file.
+
+119
+00:04:27,000 --> 00:04:28,000
+So this is the one I have uploaded,
+
+120
+00:04:28,000 --> 00:04:30,000
+and it is on the internet.
+
+121
+00:04:30,000 --> 00:04:31,000
+Awesome, right?
+
+122
+00:04:31,000 --> 00:04:34,000
+But if I go back to my overview
+
+123
+00:04:34,000 --> 00:04:36,000
+and click on this object url over here.
+
+124
+00:04:36,000 --> 00:04:39,000
+So I copy it, I paste it, and I enter it.
+
+125
+00:04:39,000 --> 00:04:42,000
+As you can see, I get an access denied.
+
+126
+00:04:42,000 --> 00:04:44,000
+And this access denied
+
+127
+00:04:44,000 --> 00:04:47,000
+tells me that I cannot access my object
+
+128
+00:04:47,000 --> 00:04:48,000
+using what's called the public URL.
+
+129
+00:04:48,000 --> 00:04:52,000
+So you can see here, this public URL is not working,
+
+130
+00:04:52,000 --> 00:04:53,000
+but this URL is working.
+
+131
+00:04:53,000 --> 00:04:55,000
+So what's the difference?
+
+132
+00:04:55,000 --> 00:04:56,000
+Well, this URL right here,
+
+133
+00:04:56,000 --> 00:04:59,000
+if you have a look at it, the beginning is exactly the same,
+
+134
+00:04:59,000 --> 00:05:04,000
+but then the rest is a very, very complicated and long URL,
+
+135
+00:05:04,000 --> 00:05:08,000
+because it's called an S3 pre-signed URL.
+
+136
+00:05:08,000 --> 00:05:09,000
+Why?
+
+137
+00:05:09,000 --> 00:05:12,000
+Well, because this URL contains actually a signature
+
+138
+00:05:12,000 --> 00:05:15,000
+that verifies that I am the one making the request,
+
+139
+00:05:15,000 --> 00:05:16,000
+and therefore it has my credentials in it.
+
+140
+00:05:16,000 --> 00:05:21,000
+And so because my credentials are encoded in this URL,
+
+141
+00:05:21,000 --> 00:05:22,000
+then Amazon S3 says,
+
+142
+00:05:22,000 --> 00:05:25,000
+"Well, Stephane is allowed to view his own object,
+
+143
+00:05:25,000 --> 00:05:27,000
+therefore I will display it."
+
+144
+00:05:27,000 --> 00:05:29,000
+So this public URL does not work,
+
+145
+00:05:29,000 --> 00:05:32,000
+but this pre-signed URL with my own credentials works,
+
+146
+00:05:32,000 --> 00:05:35,000
+and of course, this URL is only for me.
+
+147
+00:05:35,000 --> 00:05:40,000
+So we'll see how to make that object public later on,
+
+148
+00:05:40,000 --> 00:05:42,000
+so that the public URL will function as well.
+
+149
+00:05:43,000 --> 00:05:47,000
+So let's go back into our bucket, the stephane-demo-s3.
+
+150
+00:05:47,000 --> 00:05:50,000
+And I have one object, but I can create a folder.
+
+151
+00:05:50,000 --> 00:05:53,000
+And this folder name may be called images.
+
+152
+00:05:53,000 --> 00:05:55,000
+So we scroll down and create this folder.
+
+153
+00:05:55,000 --> 00:05:59,000
+So now I have the images folder in my bucket.
+
+154
+00:05:59,000 --> 00:06:00,000
+I can click on it,
+
+155
+00:06:00,000 --> 00:06:03,000
+and within it, I can upload again a file.
+
+156
+00:06:03,000 --> 00:06:06,000
+And this time, I will upload the beach.jpg file into,
+
+157
+00:06:06,000 --> 00:06:09,000
+as you can see, the destination is my images folder
+
+158
+00:06:09,000 --> 00:06:11,000
+within my S3 buckets.
+
+159
+00:06:11,000 --> 00:06:13,000
+So let's upload this.
+
+160
+00:06:13,000 --> 00:06:14,000
+Close this.
+
+161
+00:06:14,000 --> 00:06:17,000
+As we can see now, we have the beach.jpg object
+
+162
+00:06:17,000 --> 00:06:19,000
+within the images folder.
+
+163
+00:06:19,000 --> 00:06:22,000
+And if I go one level up, we can see the folder here.
+
+164
+00:06:22,000 --> 00:06:24,000
+So this looks just like,
+
+165
+00:06:24,000 --> 00:06:26,000
+you know, the cloud storage service you used to know
+
+166
+00:06:26,000 --> 00:06:28,000
+such as Google Drive or Dropbox,
+
+167
+00:06:28,000 --> 00:06:29,000
+or whatever you want.
+
+168
+00:06:29,000 --> 00:06:31,000
+Here, we have something very similar
+
+169
+00:06:31,000 --> 00:06:35,000
+in terms of the user experience on Amazon S3.
+
+170
+00:06:35,000 --> 00:06:37,000
+So, of course, I can go to images
+
+171
+00:06:37,000 --> 00:06:39,000
+and I can delete this folder entirely.
+
+172
+00:06:39,000 --> 00:06:42,000
+So this will delete everything within the folder.
+
+173
+00:06:42,000 --> 00:06:43,000
+And to delete things,
+
+174
+00:06:43,000 --> 00:06:46,000
+I just type permanently delete into the text inputs,
+
+175
+00:06:46,000 --> 00:06:49,000
+delete my objects, and I'm good to go.
+
+176
+00:06:49,000 --> 00:06:50,000
+So that's it for this lecture.
+
+177
+00:06:50,000 --> 00:06:54,000
+We've seen how we can upload objects into Amazon S3.
+
+178
+00:06:54,000 --> 00:06:56,000
+We've seen how we can open them in two different ways,
+
+179
+00:06:56,000 --> 00:06:59,000
+creating folders, deleting folders, and so on.
+
+180
+00:06:59,000 --> 00:07:00,000
+So I hope you liked it,
+
+181
+00:07:00,000 --> 00:07:02,000
+and I will see you in the next lecture.
+

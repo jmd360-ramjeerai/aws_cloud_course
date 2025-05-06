@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:02,000
+So you might have one question
+
+2
+00:00:02,000 --> 00:00:04,000
+on S3 encryption at the exam,
+
+3
+00:00:04,000 --> 00:00:07,000
+so here is a high level review of what that means.
+
+4
+00:00:07,000 --> 00:00:10,000
+The first one is server-side encryption,
+
+5
+00:00:10,000 --> 00:00:12,000
+so it is by default whenever you create a bucket
+
+6
+00:00:12,000 --> 00:00:16,000
+or whenever you upload an object, it will be encrypted.
+
+7
+00:00:16,000 --> 00:00:17,000
+What is server-side encryption?
+
+8
+00:00:17,000 --> 00:00:21,000
+Well, the user uploads an object into Amazon S3,
+
+9
+00:00:21,000 --> 00:00:23,000
+and then that object when it arrives in the bucket
+
+10
+00:00:23,000 --> 00:00:28,000
+is going to be encrypted by Amazon S3 for security purposes.
+
+11
+00:00:28,000 --> 00:00:32,000
+The idea is that the server is doing the encryption,
+
+12
+00:00:32,000 --> 00:00:35,000
+and therefore we call this server-side encryption.
+
+13
+00:00:35,000 --> 00:00:38,000
+On the opposite, we have client-side encryption.
+
+14
+00:00:38,000 --> 00:00:41,000
+This is when the user will actually take the file,
+
+15
+00:00:41,000 --> 00:00:43,000
+will encrypt it before uploading it,
+
+16
+00:00:43,000 --> 00:00:45,000
+so the lock is done by the user,
+
+17
+00:00:45,000 --> 00:00:47,000
+and then put it in the bucket.
+
+18
+00:00:47,000 --> 00:00:49,000
+And that's called client-side encryption.
+
+19
+00:00:49,000 --> 00:00:52,000
+And both models exist in AWS,
+
+20
+00:00:52,000 --> 00:00:54,000
+but by default you should know
+
+21
+00:00:54,000 --> 00:00:56,000
+that server-side encryption is always on.
+
+22
+00:00:56,000 --> 00:00:57,000
+All right, that's it.
+
+23
+00:00:57,000 --> 00:01:00,000
+I hope you liked it and I will see you in the next lecture.
+

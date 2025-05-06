@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:02,000
+Let's talk about Snowball Edge pricing.
+
+2
+00:00:02,000 --> 00:00:05,000
+So you're going to pay for usage of the device,
+
+3
+00:00:05,000 --> 00:00:09,000
+as well as data transfer out of AWS.
+
+4
+00:00:09,000 --> 00:00:12,000
+So if you take data from AWS onto your Snowball Edge
+
+5
+00:00:12,000 --> 00:00:15,000
+and then you receive it, then you're going to pay for this.
+
+6
+00:00:15,000 --> 00:00:19,000
+But instead, if you put data onto your Snowball Edge
+
+7
+00:00:19,000 --> 00:00:22,000
+and then put that data onto Amazon S3,
+
+8
+00:00:22,000 --> 00:00:23,000
+it's going to be free.
+
+9
+00:00:23,000 --> 00:00:25,000
+$0 per gigabytes.
+
+10
+00:00:25,000 --> 00:00:29,000
+So putting data in Amazon S3 is free.
+
+11
+00:00:29,000 --> 00:00:32,000
+Next, for the pricing of the device itself,
+
+12
+00:00:32,000 --> 00:00:33,000
+so there's two levels.
+
+13
+00:00:33,000 --> 00:00:35,000
+You have on-demand,
+
+14
+00:00:35,000 --> 00:00:37,000
+where you have a one-time service fee per job,
+
+15
+00:00:37,000 --> 00:00:39,000
+so you're going to pay something,
+
+16
+00:00:39,000 --> 00:00:41,000
+but as part of the service fee,
+
+17
+00:00:41,000 --> 00:00:44,000
+you're going to get 10 days of usage
+
+18
+00:00:44,000 --> 00:00:47,000
+for the 80 terabytes Snowball Edge Storage Optimized
+
+19
+00:00:47,000 --> 00:00:50,000
+or 15 days for the 210 terabytes.
+
+20
+00:00:50,000 --> 00:00:53,000
+And then the shipping days are not included
+
+21
+00:00:53,000 --> 00:00:55,000
+towards the 10 or 15 days limit.
+
+22
+00:00:55,000 --> 00:01:00,000
+So shipping from it was to you or from you to AWS is free.
+
+23
+00:01:01,000 --> 00:01:04,000
+And then just days of usage is counted
+
+24
+00:01:04,000 --> 00:01:07,000
+per days after 10 or 15 days.
+
+25
+00:01:07,000 --> 00:01:09,000
+Next, you have committed upfront
+
+26
+00:01:09,000 --> 00:01:12,000
+where you pay in advance for monthly, one year,
+
+27
+00:01:12,000 --> 00:01:15,000
+or three years usage of the Snowball Edge device.
+
+28
+00:01:15,000 --> 00:01:16,000
+This is to do edge computing.
+
+29
+00:01:16,000 --> 00:01:19,000
+And you get up to 62% of discounted pricing
+
+30
+00:01:19,000 --> 00:01:24,000
+because you are committing upfront to a long-term usage.
+
+31
+00:01:24,000 --> 00:01:25,000
+So that's it.
+
+32
+00:01:25,000 --> 00:01:26,000
+From an exam perspective,
+
+33
+00:01:26,000 --> 00:01:27,000
+I think we need to remember
+
+34
+00:01:27,000 --> 00:01:29,000
+is that everything you have to pay for,
+
+35
+00:01:29,000 --> 00:01:31,000
+except data into Amazon S3,
+
+36
+00:01:31,000 --> 00:01:34,000
+which costs you $0 per gigabytes.
+
+37
+00:01:34,000 --> 00:01:36,000
+Okay, that's it for this lecture, I hope you liked it.
+
+38
+00:01:36,000 --> 00:01:38,000
+And I will see you in the next lecture.
+

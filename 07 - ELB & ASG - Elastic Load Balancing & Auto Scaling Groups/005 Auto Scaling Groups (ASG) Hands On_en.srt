@@ -1,0 +1,768 @@
+1
+00:00:00,000 --> 00:00:01,000
+So before we go ahead
+
+2
+00:00:01,000 --> 00:00:03,000
+and practice creating an auto scaling group,
+
+3
+00:00:03,000 --> 00:00:05,000
+you need to take your first two instances
+
+4
+00:00:05,000 --> 00:00:07,000
+and we're actually going to terminate them.
+
+5
+00:00:08,000 --> 00:00:10,000
+Okay, so now this is done,
+
+6
+00:00:10,000 --> 00:00:12,000
+we can go ahead and create an auto scaling group.
+
+7
+00:00:12,000 --> 00:00:16,000
+For this, on the bottom left, click on Auto Scaling Group
+
+8
+00:00:16,000 --> 00:00:18,000
+and we will create an auto scaling group.
+
+9
+00:00:18,000 --> 00:00:21,000
+So I'll call this one DemoASG,
+
+10
+00:00:21,000 --> 00:00:23,000
+and we need to create a launch template.
+
+11
+00:00:23,000 --> 00:00:24,000
+So currently we have none.
+
+12
+00:00:24,000 --> 00:00:27,000
+So let's create a launch template,
+
+13
+00:00:29,000 --> 00:00:32,000
+and I will call this one DemoLaunchTemplate.
+
+14
+00:00:32,000 --> 00:00:35,000
+And this template is being used to tell
+
+15
+00:00:35,000 --> 00:00:39,000
+to the ASG how to create EC2 instances within it.
+
+16
+00:00:39,000 --> 00:00:41,000
+So this will look very, very similar
+
+17
+00:00:41,000 --> 00:00:44,000
+to what we have when we create EC2 instances.
+
+18
+00:00:44,000 --> 00:00:47,000
+As you can see here, I can choose, for example,
+
+19
+00:00:47,000 --> 00:00:50,000
+a quick start Amazon Linux for getting Amazon Linux 2
+
+20
+00:00:50,000 --> 00:00:53,000
+as the base of my EC2 instance.
+
+21
+00:00:53,000 --> 00:00:56,000
+Then we have an instant type that we can include,
+
+22
+00:00:56,000 --> 00:00:58,000
+for example, t2.micro.
+
+23
+00:00:58,000 --> 00:01:00,000
+For key pair, we will not include it in the launch templates
+
+24
+00:01:00,000 --> 00:01:03,000
+or we can just say that, no, we don't need one,
+
+25
+00:01:03,000 --> 00:01:04,000
+so this is good enough.
+
+26
+00:01:04,000 --> 00:01:06,000
+For subnets, so we'll not include this
+
+27
+00:01:06,000 --> 00:01:07,000
+in the launch templates.
+
+28
+00:01:07,000 --> 00:01:09,000
+For security group, we can select
+
+29
+00:01:09,000 --> 00:01:12,000
+a security group that's already existing.
+
+30
+00:01:12,000 --> 00:01:13,000
+For example, my launch-wizard-1,
+
+31
+00:01:16,000 --> 00:01:18,000
+under advanced network configuration
+
+32
+00:01:18,000 --> 00:01:19,000
+we don't need to do anything.
+
+33
+00:01:19,000 --> 00:01:22,000
+For EBS volumes for storage we don't need to do anything.
+
+34
+00:01:22,000 --> 00:01:24,000
+And then for advanced details
+
+35
+00:01:24,000 --> 00:01:27,000
+we want these instances to start with some user data.
+
+36
+00:01:27,000 --> 00:01:29,000
+And so we scroll all the way down
+
+37
+00:01:29,000 --> 00:01:34,000
+and here we copy and paste the user data.
+
+38
+00:01:34,000 --> 00:01:36,000
+Okay, so let's create this launch template.
+
+39
+00:01:36,000 --> 00:01:38,000
+As you can see, thanks to this launch template
+
+40
+00:01:38,000 --> 00:01:41,000
+we launch EC2 instances just like before.
+
+41
+00:01:41,000 --> 00:01:42,000
+So let's refresh this
+
+42
+00:01:42,000 --> 00:01:46,000
+and then click on the DemoLaunchTemplate of version 1.
+
+43
+00:01:46,000 --> 00:01:49,000
+So here it describes what is going to happen, the type
+
+44
+00:01:49,000 --> 00:01:51,000
+of instance we're going to have, the security groups
+
+45
+00:01:51,000 --> 00:01:53,000
+and so on.
+
+46
+00:01:53,000 --> 00:01:54,000
+So let's click on next.
+
+47
+00:01:54,000 --> 00:01:57,000
+Next we need to choose where to launch these instances.
+
+48
+00:01:57,000 --> 00:01:59,000
+So we have our VPC,
+
+49
+00:01:59,000 --> 00:02:01,000
+and then we can select multiple
+
+50
+00:02:01,000 --> 00:02:02,000
+availability zones and subnets.
+
+51
+00:02:02,000 --> 00:02:04,000
+So we select three of them.
+
+52
+00:02:04,000 --> 00:02:08,000
+And for instance type requirements, we can use the one
+
+53
+00:02:08,000 --> 00:02:10,000
+from the launch template or if you wanted to override them
+
+54
+00:02:10,000 --> 00:02:11,000
+but we don't need to actually.
+
+55
+00:02:11,000 --> 00:02:13,000
+So let's click on next.
+
+56
+00:02:14,000 --> 00:02:15,000
+Next we have load balancers.
+
+57
+00:02:15,000 --> 00:02:19,000
+So we want to attach to an existing load balancer
+
+58
+00:02:19,000 --> 00:02:22,000
+and it's going to be a application balancer.
+
+59
+00:02:22,000 --> 00:02:26,000
+And to do this, we're going to tell the ASG,
+
+60
+00:02:26,000 --> 00:02:29,000
+the auto scanning group, that every instance created should
+
+61
+00:02:29,000 --> 00:02:34,000
+be registered within my demo target group for my ALB.
+
+62
+00:02:34,000 --> 00:02:36,000
+So therefore all these instances will be
+
+63
+00:02:36,000 --> 00:02:37,000
+under the target group,
+
+64
+00:02:37,000 --> 00:02:39,000
+and then the load balancer will be able
+
+65
+00:02:39,000 --> 00:02:41,000
+to direct traffic to them.
+
+66
+00:02:41,000 --> 00:02:44,000
+So the health check can be EC2 and also ELB.
+
+67
+00:02:44,000 --> 00:02:45,000
+So we're good.
+
+68
+00:02:45,000 --> 00:02:48,000
+And then we can click on next.
+
+69
+00:02:49,000 --> 00:02:53,000
+Now here comes the scaling of the auto scaling group.
+
+70
+00:02:53,000 --> 00:02:56,000
+So the desired capacity is how many instances you want
+
+71
+00:02:56,000 --> 00:02:57,000
+at any time.
+
+72
+00:02:57,000 --> 00:02:58,000
+For example, we want two EC2 instances
+
+73
+00:02:58,000 --> 00:03:00,000
+to have some sort of load balancing.
+
+74
+00:03:00,000 --> 00:03:02,000
+The minimum capacity is one,
+
+75
+00:03:02,000 --> 00:03:04,000
+meaning we want at least one instance,
+
+76
+00:03:04,000 --> 00:03:08,000
+and the maximum for them is we want at most four instances.
+
+77
+00:03:08,000 --> 00:03:10,000
+But the desired is what matters the most
+
+78
+00:03:10,000 --> 00:03:13,000
+because this is the actual capacity that we're going to get.
+
+79
+00:03:13,000 --> 00:03:16,000
+Okay, so then do we want scaling policies?
+
+80
+00:03:16,000 --> 00:03:18,000
+This is too advanced, but you of course can set
+
+81
+00:03:18,000 --> 00:03:21,000
+scaling policies on a auto scaling group.
+
+82
+00:03:21,000 --> 00:03:22,000
+That's the whole point of it
+
+83
+00:03:22,000 --> 00:03:27,000
+which allows you to resize your ASG on demand.
+
+84
+00:03:27,000 --> 00:03:30,000
+If there is much more demand than is going to
+
+85
+00:03:30,000 --> 00:03:33,000
+have more instances, if there is less requests,
+
+86
+00:03:33,000 --> 00:03:37,000
+less demand than is going to be less instances.
+
+87
+00:03:38,000 --> 00:03:39,000
+So click on next.
+
+88
+00:03:39,000 --> 00:03:42,000
+Next, we don't need notifications, we don't need tags.
+
+89
+00:03:42,000 --> 00:03:43,000
+We can review everything.
+
+90
+00:03:43,000 --> 00:03:44,000
+It looks good.
+
+91
+00:03:44,000 --> 00:03:46,000
+And let's create our auto scaling group.
+
+92
+00:03:47,000 --> 00:03:51,000
+So now our auto scaling group is being created
+
+93
+00:03:51,000 --> 00:03:54,000
+and as you can see, the state is updating capacity
+
+94
+00:03:54,000 --> 00:03:58,000
+because we have zero instances in our ASG, but we want to,
+
+95
+00:03:58,000 --> 00:04:01,000
+so I can click on it to get a bit more details.
+
+96
+00:04:01,000 --> 00:04:03,000
+So let's go under activity.
+
+97
+00:04:04,000 --> 00:04:07,000
+And in here we have two activity history.
+
+98
+00:04:07,000 --> 00:04:11,000
+That is we are launching two new EC2 instances
+
+99
+00:04:11,000 --> 00:04:15,000
+because well, the desired capacity went from zero to two.
+
+100
+00:04:15,000 --> 00:04:16,000
+And so if we have a look
+
+101
+00:04:16,000 --> 00:04:20,000
+under the instance management tab, as you can see now,
+
+102
+00:04:20,000 --> 00:04:24,000
+2 EC2 instances are independent states.
+
+103
+00:04:24,000 --> 00:04:28,000
+So if I go under EC2 and look at my EC2 instances,
+
+104
+00:04:28,000 --> 00:04:31,000
+in that UI, we also see that two instances are running
+
+105
+00:04:31,000 --> 00:04:35,000
+and these have been created by my auto scaling group.
+
+106
+00:04:35,000 --> 00:04:38,000
+So the benefit is that now they are fully managed
+
+107
+00:04:38,000 --> 00:04:40,000
+by my auto scaling group,
+
+108
+00:04:40,000 --> 00:04:43,000
+and let's go see for example, in my target group as well.
+
+109
+00:04:43,000 --> 00:04:46,000
+So if I go to my target group on the left hand side
+
+110
+00:04:46,000 --> 00:04:50,000
+and look at my demo-tg-alb right here, scroll down.
+
+111
+00:04:50,000 --> 00:04:52,000
+As you can see now we have two total targets
+
+112
+00:04:52,000 --> 00:04:55,000
+and these are the targets created
+
+113
+00:04:55,000 --> 00:04:57,000
+by our auto scanning group.
+
+114
+00:04:57,000 --> 00:05:00,000
+So again, thanks to the integration that we've defined
+
+115
+00:05:00,000 --> 00:05:01,000
+between the auto scanning group
+
+116
+00:05:01,000 --> 00:05:06,000
+and the load balancer, we are able to have automatically
+
+117
+00:05:06,000 --> 00:05:09,000
+these new EC2 instances registered as targets
+
+118
+00:05:09,000 --> 00:05:11,000
+in our target group.
+
+119
+00:05:11,000 --> 00:05:13,000
+So currently they're unhealthy,
+
+120
+00:05:13,000 --> 00:05:16,000
+this is because the instance hasn't started all the way yet
+
+121
+00:05:16,000 --> 00:05:18,000
+so let's wait a little bit until they become healthy.
+
+122
+00:05:20,000 --> 00:05:23,000
+So to speed up the check from unhealthy to healthy,
+
+123
+00:05:23,000 --> 00:05:26,000
+you can go under health checks of your target group,
+
+124
+00:05:26,000 --> 00:05:29,000
+and here you can edit these settings.
+
+125
+00:05:29,000 --> 00:05:30,000
+And under other settings, we can say
+
+126
+00:05:30,000 --> 00:05:35,000
+that the healthy threshold is going to be 2
+
+127
+00:05:35,000 --> 00:05:38,000
+and the interval is going to be 5 seconds.
+
+128
+00:05:38,000 --> 00:05:41,000
+This is going to make the thing much quicker.
+
+129
+00:05:41,000 --> 00:05:44,000
+So of course the timeout needs to be 2 seconds,
+
+130
+00:05:44,000 --> 00:05:46,000
+something less than the interval itself.
+
+131
+00:05:46,000 --> 00:05:48,000
+So let's save our changes.
+
+132
+00:05:49,000 --> 00:05:52,000
+And now the health check change settings have changed.
+
+133
+00:05:52,000 --> 00:05:54,000
+Let's see, if I go back into my targets
+
+134
+00:05:54,000 --> 00:05:57,000
+and refresh, now both my instances are healthy.
+
+135
+00:05:57,000 --> 00:06:00,000
+We just made the health check happen faster and more often.
+
+136
+00:06:00,000 --> 00:06:03,000
+So now both my instances are healthy,
+
+137
+00:06:03,000 --> 00:06:08,000
+and so therefore if I go under my load balancer right here
+
+138
+00:06:08,000 --> 00:06:10,000
+and I look at the DNS name
+
+139
+00:06:10,000 --> 00:06:12,000
+and open it in a new tab, I get a hello world
+
+140
+00:06:12,000 --> 00:06:14,000
+from both my instances.
+
+141
+00:06:14,000 --> 00:06:18,000
+And this is cool because these two instances were created
+
+142
+00:06:18,000 --> 00:06:20,000
+by the auto scaling group.
+
+143
+00:06:20,000 --> 00:06:22,000
+So because now we have an auto scaling group
+
+144
+00:06:22,000 --> 00:06:24,000
+we can actually do some cool stuff.
+
+145
+00:06:24,000 --> 00:06:27,000
+So if we take one of these instances, for example
+
+146
+00:06:27,000 --> 00:06:29,000
+and we can for example terminate it,
+
+147
+00:06:29,000 --> 00:06:30,000
+so I'm going to click on it
+
+148
+00:06:33,000 --> 00:06:35,000
+and I'm under the instance itself
+
+149
+00:06:35,000 --> 00:06:38,000
+I will do instance date and then terminate instance.
+
+150
+00:06:41,000 --> 00:06:43,000
+Now it's been successfully terminated.
+
+151
+00:06:43,000 --> 00:06:45,000
+So what's going to happen is that
+
+152
+00:06:45,000 --> 00:06:47,000
+because this instance is being shutting down
+
+153
+00:06:47,000 --> 00:06:50,000
+and terminated, well, my auto scaling group
+
+154
+00:06:50,000 --> 00:06:53,000
+is going to detect that, guess what, one of these instance
+
+155
+00:06:53,000 --> 00:06:56,000
+is not in service anymore, it's being terminated.
+
+156
+00:06:56,000 --> 00:06:59,000
+And so therefore, because we have an auto scaling group
+
+157
+00:06:59,000 --> 00:07:02,000
+with a desired capacity of two instances,
+
+158
+00:07:02,000 --> 00:07:05,000
+automatically a new instance should appear.
+
+159
+00:07:05,000 --> 00:07:07,000
+So let's observe this behavior
+
+160
+00:07:07,000 --> 00:07:11,000
+by having here the activity history.
+
+161
+00:07:11,000 --> 00:07:12,000
+And as you can see,
+
+162
+00:07:12,000 --> 00:07:15,000
+in progress was terminating EC2 instance.
+
+163
+00:07:15,000 --> 00:07:17,000
+And so an instance was taken out of service
+
+164
+00:07:17,000 --> 00:07:20,000
+because, well, it's been terminated.
+
+165
+00:07:20,000 --> 00:07:23,000
+And then we have a new activity saying,
+
+166
+00:07:23,000 --> 00:07:26,000
+hey, an instance was launched in response
+
+167
+00:07:26,000 --> 00:07:28,000
+to an unhealthy instance needing to be replaced.
+
+168
+00:07:28,000 --> 00:07:30,000
+So it's very cool because the auto scaling group
+
+169
+00:07:30,000 --> 00:07:33,000
+can automatically detect unhealthy instances
+
+170
+00:07:33,000 --> 00:07:36,000
+and create new one for replacements.
+
+171
+00:07:36,000 --> 00:07:39,000
+So if we go here now, there's one instance in pending state
+
+172
+00:07:39,000 --> 00:07:42,000
+which is being started, one instance being terminated
+
+173
+00:07:42,000 --> 00:07:44,000
+and one instance in service.
+
+174
+00:07:44,000 --> 00:07:47,000
+And this is the whole power of auto scaling groups.
+
+175
+00:07:47,000 --> 00:07:49,000
+Of course you can go to the next level
+
+176
+00:07:49,000 --> 00:07:50,000
+but for now we know enough
+
+177
+00:07:50,000 --> 00:07:52,000
+which is around automatic scaling to actually
+
+178
+00:07:52,000 --> 00:07:55,000
+define scaling policies to automatically increase
+
+179
+00:07:55,000 --> 00:07:57,000
+or decrease the desired capacity over time,
+
+180
+00:07:57,000 --> 00:08:00,000
+based on our load and so on.
+
+181
+00:08:00,000 --> 00:08:02,000
+But here you've seen the basics
+
+182
+00:08:02,000 --> 00:08:05,000
+and the major features of auto scaling groups,
+
+183
+00:08:05,000 --> 00:08:06,000
+and you could play around
+
+184
+00:08:06,000 --> 00:08:09,000
+by editing the desired capacity yourself
+
+185
+00:08:09,000 --> 00:08:12,000
+to set it to one, for example, to terminate instances
+
+186
+00:08:12,000 --> 00:08:14,000
+and only keep one of them, or to set it to four
+
+187
+00:08:14,000 --> 00:08:17,000
+and see the auto scaling group creates multiple instances
+
+188
+00:08:17,000 --> 00:08:20,000
+that will be registered with our load balancer.
+
+189
+00:08:20,000 --> 00:08:23,000
+And so therefore the traffic is going to be distributed
+
+190
+00:08:23,000 --> 00:08:24,000
+between four instances.
+
+191
+00:08:24,000 --> 00:08:26,000
+So I hope you liked it
+
+192
+00:08:26,000 --> 00:08:28,000
+and I will see you in the next lecture.
+

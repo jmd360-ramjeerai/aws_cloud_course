@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so we've seen how Auto Scaling Groups works
+
+2
+00:00:02,000 --> 00:00:05,000
+but let's have a look at the different Scaling Strategy
+
+3
+00:00:05,000 --> 00:00:06,000
+for your Auto Scaling Groups.
+
+4
+00:00:06,000 --> 00:00:09,000
+So the first one is to do Manual Scaling.
+
+5
+00:00:09,000 --> 00:00:11,000
+Which is when we update the size
+
+6
+00:00:11,000 --> 00:00:13,000
+of a Auto Scaling Group manually.
+
+7
+00:00:13,000 --> 00:00:14,000
+And this is when for example,
+
+8
+00:00:14,000 --> 00:00:16,000
+we changed the capacity from one to two,
+
+9
+00:00:16,000 --> 00:00:18,000
+or back from two to one.
+
+10
+00:00:18,000 --> 00:00:21,000
+Then we can define some Scaling Strategies such as
+
+11
+00:00:21,000 --> 00:00:23,000
+Dynamic Scaling to respond
+
+12
+00:00:23,000 --> 00:00:25,000
+to changing demands automatically.
+
+13
+00:00:25,000 --> 00:00:27,000
+So we have different type
+
+14
+00:00:27,000 --> 00:00:29,000
+of scaling policies within Dynamic Scaling,
+
+15
+00:00:29,000 --> 00:00:31,000
+we have the Simple and the Step Scaling
+
+16
+00:00:31,000 --> 00:00:32,000
+which is the idea is
+
+17
+00:00:32,000 --> 00:00:35,000
+that whenever a CloudWatch alarm is triggered for example,
+
+18
+00:00:35,000 --> 00:00:38,000
+you say whenever the average CPU utilization
+
+19
+00:00:38,000 --> 00:00:43,000
+of all my EC2 instance goes over 70% for five minutes,
+
+20
+00:00:43,000 --> 00:00:46,000
+then add two units to capacity to my ASG.
+
+21
+00:00:46,000 --> 00:00:48,000
+Or when another alarm for example,
+
+22
+00:00:48,000 --> 00:00:51,000
+say whenever the CPU utilization is less
+
+23
+00:00:51,000 --> 00:00:53,000
+than 30% for 10 minutes.
+
+24
+00:00:53,000 --> 00:00:56,000
+Then remove one unit of capacity in my ASG.
+
+25
+00:00:56,000 --> 00:00:57,000
+This would be Simple or Step Scaling
+
+26
+00:00:57,000 --> 00:00:59,000
+because we define the trigger,
+
+27
+00:00:59,000 --> 00:01:03,000
+and then we define how many units we add or remove.
+
+28
+00:01:03,000 --> 00:01:06,000
+Then we have Target Tracking Scaling,
+
+29
+00:01:06,000 --> 00:01:09,000
+which is a very easy way of defining a scaling policy.
+
+30
+00:01:09,000 --> 00:01:10,000
+The example is to say,
+
+31
+00:01:10,000 --> 00:01:13,000
+hey I want the average CPU utilization
+
+32
+00:01:13,000 --> 00:01:16,000
+of all the EC2 instances in my ASG
+
+33
+00:01:16,000 --> 00:01:18,000
+to stay at around 40% on average
+
+34
+00:01:18,000 --> 00:01:21,000
+and then the ASG will scale automatically
+
+35
+00:01:21,000 --> 00:01:25,000
+to make sure that you stay around that target of 40%.
+
+36
+00:01:25,000 --> 00:01:26,000
+And we have also Scheduled Scaling.
+
+37
+00:01:26,000 --> 00:01:27,000
+So this is when we know
+
+38
+00:01:27,000 --> 00:01:30,000
+that changes are going to happen ahead of time.
+
+39
+00:01:30,000 --> 00:01:34,000
+So we anticipate a scaling based on known users pattern.
+
+40
+00:01:34,000 --> 00:01:35,000
+And for example we're saying,
+
+41
+00:01:35,000 --> 00:01:38,000
+hey we know that's on Friday at 5:00 PM.
+
+42
+00:01:38,000 --> 00:01:41,000
+People are going to do sports betting maybe who knows,
+
+43
+00:01:41,000 --> 00:01:43,000
+before the soccer game,
+
+44
+00:01:43,000 --> 00:01:45,000
+and so please increase the minimum capacity
+
+45
+00:01:45,000 --> 00:01:48,000
+to 10 EC2 instances in my ASG
+
+46
+00:01:48,000 --> 00:01:49,000
+at 5pm on Friday.
+
+47
+00:01:49,000 --> 00:01:52,000
+This could be a Scheduled Scaling
+
+48
+00:01:52,000 --> 00:01:53,000
+and there's one last type of scaling.
+
+49
+00:01:53,000 --> 00:01:55,000
+that is definitely appearing on the exam
+
+50
+00:01:55,000 --> 00:01:57,000
+which is called Predictive Scaling.
+
+51
+00:01:57,000 --> 00:01:59,000
+So this one uses Machine Learning
+
+52
+00:01:59,000 --> 00:02:01,000
+to predict future traffic ahead of time
+
+53
+00:02:01,000 --> 00:02:02,000
+so there's some algorithms,
+
+54
+00:02:02,000 --> 00:02:06,000
+they will look at the past traffic patterns,
+
+55
+00:02:06,000 --> 00:02:08,000
+and it will forecast what will happen
+
+56
+00:02:08,000 --> 00:02:11,000
+to traffic based on the past patterns.
+
+57
+00:02:11,000 --> 00:02:13,000
+And so the idea is that
+
+58
+00:02:13,000 --> 00:02:15,000
+it's called predictive because we predict
+
+59
+00:02:15,000 --> 00:02:17,000
+what the load will be over time,
+
+60
+00:02:17,000 --> 00:02:20,000
+and maybe the load is just on a daily basis
+
+61
+00:02:20,000 --> 00:02:22,000
+it peaks for three hours.
+
+62
+00:02:22,000 --> 00:02:23,000
+So this is the kind of things that
+
+63
+00:02:23,000 --> 00:02:25,000
+Predictive Scaling will pick up, okay.
+
+64
+00:02:25,000 --> 00:02:26,000
+And it will automatically provision
+
+65
+00:02:26,000 --> 00:02:28,000
+the right number of EC2 instances
+
+66
+00:02:28,000 --> 00:02:32,000
+in advance to match that predicted period.
+
+67
+00:02:32,000 --> 00:02:35,000
+So this is what the graphs you see on the right hand side.
+
+68
+00:02:35,000 --> 00:02:36,000
+This is very helpful
+
+69
+00:02:36,000 --> 00:02:38,000
+when you have time-based patterns
+
+70
+00:02:38,000 --> 00:02:40,000
+and you just want to have an easy,
+
+71
+00:02:40,000 --> 00:02:44,000
+without any intervention type of scaling
+
+72
+00:02:44,000 --> 00:02:45,000
+trust strategies
+
+73
+00:02:45,000 --> 00:02:46,000
+that is powered by Machine Learning,
+
+74
+00:02:46,000 --> 00:02:48,000
+then that would be Predictive Scaling.
+
+75
+00:02:48,000 --> 00:02:50,000
+So that's it for this lecture.
+
+76
+00:02:50,000 --> 00:02:51,000
+I hope you liked it.
+
+77
+00:02:51,000 --> 00:02:52,000
+And remember the strategies.
+
+78
+00:02:52,000 --> 00:02:54,000
+I will see you in the next lecture.
+

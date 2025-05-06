@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:02,000
+So, we are going to clean up our instances
+
+2
+00:00:02,000 --> 00:00:06,000
+and so on, but if you try to go in instances
+
+3
+00:00:06,000 --> 00:00:08,000
+and actually terminate these two instances,
+
+4
+00:00:08,000 --> 00:00:11,000
+this will not work, because if you do so,
+
+5
+00:00:11,000 --> 00:00:14,000
+then the auto-scaling group will recreate them.
+
+6
+00:00:14,000 --> 00:00:16,000
+So, the strategy here is to actually go
+
+7
+00:00:16,000 --> 00:00:18,000
+under the auto-scaling group,
+
+8
+00:00:18,000 --> 00:00:21,000
+and we're going to delete the auto-scaling group altogether,
+
+9
+00:00:21,000 --> 00:00:25,000
+so just type 'Delete' in here to confirm the deletion of it,
+
+10
+00:00:26,000 --> 00:00:28,000
+and then the next thing we have to delete
+
+11
+00:00:28,000 --> 00:00:30,000
+is the low balancer,
+
+12
+00:00:30,000 --> 00:00:35,000
+so find your application balancer action and then delete.
+
+13
+00:00:35,000 --> 00:00:39,000
+Confirm to agree and you're good to go and finally,
+
+14
+00:00:39,000 --> 00:00:40,000
+you may be wondering, well,
+
+15
+00:00:40,000 --> 00:00:42,000
+should I delete my target group?
+
+16
+00:00:42,000 --> 00:00:43,000
+Well, we don't have to
+
+17
+00:00:43,000 --> 00:00:45,000
+because the target group don't cost you any money
+
+18
+00:00:45,000 --> 00:00:47,000
+and the target group is going to be empty
+
+19
+00:00:47,000 --> 00:00:50,000
+because we have deleted the auto-scaling group
+
+20
+00:00:50,000 --> 00:00:52,000
+and we have deleted the low balancer.
+
+21
+00:00:52,000 --> 00:00:53,000
+That's it.
+
+22
+00:00:53,000 --> 00:00:55,000
+When the ASG is going to be gone,
+
+23
+00:00:55,000 --> 00:00:59,000
+then your EC2 instances, that's your ASG managers,
+
+24
+00:00:59,000 --> 00:01:02,000
+will also be gone, so, you'll be fully clean.
+
+25
+00:01:02,000 --> 00:01:03,000
+So, that's it.
+
+26
+00:01:03,000 --> 00:01:05,000
+We will remain within the free tier for this course.
+
+27
+00:01:05,000 --> 00:01:08,000
+I hope you liked it and I will see you in the next lecture.
+

@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about how Amazon S3
+
+2
+00:00:02,000 --> 00:00:05,000
+can be used to create aesthetic websites.
+
+3
+00:00:05,000 --> 00:00:07,000
+So S3 can host static websites
+
+4
+00:00:07,000 --> 00:00:09,000
+and have them accessible on the internet
+
+5
+00:00:09,000 --> 00:00:12,000
+and the website URL will be depending
+
+6
+00:00:12,000 --> 00:00:14,000
+on the AWS region where you create this,
+
+7
+00:00:14,000 --> 00:00:16,000
+either this or that.
+
+8
+00:00:16,000 --> 00:00:19,000
+And they look very, very similar as you can tell.
+
+9
+00:00:19,000 --> 00:00:21,000
+But the only difference is that here, you have a dash
+
+10
+00:00:21,000 --> 00:00:22,000
+and here, you have a dot.
+
+11
+00:00:22,000 --> 00:00:24,000
+It doesn't really matter for you to remember this
+
+12
+00:00:24,000 --> 00:00:26,000
+but just so you know, here it is.
+
+13
+00:00:26,000 --> 00:00:28,000
+So we have an extra bucket
+
+14
+00:00:28,000 --> 00:00:31,000
+and it will contain files, maybe HTML files, maybe images
+
+15
+00:00:31,000 --> 00:00:35,000
+and then we're going to enable this to be compatible
+
+16
+00:00:35,000 --> 00:00:36,000
+with hosting a website.
+
+17
+00:00:36,000 --> 00:00:39,000
+So this is what it will look like with the corresponding URL
+
+18
+00:00:39,000 --> 00:00:42,000
+and then the user will access our S3 buckets.
+
+19
+00:00:42,000 --> 00:00:44,000
+But this will not work
+
+20
+00:00:44,000 --> 00:00:47,000
+if we don't have public reads enabled on our S3 buckets.
+
+21
+00:00:47,000 --> 00:00:49,000
+And this is why in the first place,
+
+22
+00:00:49,000 --> 00:00:52,000
+in the last lecture we learned about S3 bucket policies.
+
+23
+00:00:52,000 --> 00:00:54,000
+So if you have a 403 forbidden error
+
+24
+00:00:54,000 --> 00:00:57,000
+after enabling your S3 bucket for reads,
+
+25
+00:00:57,000 --> 00:00:59,000
+then that means that your bucket is not public.
+
+26
+00:00:59,000 --> 00:01:02,000
+Therefore, you must attach an S3 bucket policy
+
+27
+00:01:02,000 --> 00:01:03,000
+that allows it to be public.
+
+28
+00:01:03,000 --> 00:01:05,000
+So that's it for this short lecture,
+
+29
+00:01:05,000 --> 00:01:07,000
+now let's go into the hands on to practice this.
+

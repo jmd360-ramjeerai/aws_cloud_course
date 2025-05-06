@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:01,000
+So, just a quick lecture
+
+2
+00:00:01,000 --> 00:00:05,000
+on IAM Access Analyzer for Amazon S3,
+
+3
+00:00:05,000 --> 00:00:06,000
+which is something that can come up
+
+4
+00:00:06,000 --> 00:00:07,000
+in the exam in one question.
+
+5
+00:00:07,000 --> 00:00:08,000
+So, what is this?
+
+6
+00:00:08,000 --> 00:00:11,000
+Well, this is a monitoring feature
+
+7
+00:00:11,000 --> 00:00:13,000
+for your Amazon S3 buckets to ensure
+
+8
+00:00:13,000 --> 00:00:16,000
+that only the intended people have access
+
+9
+00:00:16,000 --> 00:00:18,000
+to your S3 buckets.
+
+10
+00:00:18,000 --> 00:00:19,000
+So, how does that work?
+
+11
+00:00:19,000 --> 00:00:22,000
+Well, it's going to analyze your Bucket Policies,
+
+12
+00:00:22,000 --> 00:00:25,000
+your S3 ACLs, your S3 Access Point Policies,
+
+13
+00:00:25,000 --> 00:00:28,000
+and so on, and is going to surface to you
+
+14
+00:00:28,000 --> 00:00:31,000
+which buckets are going to be publicly accessible,
+
+15
+00:00:31,000 --> 00:00:32,000
+which buckets have been shared
+
+16
+00:00:32,000 --> 00:00:35,000
+with other AWS accounts and so on.
+
+17
+00:00:35,000 --> 00:00:38,000
+And the idea is that you can review this and say, okay,
+
+18
+00:00:38,000 --> 00:00:42,000
+this is normal, this is expected, or this looks a bit
+
+19
+00:00:42,000 --> 00:00:45,000
+as a security issue because I did not intend
+
+20
+00:00:45,000 --> 00:00:47,000
+to share this bucket with these people,
+
+21
+00:00:47,000 --> 00:00:49,000
+and therefore, you can take action.
+
+22
+00:00:49,000 --> 00:00:52,000
+And this is powered by IAM Access Analyzer,
+
+23
+00:00:52,000 --> 00:00:55,000
+which allows you to find out resources in your account
+
+24
+00:00:55,000 --> 00:00:57,000
+that are shared with other entities.
+
+25
+00:00:57,000 --> 00:00:59,000
+So, I hope that makes sense.
+
+26
+00:00:59,000 --> 00:01:00,000
+I hope you like this lecture
+
+27
+00:01:00,000 --> 00:01:02,000
+and I will see you in the next lecture.
+

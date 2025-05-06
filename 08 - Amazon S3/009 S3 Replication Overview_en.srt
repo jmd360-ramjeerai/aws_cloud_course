@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:02,000
+Now let's talk about Amazon S3 Replication,
+
+2
+00:00:02,000 --> 00:00:04,000
+and there are two flavors of it.
+
+3
+00:00:04,000 --> 00:00:07,000
+So CRR is for cross-region replication
+
+4
+00:00:07,000 --> 00:00:10,000
+and SRR is for same-region replication.
+
+5
+00:00:10,000 --> 00:00:12,000
+The idea is that we have an S3 Bucket in one region
+
+6
+00:00:12,000 --> 00:00:15,000
+and a target S3 Bucket in another region,
+
+7
+00:00:15,000 --> 00:00:18,000
+and we want to set up asynchronous replication
+
+8
+00:00:18,000 --> 00:00:21,000
+between these two buckets.
+
+9
+00:00:21,000 --> 00:00:24,000
+So, to do so, we first must enable Versioning
+
+10
+00:00:24,000 --> 00:00:26,000
+in the source and the destination buckets.
+
+11
+00:00:26,000 --> 00:00:30,000
+And if we do CRR, so cross-region replication,
+
+12
+00:00:30,000 --> 00:00:31,000
+the two regions must be different.
+
+13
+00:00:31,000 --> 00:00:35,000
+If we do SRR, the two regions are the same.
+
+14
+00:00:35,000 --> 00:00:37,000
+Now, it's possible for you to have these buckets
+
+15
+00:00:37,000 --> 00:00:39,000
+in different AWS accounts
+
+16
+00:00:39,000 --> 00:00:41,000
+and copying happens asynchronously.
+
+17
+00:00:41,000 --> 00:00:43,000
+So the replication mechanism happens behind the scenes,
+
+18
+00:00:43,000 --> 00:00:44,000
+in the background.
+
+19
+00:00:44,000 --> 00:00:46,000
+And to make replication work,
+
+20
+00:00:46,000 --> 00:00:48,000
+you must give proper IAM permissions
+
+21
+00:00:48,000 --> 00:00:50,000
+to the S3 service so that it has the permission
+
+22
+00:00:50,000 --> 00:00:53,000
+to read and write from specified buckets.
+
+23
+00:00:53,000 --> 00:00:56,000
+So the use cases for replication are manyfold.
+
+24
+00:00:56,000 --> 00:00:59,000
+The first one is that if you use cross-region replication,
+
+25
+00:00:59,000 --> 00:01:01,000
+this can be helpful for compliance
+
+26
+00:01:01,000 --> 00:01:03,000
+or for providing lower latency access to your data
+
+27
+00:01:03,000 --> 00:01:04,000
+because it's in another region,
+
+28
+00:01:04,000 --> 00:01:07,000
+or to replicate data across accounts.
+
+29
+00:01:07,000 --> 00:01:10,000
+For SRR, or same-region replication,
+
+30
+00:01:10,000 --> 00:01:12,000
+this can be very helpful to aggregate logs
+
+31
+00:01:12,000 --> 00:01:14,000
+across multiple S3 Buckets
+
+32
+00:01:14,000 --> 00:01:16,000
+or to perform a live replication
+
+33
+00:01:16,000 --> 00:01:18,000
+between a production and test accounts,
+
+34
+00:01:18,000 --> 00:01:21,000
+so, you have your own test environment.
+
+35
+00:01:21,000 --> 00:01:23,000
+Okay, so that's it about replication.
+
+36
+00:01:23,000 --> 00:01:25,000
+I will see you in the next lecture for some practice.
+

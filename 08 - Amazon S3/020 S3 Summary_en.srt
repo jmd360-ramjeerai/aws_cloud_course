@@ -1,0 +1,196 @@
+1
+00:00:00,000 --> 00:00:01,000
+So now let's summarize
+
+2
+00:00:01,000 --> 00:00:02,000
+what we've learned about Amazon S3.
+
+3
+00:00:02,000 --> 00:00:04,000
+And I know that's a lot.
+
+4
+00:00:04,000 --> 00:00:05,000
+So first of all, we've learned
+
+5
+00:00:05,000 --> 00:00:07,000
+about the difference between Buckets and Objects.
+
+6
+00:00:07,000 --> 00:00:10,000
+So we know that Buckets must have a global unique name,
+
+7
+00:00:10,000 --> 00:00:12,000
+and is tied to a specific region
+
+8
+00:00:12,000 --> 00:00:14,000
+and Objects live within these Buckets.
+
+9
+00:00:14,000 --> 00:00:17,000
+For S3 security, we've seen that we can attach IAM policies
+
+10
+00:00:17,000 --> 00:00:19,000
+to users or to roles.
+
+11
+00:00:19,000 --> 00:00:22,000
+We've seen that we can also use S3 Bucket Policies.
+
+12
+00:00:22,000 --> 00:00:23,000
+For example, we granted public access
+
+13
+00:00:23,000 --> 00:00:26,000
+into an S3 Bucket, and we can set
+
+14
+00:00:26,000 --> 00:00:29,000
+up S3 Encryption to protect some files.
+
+15
+00:00:29,000 --> 00:00:31,000
+We can enable websites on an S3 bucket.
+
+16
+00:00:31,000 --> 00:00:34,000
+This is the idea to host a static website on Amazon S3.
+
+17
+00:00:34,000 --> 00:00:36,000
+You first need to make sure
+
+18
+00:00:36,000 --> 00:00:38,000
+that the Bucket, of course, is going to be public.
+
+19
+00:00:38,000 --> 00:00:42,000
+And then we can statically host some files.
+
+20
+00:00:42,000 --> 00:00:43,000
+We have S3 Versioning.
+
+21
+00:00:43,000 --> 00:00:46,000
+This is to have multiple versions for a file to prevent
+
+22
+00:00:46,000 --> 00:00:49,000
+against accidental deletes and to be able to roll
+
+23
+00:00:49,000 --> 00:00:51,000
+back to previous versions if we need to.
+
+24
+00:00:52,000 --> 00:00:54,000
+We've seen there are two kinds of S3 Replication.
+
+25
+00:00:54,000 --> 00:00:56,000
+You have the same-region replication
+
+26
+00:00:56,000 --> 00:00:58,000
+and the cross-region replication.
+
+27
+00:00:58,000 --> 00:01:02,000
+And for them to work, you must enable versioning beforehand.
+
+28
+00:01:02,000 --> 00:01:05,000
+We've seen different S3 storage classes.
+
+29
+00:01:05,000 --> 00:01:07,000
+We have standard, infrequent access,
+
+30
+00:01:07,000 --> 00:01:10,000
+one zone infrequent access, intelligent tiering
+
+31
+00:01:10,000 --> 00:01:13,000
+and we have three different classes for the Glacier
+
+32
+00:01:13,000 --> 00:01:15,000
+for (indistinct) purposes.
+
+33
+00:01:16,000 --> 00:01:18,000
+We've seen what the Snow Family is.
+
+34
+00:01:18,000 --> 00:01:20,000
+So there are physical devices that are used
+
+35
+00:01:20,000 --> 00:01:23,000
+to import data onto Amazon S3.
+
+36
+00:01:23,000 --> 00:01:26,000
+So you have like the Snowmobile, you have the Snowcone,
+
+37
+00:01:26,000 --> 00:01:27,000
+you have the Snowballs and so on.
+
+38
+00:01:27,000 --> 00:01:31,000
+And if you use a Snowcone or a Snowball edge device
+
+39
+00:01:31,000 --> 00:01:34,000
+then you can do edge computing on your data.
+
+40
+00:01:34,000 --> 00:01:37,000
+OpsHubs is a way to get a desktop application
+
+41
+00:01:37,000 --> 00:01:41,000
+to manage your Snow Family devices and add data onto them.
+
+42
+00:01:41,000 --> 00:01:44,000
+And finally, we've seen a way to extend on-premises storage
+
+43
+00:01:44,000 --> 00:01:49,000
+onto Amazon S3, that is using the AWS storage gateway.
+
+44
+00:01:50,000 --> 00:01:51,000
+So not so big lessons
+
+45
+00:01:51,000 --> 00:01:53,000
+but hopefully now you know all the specificity
+
+46
+00:01:53,000 --> 00:01:56,000
+of Amazon S3 that will allow you to answer all
+
+47
+00:01:56,000 --> 00:01:58,000
+the questions you need at the exam.
+
+48
+00:01:58,000 --> 00:01:59,000
+That's it.
+
+49
+00:01:59,000 --> 00:02:00,000
+I will see you in the next section.
+

@@ -1,0 +1,480 @@
+1
+00:00:00,000 --> 00:00:01,000
+So let's practice replication
+
+2
+00:00:01,000 --> 00:00:03,000
+on Amazon S3.
+
+3
+00:00:03,000 --> 00:00:05,000
+For this, we're going to create a new bucket.
+
+4
+00:00:05,000 --> 00:00:10,000
+I'll call it S3 Stephane bucket origin V2,
+
+5
+00:00:11,000 --> 00:00:13,000
+and I will set it in one region that I want,
+
+6
+00:00:13,000 --> 00:00:15,000
+for example, EU west one.
+
+7
+00:00:15,000 --> 00:00:17,000
+This will be my origin buckets
+
+8
+00:00:17,000 --> 00:00:18,000
+and then data will be replicated
+
+9
+00:00:18,000 --> 00:00:20,000
+from this bucket to another bucket.
+
+10
+00:00:20,000 --> 00:00:22,000
+So the thing I need to do of course,
+
+11
+00:00:22,000 --> 00:00:24,000
+is to enable versioning
+
+12
+00:00:24,000 --> 00:00:25,000
+because replication only works
+
+13
+00:00:25,000 --> 00:00:28,000
+if versioning is enabled.
+
+14
+00:00:28,000 --> 00:00:29,000
+So I will create this bucket,
+
+15
+00:00:31,000 --> 00:00:34,000
+and then open this bucket in a new tab
+
+16
+00:00:34,000 --> 00:00:36,000
+and I will create a second bucket
+
+17
+00:00:36,000 --> 00:00:38,000
+and this will be my target bucket.
+
+18
+00:00:38,000 --> 00:00:43,000
+So I will do S3 Stephane bucket replica V2.
+
+19
+00:00:46,000 --> 00:00:48,000
+And this time, the region can be either the same,
+
+20
+00:00:48,000 --> 00:00:51,000
+for example, if you wanted to do same region replication
+
+21
+00:00:51,000 --> 00:00:53,000
+or something completely different,
+
+22
+00:00:53,000 --> 00:00:54,000
+for example if you wanted the US,
+
+23
+00:00:54,000 --> 00:00:57,000
+you could do US east one
+
+24
+00:00:57,000 --> 00:01:00,000
+to replicate from Europe to the US.
+
+25
+00:01:00,000 --> 00:01:02,000
+Okay, so let's scroll down
+
+26
+00:01:02,000 --> 00:01:03,000
+and let's again, enable bucket versioning
+
+27
+00:01:03,000 --> 00:01:05,000
+on the target buckets.
+
+28
+00:01:08,000 --> 00:01:09,000
+And we're good to go.
+
+29
+00:01:09,000 --> 00:01:11,000
+So now we have our primary buckets
+
+30
+00:01:11,000 --> 00:01:13,000
+and our secondary buckets.
+
+31
+00:01:13,000 --> 00:01:15,000
+What I'm going to do is that in the origin bucket,
+
+32
+00:01:15,000 --> 00:01:16,000
+I'm going to upload a file
+
+33
+00:01:16,000 --> 00:01:19,000
+so I will add a file of my beach,
+
+34
+00:01:19,000 --> 00:01:21,000
+for example, beach.jpeg.
+
+35
+00:01:22,000 --> 00:01:24,000
+Okay, this is done and we can close this.
+
+36
+00:01:24,000 --> 00:01:25,000
+So now this has one file,
+
+37
+00:01:25,000 --> 00:01:28,000
+but of course, this does not get replicated yet
+
+38
+00:01:28,000 --> 00:01:30,000
+because we haven't set up replication yet
+
+39
+00:01:30,000 --> 00:01:32,000
+so let's go ahead and do this.
+
+40
+00:01:32,000 --> 00:01:33,000
+So on the origin bucket,
+
+41
+00:01:33,000 --> 00:01:37,000
+what I need to do is to go under management,
+
+42
+00:01:37,000 --> 00:01:39,000
+scroll down and there are replication rules,
+
+43
+00:01:39,000 --> 00:01:40,000
+currently, zero.
+
+44
+00:01:40,000 --> 00:01:44,000
+So let's go ahead and create our first replication rule.
+
+45
+00:01:44,000 --> 00:01:48,000
+So I'll call this one demo replication rule.
+
+46
+00:01:48,000 --> 00:01:49,000
+Okay, perfect.
+
+47
+00:01:49,000 --> 00:01:51,000
+We'll set it as enabled.
+
+48
+00:01:51,000 --> 00:01:52,000
+For the source bucket,
+
+49
+00:01:52,000 --> 00:01:53,000
+we'll leave it as is
+
+50
+00:01:53,000 --> 00:01:55,000
+and in terms of rule scope,
+
+51
+00:01:55,000 --> 00:01:58,000
+we'll apply it to all objects in the buckets.
+
+52
+00:01:58,000 --> 00:02:00,000
+Now for the destination,
+
+53
+00:02:00,000 --> 00:02:02,000
+we can specify a bucket in this account
+
+54
+00:02:02,000 --> 00:02:04,000
+or in other accounts,
+
+55
+00:02:04,000 --> 00:02:06,000
+and we'll choose one in this account
+
+56
+00:02:06,000 --> 00:02:10,000
+and the bucket name is my target bucket.
+
+57
+00:02:10,000 --> 00:02:12,000
+So I need to actually enter the name.
+
+58
+00:02:12,000 --> 00:02:16,000
+So I'll take this bucket right here, copy and paste it.
+
+59
+00:02:16,000 --> 00:02:18,000
+Okay, and as you can see,
+
+60
+00:02:18,000 --> 00:02:20,000
+the destination region was identified
+
+61
+00:02:20,000 --> 00:02:22,000
+as being US east one,
+
+62
+00:02:22,000 --> 00:02:26,000
+so therefore, this is a cross region replication.
+
+63
+00:02:26,000 --> 00:02:28,000
+Okay, now for IAM role,
+
+64
+00:02:28,000 --> 00:02:29,000
+we need to actually go
+
+65
+00:02:29,000 --> 00:02:31,000
+and create a new role for this.
+
+66
+00:02:31,000 --> 00:02:32,000
+So there's the option.
+
+67
+00:02:33,000 --> 00:02:36,000
+And then we can have a look at some settings,
+
+68
+00:02:36,000 --> 00:02:38,000
+but for now, it doesn't really matter for us.
+
+69
+00:02:38,000 --> 00:02:39,000
+Let's just save this.
+
+70
+00:02:41,000 --> 00:02:43,000
+So we get a prompt right here,
+
+71
+00:02:43,000 --> 00:02:46,000
+which says, do you want to replicate existing objects?
+
+72
+00:02:46,000 --> 00:02:49,000
+So it turns out that when you do enable replication,
+
+73
+00:02:49,000 --> 00:02:51,000
+it will only replicate objects
+
+74
+00:02:51,000 --> 00:02:52,000
+from the moment you set it,
+
+75
+00:02:52,000 --> 00:02:54,000
+so for newer uploads.
+
+76
+00:02:54,000 --> 00:02:58,000
+So if you wanted to replicate the previous objects
+
+77
+00:02:58,000 --> 00:03:00,000
+from the source of the destination bucket,
+
+78
+00:03:00,000 --> 00:03:03,000
+you could use something called a batch operation,
+
+79
+00:03:03,000 --> 00:03:06,000
+an S3 batch operation to do so
+
+80
+00:03:06,000 --> 00:03:09,000
+and you would need to say yes, replicate existing objects,
+
+81
+00:03:09,000 --> 00:03:13,000
+but this is separate from the replication feature itself.
+
+82
+00:03:13,000 --> 00:03:15,000
+Therefore, I'm going to say no,
+
+83
+00:03:15,000 --> 00:03:17,000
+do not replicate existing objects
+
+84
+00:03:17,000 --> 00:03:19,000
+and we're good to go.
+
+85
+00:03:19,000 --> 00:03:20,000
+So now let's have a look.
+
+86
+00:03:20,000 --> 00:03:23,000
+So we have this management
+
+87
+00:03:23,000 --> 00:03:26,000
+with a replication rule that is ready.
+
+88
+00:03:26,000 --> 00:03:30,000
+And now what I'm going to do is check in my replica bucket.
+
+89
+00:03:30,000 --> 00:03:32,000
+Of course, if I refresh now,
+
+90
+00:03:32,000 --> 00:03:35,000
+we see that the objects haven't been replicated.
+
+91
+00:03:36,000 --> 00:03:38,000
+So I'm going to do is now upload a new file,
+
+92
+00:03:38,000 --> 00:03:41,000
+for example, upload the coffee.jpeg file,
+
+93
+00:03:41,000 --> 00:03:42,000
+upload it.
+
+94
+00:03:43,000 --> 00:03:44,000
+We're done.
+
+95
+00:03:44,000 --> 00:03:47,000
+So here is the coffee.jpeg file.
+
+96
+00:03:47,000 --> 00:03:48,000
+Let's show the version.
+
+97
+00:03:48,000 --> 00:03:51,000
+So this is coffee.jpeg and the version is GBK.
+
+98
+00:03:52,000 --> 00:03:53,000
+Okay, perfect.
+
+99
+00:03:53,000 --> 00:03:58,000
+Now, if we go in my target bucket and refresh this,
+
+100
+00:03:58,000 --> 00:04:00,000
+it's gonna take maybe five seconds.
+
+101
+00:04:00,000 --> 00:04:02,000
+And this took about 10 seconds on the first replication,
+
+102
+00:04:02,000 --> 00:04:04,000
+but we can see that my coffee.jpeg
+
+103
+00:04:04,000 --> 00:04:07,000
+has been added into my replica bucket.
+
+104
+00:04:07,000 --> 00:04:09,000
+And if I show the versions,
+
+105
+00:04:09,000 --> 00:04:11,000
+we can see the version ID
+
+106
+00:04:11,000 --> 00:04:15,000
+of my coffee.jpeg is the exact same of the origin bucket.
+
+107
+00:04:15,000 --> 00:04:18,000
+So the versions IDs are replicated, which is great.
+
+108
+00:04:18,000 --> 00:04:21,000
+And if I wanted to port the beach.jpeg,
+
+109
+00:04:21,000 --> 00:04:23,000
+I would need to upload a new version of that file,
+
+110
+00:04:23,000 --> 00:04:26,000
+so let's upload beach.jpeg again.
+
+111
+00:04:29,000 --> 00:04:30,000
+Now this has been uploaded.
+
+112
+00:04:30,000 --> 00:04:31,000
+We can look at the version.
+
+113
+00:04:31,000 --> 00:04:34,000
+So there is a new version right here
+
+114
+00:04:34,000 --> 00:04:38,000
+of DK2, of my beach.jpeg file.
+
+115
+00:04:38,000 --> 00:04:41,000
+And now if I go here and refresh,
+
+116
+00:04:42,000 --> 00:04:43,000
+and this took a bit of time, but as you can see,
+
+117
+00:04:43,000 --> 00:04:47,000
+you can find the DK2 version of that file.
+
+118
+00:04:47,000 --> 00:04:49,000
+So that's it for S3 bucket replication.
+
+119
+00:04:49,000 --> 00:04:50,000
+I hope you liked it
+
+120
+00:04:50,000 --> 00:04:52,000
+and I will see you in the next lecture.
+
