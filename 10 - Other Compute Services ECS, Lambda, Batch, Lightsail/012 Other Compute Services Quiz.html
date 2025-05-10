@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      code {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .quiz-content {
+        padding: 2.4rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0 auto;
+      }
+      .quiz-container {
+        margin: 0 auto;
+        max-width: 84rem;
+        padding: 0;
+      }
+      .question {
+        margin-bottom: 5rem;
+      }
+      .question span {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .question-prompt {
+        margin-top: 0.8rem;
+        font-weight: 700;
+      }
+      .question-answer {
+        margin-top: 1.6rem;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+      .question-answer label {
+        max-width: 80rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        min-width: 18rem;
+        border: solid #1c1d1f 2px;
+      }
+      .question-answer div {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+      }
+      .question-answer div:hover {
+        background-color: #f5f5f5;
+      }
+      .question-answer input {
+        display: none;
+      }
+      .question-answer span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.6rem;
+        top: 0;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+        border: 0.2rem solid #1c1d1f;
+        position: relative;
+      }
+      .selected {
+        background: #1c1d1f;
+        box-shadow: 0 0 0 0.4rem #fff inset;
+      }
+      .score {
+              position: fixed;
+            }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <div id="score" class="score">
+      <span>Score: N/A of N/A</span>
+    </div>
+    <div id="quiz-container" class="quiz-content"></div>
+
+    <script>
+      const quizData = {"pass_percent": 70, "questions": [{"_class": "assessment", "id": 18817012, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["The programming language you use or the number of programming languages in your Lambda functions is not included in the paid price.", "You do not get charged according to the number of functions in AWS Lambda.", "In AWS Lambda, you are charged per request and compute time, that's it.", "You do not get charged when functions are inactive in AWS Lambda."], "answers": ["<p>Per programming language</p>", "<p>Per number of functions</p>", "<p>Per call and per duration</p>", "<p>Per inactive time</p>"], "question": "<p>How do you get charged in AWS&nbsp;Lambda?</p>", "relatedLectureIds": ["20056024"]}, "correct_response": ["c"], "section": "", "question_plain": "How do you get charged in AWS&nbsp;Lambda?", "related_lectures": [{"_class": "lecture", "id": 20056024, "title": "Lambda Overview", "created": "2020-05-25T18:19:02Z", "is_published": true, "asset": {"_class": "asset", "id": 58203059, "asset_type": "Video", "title": "CCP_-_Lambda_Overview_v2.mp4", "created": "2024-07-30T08:38:38Z"}, "object_index": 116, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056024"}]}, {"_class": "assessment", "id": 19761098, "assessment_type": "multiple-choice", "prompt": {"question": "<p>You would like to launch Docker containers in AWS&nbsp;without worrying about provisioning or managing any infrastructure. The Docker containers will be used to host a heavy workloads to serve different types of requests. Some requests may need up to 30 minutes to be completed. Which AWS&nbsp;service should you use to run Docker containers in a Serverless way and satisfy the requirements?</p>", "relatedLectureIds": ["20056046"], "feedbacks": ["ECS allows you to launch Docker containers on AWS, but you must provision and maintain the infrastructure. It is not Serverless", "Fargate allows you to launch Docker containers on AWS, and you don't need to provision and maintain the infrastructure (=no EC2 instances to manage). It is Serverless.", "Elastic Container Registry (ECR) is a service where you store your Docker image so they can be run by ECS or Fargate.", "Lambda is a Serverless service but the maximum invocation timeout limit is 15 minutes."], "answers": ["<p>ECS</p>", "<p>Fargate</p>", "<p>ECR</p>", "<p>Lambda</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "You would like to launch Docker containers in AWS&nbsp;without worrying about provisioning or managing any infrastructure. The Docker containers will be used to host a heavy workloads to serve different types of requests. Some requests may need up to 30 minutes to be completed. Which AWS&nbsp;service should you use to run Docker containers in a Serverless way and satisfy the requirements?", "related_lectures": [{"_class": "lecture", "id": 20056046, "title": "ECS, Fargate & ECR Overview", "created": "2020-05-25T18:19:57Z", "is_published": true, "asset": {"_class": "asset", "id": 25156446, "asset_type": "Video", "title": "CCP - ECS - Overview.mp4", "created": "2020-06-02T08:16:48Z"}, "object_index": 113, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056046"}]}, {"_class": "assessment", "id": 19761224, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It does not create allow you to create simple application by itself.", "AWS Lambda lets you run code without provisioning or managing servers. It does not create allow you to create simple application.", "Amazon Lightsail is designed to be the easiest way to launch and manage a virtual private server with AWS. Lightsail plans include everything you need to jumpstart your project \u2013 a virtual machine, SSD- based storage, data transfer, DNS management, and a static IP address \u2013 for a low, predictable price. It can be used to create a simple web application, a website or a dev/test environment.", "This is a distractor. This service does not exist. "], "answers": ["<p>EC2</p>", "<p>Lambda</p>", "<p>Lightsail</p>", "<p>EasyStart</p>"], "question": "<p>A complete cloud beginner would like to create a simple application with predictable pricing. What service should this person use?</p>", "relatedLectureIds": ["20515562"]}, "correct_response": ["c"], "section": "", "question_plain": "A complete cloud beginner would like to create a simple application with predictable pricing. What service should this person use?", "related_lectures": [{"_class": "lecture", "id": 20515562, "title": "Lightsail Overview", "created": "2020-06-17T13:15:30Z", "is_published": true, "asset": {"_class": "asset", "id": 25579228, "asset_type": "Video", "title": "CCP_-_Lightsail_-_Overview.mp4", "created": "2020-06-18T08:34:21Z"}, "object_index": 120, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20515562"}]}, {"_class": "assessment", "id": 19761096, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["This is a distractor. It is not a real software development platform.", "This is a distractor. It is not a real software development platform.", "Docker is a software development platform that allows you to run applications the same way, regardless of where they are run. It can scale containers up and down within seconds.", "Elastic Container Service (ECS) is used to launch Docker containers on AWS."], "answers": ["<p>Dolphin</p>", "<p>Shark</p>", "<p>Docker</p>", "<p>ECS</p>"], "question": "<p>What is the name of the software development platform that allows you to run applications the same way, regardless of where they are run?</p>", "relatedLectureIds": ["20056040"]}, "correct_response": ["c"], "section": "", "question_plain": "What is the name of the software development platform that allows you to run applications the same way, regardless of where they are run?", "related_lectures": [{"_class": "lecture", "id": 20056040, "title": "What is Docker?", "created": "2020-05-25T18:19:43Z", "is_published": true, "asset": {"_class": "asset", "id": 25156450, "asset_type": "Video", "title": "CCP - ECS - What is Docker.mp4", "created": "2020-06-02T08:17:15Z"}, "object_index": 112, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056040"}]}, {"_class": "assessment", "id": 18817032, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["\"Event-driven\" in Lambda does not mean that functions are invoked on a certain day.", "\"Event-driven\" in Lambda does not mean that functions are invoked at a certain time.", "\"Event-driven\" in Lambda does not mean that functions are invoked on a regular basis.", "\"Event-driven\" in Lambda means that functions are invoked when needed. They are triggered."], "answers": ["<p>Happens on a certain day</p>", "<p>Happens at a certain time</p>", "<p>Happens on a regular basis</p>", "<p>Happens when needed</p>"], "question": "<p>How would you best describe \"event-driven\" in AWS&nbsp;Lambda?</p>", "relatedLectureIds": ["20056024"]}, "correct_response": ["d"], "section": "", "question_plain": "How would you best describe \"event-driven\" in AWS&nbsp;Lambda?", "related_lectures": [{"_class": "lecture", "id": 20056024, "title": "Lambda Overview", "created": "2020-05-25T18:19:02Z", "is_published": true, "asset": {"_class": "asset", "id": 58203059, "asset_type": "Video", "title": "CCP_-_Lambda_Overview_v2.mp4", "created": "2024-07-30T08:38:38Z"}, "object_index": 116, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056024"}]}, {"_class": "assessment", "id": 19761086, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["Elastic Container Registry (ECR) is a service where you store your Docker image so they can be run by ECS or Fargate.", "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It does not allow you to launch Docker containers on AWS by itself.", "ECS allows you to launch Docker containers on AWS, but you must provision and maintain the infrastructure (i.e. EC2 instances).", "Fargate allows you to launch Docker containers on AWS, and you don't need to provision and maintain the infrastructure (=no EC2 instances to manage). It is serverless."], "answers": ["<p>ECR</p>", "<p>EC2</p>", "<p>ECS</p>", "<p>Fargate</p>"], "question": "<p>Which AWS&nbsp;service allows you to launch Docker containers on AWS, but requires you to provision and maintain the infrastructure?</p>", "relatedLectureIds": ["20056046"]}, "correct_response": ["c"], "section": "", "question_plain": "Which AWS&nbsp;service allows you to launch Docker containers on AWS, but requires you to provision and maintain the infrastructure?", "related_lectures": [{"_class": "lecture", "id": 20056046, "title": "ECS, Fargate & ECR Overview", "created": "2020-05-25T18:19:57Z", "is_published": true, "asset": {"_class": "asset", "id": 25156446, "asset_type": "Video", "title": "CCP - ECS - Overview.mp4", "created": "2020-06-02T08:16:48Z"}, "object_index": 113, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056046"}]}, {"_class": "assessment", "id": 18816878, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["Serverless allows you to deploy functions as a service through code.", "Serverless does not mean that there are no servers, you just do not manage, provision and see them, but they do exist.", "Serverless means that you do not manage, provision, see servers.", "AWS Lambda pioneered serverless. They are now serverless databases, messaging, storage, etc."], "answers": ["<p>Serverless allows you to deploy functions as a service</p>", "<p>There are no servers</p>", "<p>You don't need to manage servers</p>", "<p>Lambda is the serverless pioneer</p>"], "question": "<p>Which of the following statements is INCORRECT&nbsp;regarding the definition of the term \"serverless\"?</p>", "relatedLectureIds": ["20056030"]}, "correct_response": ["b"], "section": "", "question_plain": "Which of the following statements is INCORRECT&nbsp;regarding the definition of the term \"serverless\"?", "related_lectures": [{"_class": "lecture", "id": 20056030, "title": "Serverless Introduction", "created": "2020-05-25T18:19:18Z", "is_published": true, "asset": {"_class": "asset", "id": 25579258, "asset_type": "Video", "title": "CCP - Serverless Overview.mp4", "created": "2020-06-18T08:34:45Z"}, "object_index": 115, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056030"}]}, {"_class": "assessment", "id": 18817056, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["In AWS Lambda, you can set up your code to automatically trigger from other AWS services.", "AWS Lambda uses virtual functions, there are no servers to manage. AWS Lambda is a serverless service.", "Scaling is completely automated and continuous in AWS Lambda.", "This is a feature of Auto Scaling Groups, not AWS Lambda."], "answers": ["<p>Integration with the whole AWS&nbsp;suite of services</p>", "<p>Virtual functions</p>", "<p>Automated and continuous scaling</p>", "<p>Definition of a minimum and a maximum of EC2 Instances running</p>"], "question": "<p>Which of the following statements is NOT&nbsp;a feature of AWS&nbsp;Lambda?</p>", "relatedLectureIds": ["20056024"]}, "correct_response": ["d"], "section": "", "question_plain": "Which of the following statements is NOT&nbsp;a feature of AWS&nbsp;Lambda?", "related_lectures": [{"_class": "lecture", "id": 20056024, "title": "Lambda Overview", "created": "2020-05-25T18:19:02Z", "is_published": true, "asset": {"_class": "asset", "id": 58203059, "asset_type": "Video", "title": "CCP_-_Lambda_Overview_v2.mp4", "created": "2024-07-30T08:38:38Z"}, "object_index": 116, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056024"}]}, {"_class": "assessment", "id": 19762484, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["ECS allows you to launch Docker containers on AWS, but you must provision and maintain the infrastructure (i.e. EC2 instances).", "You need to manage the compute resources with EC2 Spot Instances.", "You need to manage the compute resources with EC2 Instances.", "AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (e.g., CPU or memory-optimized instances) based on the volume and specific resource requirements of the batch jobs submitted."], "answers": ["<p>ECS</p>", "<p>EC2 Spot Instances</p>", "<p>EC2 Instances</p>", "<p>Batch</p>"], "question": "<p>A company needs to run thousands of jobs but would like to NOT&nbsp;manage the compute resources. What service can it use?</p>", "relatedLectureIds": ["20515556"]}, "correct_response": ["d"], "section": "", "question_plain": "A company needs to run thousands of jobs but would like to NOT&nbsp;manage the compute resources. What service can it use?", "related_lectures": [{"_class": "lecture", "id": 20515556, "title": "Batch Overview", "created": "2020-06-17T13:15:20Z", "is_published": true, "asset": {"_class": "asset", "id": 25579236, "asset_type": "Video", "title": "CCP_-_Batch_-_Overview.mp4", "created": "2020-06-18T08:34:21Z"}, "object_index": 119, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20515556"}]}, {"_class": "assessment", "id": 19761092, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["This service does not exist. It is made up with words related to the service.", "This service does not exist. It is made up with words related to the service.", "Elastic Container Registry (ECR) is a service where you store your Docker image so they can be run by ECS or Fargate.", "This service does not exist. It is made up with words related to the service."], "answers": ["<p>Elastic Docker Registry</p>", "<p>Elastic Docker File Registry</p>", "<p>Elastic Container Registry</p>", "<p>Elastic Private Container Registry</p>"], "question": "<p>Where should you store your private Docker images so they can be run by ECS or Fargate?</p>", "relatedLectureIds": ["20056046"]}, "correct_response": ["c"], "section": "", "question_plain": "Where should you store your private Docker images so they can be run by ECS or Fargate?", "related_lectures": [{"_class": "lecture", "id": 20056046, "title": "ECS, Fargate & ECR Overview", "created": "2020-05-25T18:19:57Z", "is_published": true, "asset": {"_class": "asset", "id": 25156446, "asset_type": "Video", "title": "CCP - ECS - Overview.mp4", "created": "2020-06-02T08:16:48Z"}, "object_index": 113, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056046"}]}, {"_class": "assessment", "id": 28717448, "assessment_type": "multiple-choice", "prompt": {"answers": ["<p>ECR</p>", "<p>Lambda</p>", "<p>API&nbsp;Gateway</p>"], "feedbacks": ["Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. It is not used to create APIs.", "AWS Lambda lets you run code without provisioning or managing servers. It is a serverless service, but it is not used to create APIs.", "Amazon API Gateway is a fully managed serverless service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale."], "relatedLectureIds": ["24682546"], "question": "<p>Which AWS serverless service can be used by developers to create APIs?</p>"}, "correct_response": ["c"], "section": "", "question_plain": "Which AWS serverless service can be used by developers to create APIs?", "related_lectures": [{"_class": "lecture", "id": 24682546, "title": "API Gateway Overview", "created": "2021-01-31T19:44:18Z", "is_published": true, "asset": {"_class": "asset", "id": 31073296, "asset_type": "Video", "title": "CCP - API Gateway.mp4", "created": "2021-01-31T19:32:58Z"}, "object_index": 118, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682546"}]}]};
+      var correct = 0;
+      var total = 0;
+      const questionData = quizData.questions
+      const passPercent = quizData.pass_percent
+
+      function main() {
+        total = questionData.length;
+
+        var questions = [];
+        for (var i = 0; i < questionData.length; i++) {
+          var question = questionData[i];
+          var questionText = question.prompt.question;
+          var answers = question.prompt.answers;
+          var correctAnswer = question.correct_response[0];
+          var correctAnswerText = answers[correctAnswer.charCodeAt(0) - 97];
+          var questionObj = {
+            question: questionText,
+            correctAnswer: correctAnswerText,
+            answers: answers,
+            id: question.id,
+          };
+          questions.push(questionObj);
+        }
+
+        updateScore();
+
+        // display the questions
+        var questionsContainer = document.getElementById("quiz-container");
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var questionElement = document.createElement("form");
+          questionElement.className = "question";
+          questionElement.innerHTML =
+            "<span>Question " +
+            (i + 1) +
+            ":</span>" +
+            '<div class="question-prompt">' +
+            question.question +
+            "</div>";
+          questionElement.id = question.id;
+          questionElement.classList.add("quiz-container");
+          var answersElement = document.createElement("ul");
+          answersElement.className = "answers";
+          for (var j = 0; j < question.answers.length; j++) {
+            var answer = question.answers[j];
+            var answerElement = document.createElement("li");
+            answerElement.className = "answer";
+            answerElement.innerHTML =
+              '<label for="input-' +
+              question.id +
+              "-" +
+              j +
+              '"><div onclick="select(' +
+              question.id +
+              ", " +
+              j +
+              ')"><span></span><input id="input-' +
+              question.id +
+              "-" +
+              j +
+              '" type="radio" name="question' +
+              i +
+              '" value="' +
+              j +
+              '">' +
+              answer +
+              "</input></div></label>";
+            answerElement.classList.add("question-answer");
+            answersElement.appendChild(answerElement);
+          }
+
+          questionElement.appendChild(answersElement);
+
+          // add a submit button
+          var submitButton = document.createElement("button");
+          submitButton.className = "submit";
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.add("submit-button");
+
+          submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var questionElement = e.target.parentElement;
+            var questionId = questionElement.id;
+            var question = questions.filter(function (q) {
+              return q.id == questionId;
+            })[0];
+
+            // set the border color of all answers to black
+            var answers = questionElement.getElementsByClassName("answer");
+            for (var i = 0; i < answers.length; i++) {
+              console.log(answers[i]);
+              answers[i].children[0].style.borderColor = "#1c1d1f";
+            }
+
+            var answer = questionElement.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (answer) {
+              var answerIndex = answer.value;
+              var answerText = question.answers[answerIndex];
+              if (answerText == question.correctAnswer) {
+                answer.parentElement.parentElement.style.borderColor =
+                  "limegreen";
+                // alert("Correct!");
+                correct++;
+                updateScore();
+              } else {
+                answer.parentElement.parentElement.style.borderColor = "red";
+                // alert("Incorrect!");
+              }
+            } else {
+              alert("Please select an answer.");
+            }
+          });
+
+          // add button
+          questionElement.appendChild(submitButton);
+
+          questionsContainer.appendChild(questionElement);
+        }
+      }
+
+      function select(question, answer) {
+        var questionElement = document.getElementById(question);
+        var answers = questionElement.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          var span = answers[i].children[0].children[0].children[0];
+          var input = answers[i].children[0].children[0].children[1];
+          span.classList.remove("selected");
+          input.checked = false;
+        }
+        var span = answers[answer].children[0].children[0].children[0];
+        var input = answers[answer].children[0].children[0].children[1];
+        span.classList.add("selected");
+        input.checked = true;
+      }
+
+      function updateScore() {
+        var scoreElem = document.getElementById("score");
+        const score = (correct / total) * 100;
+        scoreElem.innerHTML = "Score: " + score + "/" + passPercent + "%";
+      }
+    </script>
+  </body>
+</html>

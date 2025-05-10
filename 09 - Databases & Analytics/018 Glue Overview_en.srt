@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, now let's talk about AWS Glue.
+
+2
+00:00:02,000 --> 00:00:07,000
+So, Glue is a managed extract, transform, and load service,
+
+3
+00:00:07,000 --> 00:00:09,000
+or ETL, and from an exams perspective,
+
+4
+00:00:09,000 --> 00:00:10,000
+that's all you need to know.
+
+5
+00:00:10,000 --> 00:00:12,000
+But let's go a little bit deeper dive,
+
+6
+00:00:12,000 --> 00:00:14,000
+to understand how that works.
+
+7
+00:00:14,000 --> 00:00:15,000
+So, what is ETL?
+
+8
+00:00:15,000 --> 00:00:17,000
+Well, ETL is very helpful when you have some datasets
+
+9
+00:00:17,000 --> 00:00:20,000
+but they're not exactly in the right form,
+
+10
+00:00:20,000 --> 00:00:22,000
+or the right format that you need,
+
+11
+00:00:22,000 --> 00:00:23,000
+to do your analytics on them.
+
+12
+00:00:23,000 --> 00:00:26,000
+And so the idea is that you would use an ETL service
+
+13
+00:00:26,000 --> 00:00:28,000
+to prepare and transform that data.
+
+14
+00:00:28,000 --> 00:00:32,000
+So, Glue does that, but traditionally you use servers
+
+15
+00:00:32,000 --> 00:00:35,000
+to do it, but with Glue it's a fully serverless service,
+
+16
+00:00:35,000 --> 00:00:38,000
+so you just worry about the actual data transformation,
+
+17
+00:00:38,000 --> 00:00:40,000
+and Glue does the rest.
+
+18
+00:00:40,000 --> 00:00:44,000
+So, in a diagram for example, Glue ETL sits in the middle,
+
+19
+00:00:44,000 --> 00:00:48,000
+and say we wanted to extract data from both an S3 Bucket
+
+20
+00:00:48,000 --> 00:00:50,000
+and an Amazon RDS database.
+
+21
+00:00:50,000 --> 00:00:53,000
+So, for this, we'd use Glue to extract the data
+
+22
+00:00:53,000 --> 00:00:56,000
+from both these sources, and then,
+
+23
+00:00:56,000 --> 00:00:59,000
+once the data is extracted, it is in a Glue service,
+
+24
+00:00:59,000 --> 00:01:02,000
+and we would write a script to do a transform part.
+
+25
+00:01:02,000 --> 00:01:05,000
+So here, Glue would help us transform the data,
+
+26
+00:01:05,000 --> 00:01:07,000
+and then, once it's transformed,
+
+27
+00:01:07,000 --> 00:01:11,000
+we need to actually analyze it so we can load up that data
+
+28
+00:01:11,000 --> 00:01:15,000
+into, for example, an Amazon Redshift database,
+
+29
+00:01:15,000 --> 00:01:17,000
+where we can do our analytics the right way.
+
+30
+00:01:17,000 --> 00:01:19,000
+And so, Glue sits here, okay?
+
+31
+00:01:19,000 --> 00:01:23,000
+It's a very powerful tool, because you can do any kind
+
+32
+00:01:23,000 --> 00:01:24,000
+of instruction transformation
+
+33
+00:01:24,000 --> 00:01:27,000
+and then you can load it into many different places.
+
+34
+00:01:27,000 --> 00:01:30,000
+So, that's for Glue ETL, and then there's another service
+
+35
+00:01:30,000 --> 00:01:34,000
+called Glue Data Catalog, which I think is not at the exam,
+
+36
+00:01:34,000 --> 00:01:35,000
+but I will still mention it to you 'cause it's important
+
+37
+00:01:35,000 --> 00:01:37,000
+to know it as part of the Glue family.
+
+38
+00:01:37,000 --> 00:01:40,000
+So, the Glue Data Catalog, as the name indicates,
+
+39
+00:01:40,000 --> 00:01:45,000
+is a catalog of your datasets in your Alias infrastructure,
+
+40
+00:01:45,000 --> 00:01:48,000
+and so this Glue Data Catalog will have a alert reference
+
+41
+00:01:48,000 --> 00:01:50,000
+of everything, the column names, the field names,
+
+42
+00:01:50,000 --> 00:01:52,000
+the field types, et cetera, et cetera.
+
+43
+00:01:52,000 --> 00:01:55,000
+And this can be used by services such as Athena,
+
+44
+00:01:55,000 --> 00:01:58,000
+Redshift and EMR to discover the datasets
+
+45
+00:01:58,000 --> 00:02:01,000
+and build the proper schemas for them, okay?
+
+46
+00:02:01,000 --> 00:02:03,000
+So, that's it. I hope you liked this lecture,
+
+47
+00:02:03,000 --> 00:02:06,000
+and I will see you in the next lecture.
+

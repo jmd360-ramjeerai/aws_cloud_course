@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:02,000
+Now let's talk about a quick service
+
+2
+00:00:02,000 --> 00:00:04,000
+called the Amazon API Gateway.
+
+3
+00:00:04,000 --> 00:00:07,000
+So this comes from the use case from an exam perspective
+
+4
+00:00:07,000 --> 00:00:10,000
+of you wanting to build a server less HTTP API.
+
+5
+00:00:10,000 --> 00:00:13,000
+So in this example, we have server less technologies
+
+6
+00:00:13,000 --> 00:00:14,000
+so we're using Lambda,
+
+7
+00:00:14,000 --> 00:00:17,000
+and we're Reading, Creating, Updating and Deleting data
+
+8
+00:00:17,000 --> 00:00:18,000
+from DynamoDB,
+
+9
+00:00:18,000 --> 00:00:21,000
+which are both server less technologies
+
+10
+00:00:21,000 --> 00:00:24,000
+but we want external clients to be able to access our Lambda
+
+11
+00:00:24,000 --> 00:00:25,000
+function.
+
+12
+00:00:25,000 --> 00:00:29,000
+But a Lambda function is not exposed as an API right away.
+
+13
+00:00:29,000 --> 00:00:31,000
+For this we need to expose it
+
+14
+00:00:31,000 --> 00:00:33,000
+through an API Gateway
+
+15
+00:00:33,000 --> 00:00:37,000
+which is going to provide the client with the rest HTTP API
+
+16
+00:00:37,000 --> 00:00:39,000
+to connect directly to your website.
+
+17
+00:00:39,000 --> 00:00:41,000
+And so, as we can see the client
+
+18
+00:00:41,000 --> 00:00:42,000
+will talk to the API Gateway.
+
+19
+00:00:42,000 --> 00:00:44,000
+The API gateway will proxy the request
+
+20
+00:00:44,000 --> 00:00:45,000
+to your lender functions
+
+21
+00:00:45,000 --> 00:00:50,000
+which will execute the transformations on your data.
+
+22
+00:00:50,000 --> 00:00:52,000
+And so API Gateway is used
+
+23
+00:00:52,000 --> 00:00:53,000
+as a fully managed service
+
+24
+00:00:53,000 --> 00:00:55,000
+that is going to allow developers
+
+25
+00:00:55,000 --> 00:00:57,000
+to easily create, publish, maintain,
+
+26
+00:00:57,000 --> 00:01:00,000
+monitor, and secure APIs in the cloud.
+
+27
+00:01:00,000 --> 00:01:02,000
+It is a server less technology,
+
+28
+00:01:02,000 --> 00:01:04,000
+and it is fully scalable.
+
+29
+00:01:04,000 --> 00:01:06,000
+It supports RESTful APIs,
+
+30
+00:01:06,000 --> 00:01:09,000
+and also WebSocket APIs for real time streaming of data.
+
+31
+00:01:09,000 --> 00:01:13,000
+It supports also security, user authentication,
+
+32
+00:01:13,000 --> 00:01:17,000
+API throttling, API keys, monitoring, and so on.
+
+33
+00:01:17,000 --> 00:01:19,000
+So when you see going to exam
+
+34
+00:01:19,000 --> 00:01:21,000
+which creates a server less API
+
+35
+00:01:21,000 --> 00:01:24,000
+you need to think about API Gateway and Lambda.
+
+36
+00:01:24,000 --> 00:01:25,000
+That's it for this lecture.
+
+37
+00:01:25,000 --> 00:01:26,000
+I hope you liked it.
+
+38
+00:01:26,000 --> 00:01:28,000
+And I will see you in the next lecture.
+

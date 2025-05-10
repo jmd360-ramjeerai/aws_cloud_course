@@ -1,0 +1,356 @@
+1
+00:00:00,000 --> 00:00:02,000
+So when you deploy RDS databases, you need to understand
+
+2
+00:00:02,000 --> 00:00:04,000
+there are multiple architectural choices
+
+3
+00:00:04,000 --> 00:00:06,000
+you need to make, that you can make, actually.
+
+4
+00:00:06,000 --> 00:00:10,000
+So the first is to use RDS Read Replica.
+
+5
+00:00:10,000 --> 00:00:12,000
+So let's take the example of your application,
+
+6
+00:00:12,000 --> 00:00:16,000
+that reads from your main RDS database.
+
+7
+00:00:16,000 --> 00:00:18,000
+But say that now you need to scale the read workloads,
+
+8
+00:00:18,000 --> 00:00:20,000
+we have more and more applications
+
+9
+00:00:20,000 --> 00:00:23,000
+that need to read more and more data from RDS.
+
+10
+00:00:23,000 --> 00:00:26,000
+The way you can do it is by creating Read Replica.
+
+11
+00:00:26,000 --> 00:00:28,000
+So that means that there is gonna be some copies,
+
+12
+00:00:28,000 --> 00:00:31,000
+some replicas of your RDS database
+
+13
+00:00:31,000 --> 00:00:32,000
+that are going to be created.
+
+14
+00:00:32,000 --> 00:00:35,000
+And this is going to allow your applications
+
+15
+00:00:35,000 --> 00:00:38,000
+to read from this Read Replica also.
+
+16
+00:00:38,000 --> 00:00:40,000
+And therefore, you're distributing the reads
+
+17
+00:00:40,000 --> 00:00:42,000
+to many different RDS databases.
+
+18
+00:00:42,000 --> 00:00:45,000
+So you can create up to 15 Read Replicas.
+
+19
+00:00:45,000 --> 00:00:46,000
+So as you can see, in this example,
+
+20
+00:00:46,000 --> 00:00:50,000
+I have two Read Replicas on top of my main RDS database,
+
+21
+00:00:50,000 --> 00:00:53,000
+and my applications can read from all of them.
+
+22
+00:00:53,000 --> 00:00:56,000
+Now, when it comes to writing data,
+
+23
+00:00:56,000 --> 00:01:00,000
+writing data is only done to the main database,
+
+24
+00:01:00,000 --> 00:01:01,000
+so your application still have to write
+
+25
+00:01:01,000 --> 00:01:05,000
+to the only one central RDS database, okay.
+
+26
+00:01:05,000 --> 00:01:07,000
+So Read Replicas are used to scale reads.
+
+27
+00:01:07,000 --> 00:01:10,000
+Now we have Multi-AZ.
+
+28
+00:01:10,000 --> 00:01:11,000
+And so this is helpful when you have
+
+29
+00:01:11,000 --> 00:01:15,000
+to have failover in case of an AZ outage.
+
+30
+00:01:15,000 --> 00:01:18,000
+So in case in the availability zone,
+
+31
+00:01:18,000 --> 00:01:21,000
+like crashes, and this gives you high availability.
+
+32
+00:01:21,000 --> 00:01:24,000
+So in this example, your applications to read and write
+
+33
+00:01:24,000 --> 00:01:27,000
+from the same main RDS database, okay.
+
+34
+00:01:27,000 --> 00:01:29,000
+But we are going to set up
+
+35
+00:01:29,000 --> 00:01:31,000
+a replication cross AZ,
+
+36
+00:01:31,000 --> 00:01:35,000
+so in another different availability zone.
+
+37
+00:01:35,000 --> 00:01:37,000
+And this is going to be a failover database,
+
+38
+00:01:37,000 --> 00:01:38,000
+and this is why it's called Multi-AZ
+
+39
+00:01:38,000 --> 00:01:40,000
+because it's in a different AZ.
+
+40
+00:01:40,000 --> 00:01:44,000
+Now, in case the main RDS database crashes,
+
+41
+00:01:44,000 --> 00:01:44,000
+for whatever reason,
+
+42
+00:01:44,000 --> 00:01:46,000
+because maybe there's an issue with it,
+
+43
+00:01:46,000 --> 00:01:49,000
+or maybe because the AZ is having problems,
+
+44
+00:01:49,000 --> 00:01:53,000
+then RDS will trigger a failover.
+
+45
+00:01:53,000 --> 00:01:55,000
+And then your application will failover
+
+46
+00:01:55,000 --> 00:01:57,000
+to developer database in a different AZ.
+
+47
+00:01:57,000 --> 00:02:00,000
+So in this case, data is only read and written
+
+48
+00:02:00,000 --> 00:02:01,000
+to the main database.
+
+49
+00:02:01,000 --> 00:02:03,000
+The failover DB is passive,
+
+50
+00:02:03,000 --> 00:02:05,000
+it's not accessible until there is an issue
+
+51
+00:02:05,000 --> 00:02:07,000
+with the main database.
+
+52
+00:02:07,000 --> 00:02:11,000
+And you can only have one other AZ zone as a failover AZ.
+
+53
+00:02:13,000 --> 00:02:15,000
+The last kind of deployment you can do
+
+54
+00:02:15,000 --> 00:02:16,000
+is called Multi Region.
+
+55
+00:02:16,000 --> 00:02:18,000
+So this is for read replicas,
+
+56
+00:02:18,000 --> 00:02:21,000
+but this time, instead of being in the same region,
+
+57
+00:02:21,000 --> 00:02:22,000
+they are across different regions.
+
+58
+00:02:22,000 --> 00:02:24,000
+So to take an example,
+
+59
+00:02:24,000 --> 00:02:26,000
+we have EU-West one for RDS database,
+
+60
+00:02:26,000 --> 00:02:29,000
+and we're going to create a read replica in US-East two.
+
+61
+00:02:29,000 --> 00:02:33,000
+And so applications in US-East two can read locally
+
+62
+00:02:33,000 --> 00:02:35,000
+from this read replica.
+
+63
+00:02:35,000 --> 00:02:37,000
+But anytime this application needs to write data,
+
+64
+00:02:37,000 --> 00:02:40,000
+the writes need to happen across region.
+
+65
+00:02:40,000 --> 00:02:44,000
+And so we need to write the data to US one.
+
+66
+00:02:44,000 --> 00:02:48,000
+Same if you were to have also another region
+
+67
+00:02:48,000 --> 00:02:50,000
+in AP-Southeast two so in Australia,
+
+68
+00:02:50,000 --> 00:02:51,000
+you'd have the same concepts.
+
+69
+00:02:51,000 --> 00:02:54,000
+So why would you want a multi region type of deployments?
+
+70
+00:02:54,000 --> 00:02:55,000
+Well, number one,
+
+71
+00:02:55,000 --> 00:02:58,000
+because you want to set up a disaster recovery strategy,
+
+72
+00:02:58,000 --> 00:02:59,000
+in case of a region issue.
+
+73
+00:02:59,000 --> 00:03:02,000
+So if EU-West one is having a regional issue,
+
+74
+00:03:02,000 --> 00:03:06,000
+then you have a backup in either ES-East two,
+
+75
+00:03:06,000 --> 00:03:07,000
+or AP-Southeast two,
+
+76
+00:03:07,000 --> 00:03:10,000
+and this is why it's a disaster recovery strategy.
+
+77
+00:03:10,000 --> 00:03:12,000
+And also, as you can see,
+
+78
+00:03:12,000 --> 00:03:15,000
+our applications that are in different regions
+
+79
+00:03:15,000 --> 00:03:16,000
+get better performance, because they're read
+
+80
+00:03:16,000 --> 00:03:20,000
+from a local database, so they have less latency.
+
+81
+00:03:20,000 --> 00:03:21,000
+But finally, when you do this,
+
+82
+00:03:21,000 --> 00:03:22,000
+you need to understand that
+
+83
+00:03:22,000 --> 00:03:25,000
+because you are replicating data across regions,
+
+84
+00:03:25,000 --> 00:03:28,000
+then there is going to be a replication cost associated
+
+85
+00:03:28,000 --> 00:03:31,000
+with a network transfers of data between regions.
+
+86
+00:03:31,000 --> 00:03:32,000
+So that's it for RDS deployments,
+
+87
+00:03:32,000 --> 00:03:36,000
+the scenarios that will be proposed to you at the exam
+
+88
+00:03:36,000 --> 00:03:38,000
+will make it clear what department you choose.
+
+89
+00:03:38,000 --> 00:03:41,000
+So hope you liked it and I will see you in the next lecture.
+

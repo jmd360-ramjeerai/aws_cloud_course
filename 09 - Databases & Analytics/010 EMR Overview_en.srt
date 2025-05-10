@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:01,000
+Another type of database we have
+
+2
+00:00:01,000 --> 00:00:06,000
+on AWS is Amazon EMR, and EMR stands for Elastic MapReduce.
+
+3
+00:00:07,000 --> 00:00:09,000
+So EMR is actually not really a database.
+
+4
+00:00:09,000 --> 00:00:12,000
+It's to create what's called a Hadoop cluster
+
+5
+00:00:12,000 --> 00:00:15,000
+when you wanna do big data on AWS,
+
+6
+00:00:15,000 --> 00:00:17,000
+and a Hadoop cluster is used to analyze
+
+7
+00:00:17,000 --> 00:00:20,000
+and process vast amount of data.
+
+8
+00:00:20,000 --> 00:00:22,000
+So Hadoop is an open source technology,
+
+9
+00:00:22,000 --> 00:00:26,000
+and they allow multiple servers that work in a cluster
+
+10
+00:00:26,000 --> 00:00:29,000
+to analyze the data together, and so when you're using EMR,
+
+11
+00:00:29,000 --> 00:00:34,000
+you can create a cluster made of hundreds of EC2 instances
+
+12
+00:00:34,000 --> 00:00:37,000
+that will be collaborating together to analyze your data.
+
+13
+00:00:37,000 --> 00:00:40,000
+So part of the Hadoop ecosystem, the Big Data ecosystem,
+
+14
+00:00:40,000 --> 00:00:44,000
+you will see projects names such as Apache Spark, HBase,
+
+15
+00:00:44,000 --> 00:00:46,000
+Presto, and Flink, and all these things
+
+16
+00:00:46,000 --> 00:00:48,000
+will be working on top of your Hadoop cluster.
+
+17
+00:00:48,000 --> 00:00:50,000
+So what is EMR then?
+
+18
+00:00:50,000 --> 00:00:54,000
+Well, EMR takes care of provisioning all these EC2 instances
+
+19
+00:00:54,000 --> 00:00:57,000
+and configuring them so that they work together
+
+20
+00:00:57,000 --> 00:01:00,000
+and can analyze together data from a big data perspective.
+
+21
+00:01:00,000 --> 00:01:02,000
+Finally, it has auto-scaling
+
+22
+00:01:02,000 --> 00:01:04,000
+and it is integrated with Spot instances,
+
+23
+00:01:04,000 --> 00:01:07,000
+and the use cases for EMR will be data processing,
+
+24
+00:01:07,000 --> 00:01:11,000
+machine learning, web indexing, or big data in general.
+
+25
+00:01:11,000 --> 00:01:12,000
+So from an exam perspective,
+
+26
+00:01:12,000 --> 00:01:14,000
+any time you see Hadoop cluster,
+
+27
+00:01:14,000 --> 00:01:17,000
+think no more, it's going to be Amazon EMR.
+
+28
+00:01:17,000 --> 00:01:19,000
+That's it, I hope that was helpful,
+
+29
+00:01:19,000 --> 00:01:20,000
+and I will see you in the next lecture.
+

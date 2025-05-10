@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about a second type
+
+2
+00:00:02,000 --> 00:00:05,000
+of database you will see on AWS,
+
+3
+00:00:05,000 --> 00:00:07,000
+which is Amazon ElastiCache.
+
+4
+00:00:07,000 --> 00:00:09,000
+So the same way you use RDS to get
+
+5
+00:00:09,000 --> 00:00:11,000
+managed Relational Databases,
+
+6
+00:00:11,000 --> 00:00:14,000
+you're going to get ElastiCache to get a managed,
+
+7
+00:00:14,000 --> 00:00:17,000
+Redis or Memcached database.
+
+8
+00:00:17,000 --> 00:00:20,000
+These caches are going to be in-memory databases
+
+9
+00:00:20,000 --> 00:00:23,000
+with high performance, low latency.
+
+10
+00:00:23,000 --> 00:00:25,000
+So anytime in the exam you see something that says
+
+11
+00:00:25,000 --> 00:00:27,000
+you need an in-memory database,
+
+12
+00:00:27,000 --> 00:00:30,000
+you have to think directly ElastiCache.
+
+13
+00:00:30,000 --> 00:00:32,000
+Now ElastiCache will be helpful
+
+14
+00:00:32,000 --> 00:00:34,000
+to reduce load off of databases
+
+15
+00:00:34,000 --> 00:00:37,000
+that have a read intensive workloads.
+
+16
+00:00:37,000 --> 00:00:39,000
+The idea is that if we have an RDS database
+
+17
+00:00:39,000 --> 00:00:41,000
+and we're doing a lot of query on it
+
+18
+00:00:41,000 --> 00:00:43,000
+and they're the same queries all the time,
+
+19
+00:00:43,000 --> 00:00:46,000
+we put a bit of pressure onto that RDS database.
+
+20
+00:00:46,000 --> 00:00:47,000
+Instead what we could be doing,
+
+21
+00:00:47,000 --> 00:00:50,000
+is to use a cache to reduce the pressure
+
+22
+00:00:50,000 --> 00:00:53,000
+off of the database by making sure the queries
+
+23
+00:00:53,000 --> 00:00:56,000
+are directly going onto my in-memory database
+
+24
+00:00:56,000 --> 00:00:57,000
+through ElastiCache.
+
+25
+00:00:57,000 --> 00:00:59,000
+And because this is a managed database,
+
+26
+00:00:59,000 --> 00:01:01,000
+then AWS will take care of all the operating system
+
+27
+00:01:01,000 --> 00:01:03,000
+maintenance and patching, the optimizations,
+
+28
+00:01:03,000 --> 00:01:06,000
+the setup, the configuration, the monitoring,
+
+29
+00:01:06,000 --> 00:01:08,000
+failure recovery and backups.
+
+30
+00:01:08,000 --> 00:01:12,000
+So we've already learned a lot about caches in this exam
+
+31
+00:01:12,000 --> 00:01:15,000
+but we need to know it's an in-memory database
+
+32
+00:01:15,000 --> 00:01:17,000
+and the solution architecture around using a cache
+
+33
+00:01:17,000 --> 00:01:18,000
+looks like this.
+
+34
+00:01:18,000 --> 00:01:19,000
+So you're Elastic Load Balancer
+
+35
+00:01:19,000 --> 00:01:21,000
+will go to your EC2 Instances.
+
+36
+00:01:21,000 --> 00:01:23,000
+Possibly in an ASG.
+
+37
+00:01:23,000 --> 00:01:26,000
+They will be reading and writing data from
+
+38
+00:01:26,000 --> 00:01:29,000
+your Amazon RDS database, which is slow.
+
+39
+00:01:29,000 --> 00:01:32,000
+And then if possible there will be caching some values
+
+40
+00:01:32,000 --> 00:01:35,000
+into an Amazon ElastiCache database
+
+41
+00:01:35,000 --> 00:01:38,000
+and this will be very fast because it's in-memory.
+
+42
+00:01:38,000 --> 00:01:41,000
+And so with ElastiCache, there will be pressure
+
+43
+00:01:41,000 --> 00:01:44,000
+taken off the main RDS database
+
+44
+00:01:44,000 --> 00:01:47,000
+and put it on to the ElastiCache database
+
+45
+00:01:47,000 --> 00:01:49,000
+and that's the whole idea behind the cache.
+
+46
+00:01:49,000 --> 00:01:52,000
+You want to save the queries somewhere else,
+
+47
+00:01:52,000 --> 00:01:54,000
+so that they're very readily available.
+
+48
+00:01:54,000 --> 00:01:57,000
+Easily accessible and they can relieve, again pressure
+
+49
+00:01:57,000 --> 00:01:59,000
+from the main database.
+
+50
+00:01:59,000 --> 00:02:00,000
+So that's it, that's all you need to know going
+
+51
+00:02:00,000 --> 00:02:03,000
+into the exam and I will see you in the next lecture.
+

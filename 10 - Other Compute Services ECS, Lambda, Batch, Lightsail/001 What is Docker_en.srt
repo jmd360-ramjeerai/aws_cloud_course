@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:02,000
+So we are getting into the ECS Section,
+
+2
+00:00:02,000 --> 00:00:06,000
+but before talking about ECS we need to talk about Docker.
+
+3
+00:00:06,000 --> 00:00:08,000
+So Docker is something you may have heard before.
+
+4
+00:00:08,000 --> 00:00:09,000
+I'll try to simplify it.
+
+5
+00:00:09,000 --> 00:00:12,000
+You can make a 12 hour long course on Docker.
+
+6
+00:00:12,000 --> 00:00:14,000
+We'll try to make it short in four minutes.
+
+7
+00:00:14,000 --> 00:00:15,000
+So what is Docker?
+
+8
+00:00:15,000 --> 00:00:19,000
+Docker is a software development platform to deploy apps.
+
+9
+00:00:19,000 --> 00:00:21,000
+So the way we've been deploying applications from before
+
+10
+00:00:21,000 --> 00:00:23,000
+is to install them on Linux
+
+11
+00:00:23,000 --> 00:00:24,000
+and then they will work,
+
+12
+00:00:24,000 --> 00:00:27,000
+but with Docker, you will package your app
+
+13
+00:00:27,000 --> 00:00:29,000
+into something called a container
+
+14
+00:00:29,000 --> 00:00:31,000
+and that container is very special,
+
+15
+00:00:31,000 --> 00:00:35,000
+because it can be run on any operating system very easily.
+
+16
+00:00:35,000 --> 00:00:37,000
+The app, once in a container
+
+17
+00:00:37,000 --> 00:00:38,000
+will run the exact same way,
+
+18
+00:00:38,000 --> 00:00:40,000
+regardless of where they're run.
+
+19
+00:00:40,000 --> 00:00:42,000
+So it could be any machine,
+
+20
+00:00:42,000 --> 00:00:45,000
+no compatibility issues with predictable behavior,
+
+21
+00:00:45,000 --> 00:00:48,000
+less work, easier to maintain and deploy.
+
+22
+00:00:48,000 --> 00:00:49,000
+It will work with any programming language,
+
+23
+00:00:49,000 --> 00:00:52,000
+any operating system, any technology
+
+24
+00:00:52,000 --> 00:00:54,000
+and with Docker you can scale containers up and down
+
+25
+00:00:54,000 --> 00:00:57,000
+very quickly in a matter of seconds.
+
+26
+00:00:57,000 --> 00:00:58,000
+So that makes Docker
+
+27
+00:00:58,000 --> 00:01:01,000
+something that is extremely powerful nowadays
+
+28
+00:01:01,000 --> 00:01:03,000
+to deploy applications.
+
+29
+00:01:03,000 --> 00:01:06,000
+So if we talk about Docker on an EC2 Instance,
+
+30
+00:01:06,000 --> 00:01:07,000
+we would have, for example,
+
+31
+00:01:07,000 --> 00:01:08,000
+a Docker running Java code,
+
+32
+00:01:08,000 --> 00:01:11,000
+a Docker running NodeJS code,
+
+33
+00:01:11,000 --> 00:01:13,000
+a Docker running in My SQL Database,
+
+34
+00:01:13,000 --> 00:01:15,000
+a Docker running Java and so on
+
+35
+00:01:15,000 --> 00:01:19,000
+all onto the same EC2 Instance.
+
+36
+00:01:19,000 --> 00:01:23,000
+So the idea is that if we managed to package our application
+
+37
+00:01:23,000 --> 00:01:24,000
+in a Docker container,
+
+38
+00:01:24,000 --> 00:01:27,000
+then it will become very easy for us to run it
+
+39
+00:01:27,000 --> 00:01:29,000
+on an EC2 Instance.
+
+40
+00:01:29,000 --> 00:01:32,000
+So Docker images, you need to create them.
+
+41
+00:01:32,000 --> 00:01:34,000
+This is how your container will be run
+
+42
+00:01:34,000 --> 00:01:35,000
+and they can be stored
+
+43
+00:01:35,000 --> 00:01:37,000
+in something called Docker Repositories.
+
+44
+00:01:37,000 --> 00:01:40,000
+So there is a public Docker Repository called the Docker Hub
+
+45
+00:01:40,000 --> 00:01:42,000
+available at this address.
+
+46
+00:01:42,000 --> 00:01:44,000
+And you can find the base images for many technologies
+
+47
+00:01:44,000 --> 00:01:45,000
+or operating systems.
+
+48
+00:01:45,000 --> 00:01:49,000
+So for Ubuntu, which is a Linux Operating System,
+
+49
+00:01:49,000 --> 00:01:51,000
+or My SQL, this is a database technology,
+
+50
+00:01:51,000 --> 00:01:53,000
+NodeJS Java Programming Languages
+
+51
+00:01:53,000 --> 00:01:55,000
+or as we'll see in this section,
+
+52
+00:01:55,000 --> 00:01:57,000
+we can use Amazon ECR,
+
+53
+00:01:57,000 --> 00:01:59,000
+which is a private Docker Repository.
+
+54
+00:01:59,000 --> 00:02:03,000
+This is where you can store your private Docker images.
+
+55
+00:02:03,000 --> 00:02:04,000
+So this is more advanced,
+
+56
+00:02:04,000 --> 00:02:06,000
+but the question is, do you wanna use Docker
+
+57
+00:02:06,000 --> 00:02:08,000
+or virtual machine?
+
+58
+00:02:08,000 --> 00:02:11,000
+So Docker is sort of a visualization technology,
+
+59
+00:02:11,000 --> 00:02:12,000
+but not exactly.
+
+60
+00:02:12,000 --> 00:02:14,000
+So the resources are shared with a host.
+
+61
+00:02:14,000 --> 00:02:18,000
+That means that you can have many containers on one server.
+
+62
+00:02:18,000 --> 00:02:20,000
+So if we look at comparing EC2 and Docker,
+
+63
+00:02:20,000 --> 00:02:21,000
+this is all in the works.
+
+64
+00:02:21,000 --> 00:02:24,000
+So we have the infrastructure which is on AWS,
+
+65
+00:02:24,000 --> 00:02:26,000
+the Host Operating System,
+
+66
+00:02:26,000 --> 00:02:27,000
+then the Hypervisor
+
+67
+00:02:27,000 --> 00:02:29,000
+and this is stuff we don't have access to.
+
+68
+00:02:29,000 --> 00:02:32,000
+And then finally, when we get an EC2 Instance,
+
+69
+00:02:32,000 --> 00:02:36,000
+we have our application onto the Guest Operating System
+
+70
+00:02:36,000 --> 00:02:38,000
+and so if we want another EC2 Instance,
+
+71
+00:02:38,000 --> 00:02:39,000
+it will be created like this
+
+72
+00:02:39,000 --> 00:02:43,000
+and a third EC2 Instance, it will be credited like that.
+
+73
+00:02:43,000 --> 00:02:44,000
+So this works great
+
+74
+00:02:44,000 --> 00:02:47,000
+and this is what happens when we create EC2 Instances.
+
+75
+00:02:47,000 --> 00:02:50,000
+But in the case of Docker, we have the infrastructure,
+
+76
+00:02:50,000 --> 00:02:53,000
+the Host OS which is the EC2 Instance
+
+77
+00:02:53,000 --> 00:02:54,000
+and then the Docker Daemon.
+
+78
+00:02:54,000 --> 00:02:57,000
+And then as soon as the Docker Daemon is running,
+
+79
+00:02:57,000 --> 00:03:00,000
+we can have many containers running on to the Docker Daemon
+
+80
+00:03:00,000 --> 00:03:01,000
+and they're more light weights.
+
+81
+00:03:01,000 --> 00:03:02,000
+They don't package,
+
+82
+00:03:02,000 --> 00:03:04,000
+they don't come with a full operating system
+
+83
+00:03:04,000 --> 00:03:06,000
+and a virtual machine, all of them.
+
+84
+00:03:06,000 --> 00:03:09,000
+And so that makes Docker very versatile, very easy to scale
+
+85
+00:03:09,000 --> 00:03:11,000
+and very easy to run.
+
+86
+00:03:11,000 --> 00:03:13,000
+So this is just an overview of Docker.
+
+87
+00:03:13,000 --> 00:03:16,000
+You don't need to know what Docker is going into the exam,
+
+88
+00:03:16,000 --> 00:03:19,000
+but I wanted to give you that sweet little overview
+
+89
+00:03:19,000 --> 00:03:21,000
+in case you were curious
+
+90
+00:03:21,000 --> 00:03:21,000
+and in the next lecture,
+
+91
+00:03:21,000 --> 00:03:23,000
+we'll deal about how to do Docker on AWS
+
+92
+00:03:23,000 --> 00:03:25,000
+and that will be ECS.
+
+93
+00:03:25,000 --> 00:03:27,000
+So I will see you in the next lecture.
+

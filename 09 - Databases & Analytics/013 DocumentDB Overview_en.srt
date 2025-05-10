@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,000
+Now let's talk about DocumentDB.
+
+2
+00:00:02,000 --> 00:00:06,000
+So the same way we had Aurora as the way for AWS
+
+3
+00:00:06,000 --> 00:00:09,000
+to implement a sort of big cloud native version
+
+4
+00:00:09,000 --> 00:00:11,000
+of PostgreSQL and MySQL,
+
+5
+00:00:11,000 --> 00:00:16,000
+we have DocumentDB, which is an Aurora version for MongoDB.
+
+6
+00:00:16,000 --> 00:00:17,000
+So MongoDB, if you don't know,
+
+7
+00:00:17,000 --> 00:00:19,000
+that's the logo on the top right corner of your screen,
+
+8
+00:00:19,000 --> 00:00:21,000
+it is another no SQL database
+
+9
+00:00:21,000 --> 00:00:23,000
+and you need to remember this for the exam.
+
+10
+00:00:23,000 --> 00:00:25,000
+So DocumentDB is a no SQL database
+
+11
+00:00:25,000 --> 00:00:29,000
+and it's based on top of the MongoDB technology.
+
+12
+00:00:29,000 --> 00:00:31,000
+So it's compatible with MongoDB.
+
+13
+00:00:31,000 --> 00:00:36,000
+So MongoDB is used to store query and index JSON data,
+
+14
+00:00:36,000 --> 00:00:39,000
+and you have the same similar deployment concept
+
+15
+00:00:39,000 --> 00:00:41,000
+as Aurora with DocumentDB.
+
+16
+00:00:41,000 --> 00:00:43,000
+So that means it's a fully managed database,
+
+17
+00:00:43,000 --> 00:00:44,000
+it's highly available.
+
+18
+00:00:44,000 --> 00:00:47,000
+Data is replicated across three availability zones
+
+19
+00:00:47,000 --> 00:00:50,000
+and DocumentDB storage automatically will grow
+
+20
+00:00:50,000 --> 00:00:52,000
+in increments of 10 gigabytes,
+
+21
+00:00:52,000 --> 00:00:54,000
+and DocumentDB has been engineered
+
+22
+00:00:54,000 --> 00:00:55,000
+so it can scale to workloads
+
+23
+00:00:55,000 --> 00:00:58,000
+with millions of requests per second.
+
+24
+00:00:58,000 --> 00:01:02,000
+So at the exam, if you see anything related to MongoDB,
+
+25
+00:01:02,000 --> 00:01:05,000
+think DocumentDB, or if you see anything related
+
+26
+00:01:05,000 --> 00:01:10,000
+to no SQL databases, think DocumentDB and also DynamoDB.
+
+27
+00:01:11,000 --> 00:01:12,000
+That's it for this lecture.
+
+28
+00:01:12,000 --> 00:01:13,000
+I hope you liked it,
+
+29
+00:01:13,000 --> 00:01:14,000
+and I will see you in the next lecture.
+

@@ -1,0 +1,484 @@
+1
+00:00:00,000 --> 00:00:01,000
+The first kind of databases
+
+2
+00:00:01,000 --> 00:00:03,000
+we're going to see is the relational databases,
+
+3
+00:00:03,000 --> 00:00:06,000
+and for it we have RDS.
+
+4
+00:00:06,000 --> 00:00:09,000
+RDS stands for Relational Database Service,
+
+5
+00:00:09,000 --> 00:00:12,000
+so it's very clear that it's only for relational databases
+
+6
+00:00:12,000 --> 00:00:14,000
+and it will be using the SQL language.
+
+7
+00:00:14,000 --> 00:00:17,000
+So it's a managed database service for databases
+
+8
+00:00:17,000 --> 00:00:19,000
+that will use SQL as a query language,
+
+9
+00:00:19,000 --> 00:00:21,000
+and it will allow you to create databases
+
+10
+00:00:21,000 --> 00:00:24,000
+in the cloud that will be managed by AWS.
+
+11
+00:00:24,000 --> 00:00:26,000
+These databases can be of different kinds.
+
+12
+00:00:26,000 --> 00:00:29,000
+It could be a Postgres. MySQL, MariaDB.
+
+13
+00:00:29,000 --> 00:00:34,000
+Oracle, Microsoft SQL Server, IBM DB2,
+
+14
+00:00:34,000 --> 00:00:36,000
+and finally, something called Aurora,
+
+15
+00:00:36,000 --> 00:00:39,000
+which is a proprietary database from AWS,
+
+16
+00:00:39,000 --> 00:00:42,000
+which we'll be seeing in this lecture as well.
+
+17
+00:00:42,000 --> 00:00:44,000
+So why would we use RDS
+
+18
+00:00:44,000 --> 00:00:47,000
+instead of deploying our own databases on EC2?
+
+19
+00:00:47,000 --> 00:00:50,000
+Well, RDS is a managed database service,
+
+20
+00:00:50,000 --> 00:00:53,000
+so provisioning the database will be automatic.
+
+21
+00:00:53,000 --> 00:00:56,000
+The patching of the operating system will be done by AWS.
+
+22
+00:00:56,000 --> 00:00:58,000
+We will have continuous backups
+
+23
+00:00:58,000 --> 00:01:01,000
+and restore options with Point in Time Restore.
+
+24
+00:01:01,000 --> 00:01:02,000
+We'll have monitoring dashboards
+
+25
+00:01:02,000 --> 00:01:04,000
+to see if our database is doing good.
+
+26
+00:01:04,000 --> 00:01:07,000
+We'll be able to scale the reads by creating read replicas
+
+27
+00:01:07,000 --> 00:01:09,000
+and improve the read performance.
+
+28
+00:01:09,000 --> 00:01:12,000
+We will have the way to set up Multi AZ
+
+29
+00:01:12,000 --> 00:01:13,000
+to make sure that we're ready
+
+30
+00:01:15,000 --> 00:01:16,000
+to have a plan for disaster recovery
+
+31
+00:01:16,000 --> 00:01:19,000
+against a whole availability zone going down.
+
+32
+00:01:19,000 --> 00:01:22,000
+And finally, we can set up maintenance windows for upgrades
+
+33
+00:01:22,000 --> 00:01:25,000
+and we can scale vertically and horizontally.
+
+34
+00:01:25,000 --> 00:01:28,000
+This storage is going to be backed by EBS.
+
+35
+00:01:28,000 --> 00:01:30,000
+And the only thing that we cannot do
+
+36
+00:01:30,000 --> 00:01:33,000
+with an RDS database is that we cannot SSH
+
+37
+00:01:33,000 --> 00:01:35,000
+into your RDS database instance, okay?
+
+38
+00:01:35,000 --> 00:01:37,000
+We're just using the service,
+
+39
+00:01:37,000 --> 00:01:39,000
+AWS manage entirely the database for us,
+
+40
+00:01:39,000 --> 00:01:42,000
+so we cannot use the SSH utility
+
+41
+00:01:42,000 --> 00:01:45,000
+to see what's going on within our database.
+
+42
+00:01:45,000 --> 00:01:47,000
+Okay, so where does RDS fit
+
+43
+00:01:47,000 --> 00:01:48,000
+within our solution architecture?
+
+44
+00:01:48,000 --> 00:01:50,000
+Well, we have our load balancer,
+
+45
+00:01:50,000 --> 00:01:53,000
+and it's fronting multiple backend EC2 instances,
+
+46
+00:01:53,000 --> 00:01:56,000
+they're possibly into an auto scaling group,
+
+47
+00:01:56,000 --> 00:01:59,000
+and they need to store and share the data somewhere.
+
+48
+00:01:59,000 --> 00:02:00,000
+And this is structured data,
+
+49
+00:02:00,000 --> 00:02:02,000
+so they're not going to use EBS
+
+50
+00:02:02,000 --> 00:02:05,000
+or EFS or EC2 instance store,
+
+51
+00:02:05,000 --> 00:02:07,000
+they will be using a database and in this example,
+
+52
+00:02:07,000 --> 00:02:11,000
+it is a relational database, so SQL based.
+
+53
+00:02:11,000 --> 00:02:14,000
+And the EC2 instances will be connecting
+
+54
+00:02:14,000 --> 00:02:18,000
+to the database and doing read writes all at once.
+
+55
+00:02:18,000 --> 00:02:20,000
+So they will be sharing the database in the backend,
+
+56
+00:02:20,000 --> 00:02:23,000
+and this is a classic solution architecture,
+
+57
+00:02:23,000 --> 00:02:26,000
+not just using RDS, but using any kind of database.
+
+58
+00:02:26,000 --> 00:02:28,000
+You have the load balancer layer
+
+59
+00:02:28,000 --> 00:02:29,000
+that will be taking the web request,
+
+60
+00:02:29,000 --> 00:02:33,000
+the backend EC2 instances doing the application logic,
+
+61
+00:02:33,000 --> 00:02:35,000
+and the last tier, which is the right hand side,
+
+62
+00:02:35,000 --> 00:02:37,000
+which is going to be the database tier
+
+63
+00:02:37,000 --> 00:02:40,000
+doing the reads and the writes of the data.
+
+64
+00:02:40,000 --> 00:02:41,000
+Okay, so this is for RDS.
+
+65
+00:02:41,000 --> 00:02:43,000
+So now for Aurora.
+
+66
+00:02:43,000 --> 00:02:45,000
+So, Aurora is going to be a database technology
+
+67
+00:02:45,000 --> 00:02:48,000
+created by AWS, it's not open source,
+
+68
+00:02:48,000 --> 00:02:50,000
+and it works the same way as RDS.
+
+69
+00:02:50,000 --> 00:02:52,000
+We have our EC2 instances connecting directly
+
+70
+00:02:52,000 --> 00:02:54,000
+into Amazon Aurora.
+
+71
+00:02:54,000 --> 00:02:57,000
+And Aurora supports two kinds of database technologies.
+
+72
+00:02:57,000 --> 00:03:00,000
+It supports PostgreSQL and MySQL.
+
+73
+00:03:00,000 --> 00:03:03,000
+The idea with Aurora is that it's going
+
+74
+00:03:03,000 --> 00:03:04,000
+to be cloud optimized,
+
+75
+00:03:04,000 --> 00:03:06,000
+and so there is a 5x performance improvement
+
+76
+00:03:06,000 --> 00:03:10,000
+over MySQL on RDS and a 3x performance improvement
+
+77
+00:03:10,000 --> 00:03:13,000
+over using Postgres on RDS.
+
+78
+00:03:13,000 --> 00:03:15,000
+On top of things, we don't need to worry
+
+79
+00:03:15,000 --> 00:03:16,000
+about the storage of an Aurora database
+
+80
+00:03:16,000 --> 00:03:19,000
+because the storage will grow automatically
+
+81
+00:03:19,000 --> 00:03:23,000
+in increments of 10 gigabytes up to 128 terabytes.
+
+82
+00:03:23,000 --> 00:03:25,000
+Even if Aurora is going to be more expensive than RDS,
+
+83
+00:03:25,000 --> 00:03:28,000
+about 20% more, it's going to be more efficient,
+
+84
+00:03:28,000 --> 00:03:30,000
+and so it should be more cost effective.
+
+85
+00:03:30,000 --> 00:03:32,000
+Finally, Aurora is not something
+
+86
+00:03:32,000 --> 00:03:36,000
+that's included into the free tier of AWS, but RDS is, okay?
+
+87
+00:03:36,000 --> 00:03:38,000
+So from an exam perspective,
+
+88
+00:03:38,000 --> 00:03:40,000
+RDS and Aurora are going to be
+
+89
+00:03:40,000 --> 00:03:44,000
+the two ways for you to create relational databases on AWS.
+
+90
+00:03:44,000 --> 00:03:45,000
+They're both managed,
+
+91
+00:03:45,000 --> 00:03:47,000
+and Aurora is going to be more cloud native,
+
+92
+00:03:47,000 --> 00:03:49,000
+whereas RDS is going to be running the technologies
+
+93
+00:03:49,000 --> 00:03:53,000
+you know directly as a managed service.
+
+94
+00:03:53,000 --> 00:03:56,000
+And we also have a serverless option for Amazon Aurora.
+
+95
+00:03:56,000 --> 00:03:58,000
+So this is where the database
+
+96
+00:03:58,000 --> 00:04:00,000
+instantiation is going to be automated.
+
+97
+00:04:00,000 --> 00:04:02,000
+And on top of it, you will have auto-scaling
+
+98
+00:04:02,000 --> 00:04:04,000
+based on actual usage of your database.
+
+99
+00:04:04,000 --> 00:04:08,000
+So both PostgreSQL and MySQL are supported as engines
+
+100
+00:04:08,000 --> 00:04:10,000
+of Aurora Serverless Database.
+
+101
+00:04:10,000 --> 00:04:12,000
+You don't need to do any kind of capacity planning.
+
+102
+00:04:12,000 --> 00:04:15,000
+There's no management because you don't manage servers
+
+103
+00:04:15,000 --> 00:04:17,000
+and you're going to pay per second,
+
+104
+00:04:17,000 --> 00:04:19,000
+so it can be a lot more cost effective
+
+105
+00:04:19,000 --> 00:04:22,000
+than provisioning an Aurora cluster yourself.
+
+106
+00:04:22,000 --> 00:04:24,000
+So this is going to be great when you have infrequent
+
+107
+00:04:24,000 --> 00:04:27,000
+or intermittent or unpredictable workloads.
+
+108
+00:04:27,000 --> 00:04:28,000
+So how does that work?
+
+109
+00:04:28,000 --> 00:04:31,000
+Well, from the client perspective, it's super easy.
+
+110
+00:04:31,000 --> 00:04:35,000
+It connects to a proxy fleet that is managed by Aurora.
+
+111
+00:04:35,000 --> 00:04:36,000
+And Aurora, behind the scenes,
+
+112
+00:04:36,000 --> 00:04:39,000
+is going to instantiate database instances
+
+113
+00:04:39,000 --> 00:04:42,000
+when it needs to scale up or down.
+
+114
+00:04:42,000 --> 00:04:44,000
+And these Aurora databases are going
+
+115
+00:04:44,000 --> 00:04:47,000
+to be sharing the same storage volume no matter what.
+
+116
+00:04:47,000 --> 00:04:49,000
+So from an exam perspective,
+
+117
+00:04:49,000 --> 00:04:53,000
+if you see Aurora with no management overhead and so on,
+
+118
+00:04:53,000 --> 00:04:55,000
+think of Aurora Serverless.
+
+119
+00:04:55,000 --> 00:04:57,000
+Okay, so that's it for this lecture.
+
+120
+00:04:57,000 --> 00:04:58,000
+I hope you liked it.
+
+121
+00:04:58,000 --> 00:05:00,000
+And I will see you in the next lecture.
+

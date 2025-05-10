@@ -1,0 +1,196 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now, I want to formally introduce
+
+2
+00:00:02,000 --> 00:00:04,000
+the Serverless Section to you.
+
+3
+00:00:04,000 --> 00:00:05,000
+So what is severless?
+
+4
+00:00:05,000 --> 00:00:08,000
+Severless is a catchy word but it is a new paradigm
+
+5
+00:00:08,000 --> 00:00:12,000
+in which the developers don't manage the servers anymore.
+
+6
+00:00:12,000 --> 00:00:14,000
+They just do what they do best,
+
+7
+00:00:14,000 --> 00:00:18,000
+they just deploy the codes or they deploy functions.
+
+8
+00:00:18,000 --> 00:00:20,000
+So initially, serverless was pioneered
+
+9
+00:00:20,000 --> 00:00:24,000
+as a Function as a Service with AWS Lambda,
+
+10
+00:00:24,000 --> 00:00:27,000
+and that means that you just deploy your code
+
+11
+00:00:27,000 --> 00:00:30,000
+and each function will be run independently
+
+12
+00:00:30,000 --> 00:00:33,000
+by the Lambda service, but nowadays,
+
+13
+00:00:33,000 --> 00:00:34,000
+anything that's serverless
+
+14
+00:00:34,000 --> 00:00:37,000
+is mostly mentioned as something that is managed
+
+15
+00:00:37,000 --> 00:00:40,000
+and that does include servers managed by the user
+
+16
+00:00:40,000 --> 00:00:42,000
+so that includes serverless databases,
+
+17
+00:00:42,000 --> 00:00:44,000
+messaging, storage, et cetera.
+
+18
+00:00:44,000 --> 00:00:47,000
+So serverless does not mean that there are no servers.
+
+19
+00:00:47,000 --> 00:00:49,000
+There are, of course, servers behind the scenes.
+
+20
+00:00:49,000 --> 00:00:51,000
+Otherwise, services would not work,
+
+21
+00:00:51,000 --> 00:00:53,000
+but it just means that as an end user,
+
+22
+00:00:53,000 --> 00:00:57,000
+you don't manage, provision, or even see the servers.
+
+23
+00:00:57,000 --> 00:00:59,000
+So in this course,
+
+24
+00:00:59,000 --> 00:01:01,000
+we have been using some serverless services
+
+25
+00:01:01,000 --> 00:01:02,000
+from the beginning.
+
+26
+00:01:02,000 --> 00:01:04,000
+So Amazon S3 was one of them
+
+27
+00:01:04,000 --> 00:01:06,000
+because we used it as a storage layer,
+
+28
+00:01:06,000 --> 00:01:09,000
+but we didn't manage any servers at all, okay?
+
+29
+00:01:09,000 --> 00:01:12,000
+Amazon S3 can scale infinitely, there was no servers,
+
+30
+00:01:12,000 --> 00:01:15,000
+it was just uploaded file, and that was it.
+
+31
+00:01:15,000 --> 00:01:16,000
+DynamoDB was another one.
+
+32
+00:01:16,000 --> 00:01:20,000
+So in DynamoDB, we just went ahead, we created a table,
+
+33
+00:01:20,000 --> 00:01:23,000
+but we didn't provision a server for that table,
+
+34
+00:01:23,000 --> 00:01:25,000
+and that server was, that table could auto scale
+
+35
+00:01:25,000 --> 00:01:27,000
+based on the load it was receiving.
+
+36
+00:01:27,000 --> 00:01:30,000
+So that makes it another serverless service.
+
+37
+00:01:30,000 --> 00:01:31,000
+Fargate is another one
+
+38
+00:01:31,000 --> 00:01:34,000
+so Fargate was to run Docker containers,
+
+39
+00:01:34,000 --> 00:01:38,000
+and as I said with ECS, you create EC2 instances
+
+40
+00:01:38,000 --> 00:01:39,000
+to run the Docker containers
+
+41
+00:01:39,000 --> 00:01:42,000
+so that would not be serverless, but with Fargate,
+
+42
+00:01:42,000 --> 00:01:43,000
+you just send the Docker containers
+
+43
+00:01:43,000 --> 00:01:47,000
+and Fargate will automatically find a way for it to be run
+
+44
+00:01:47,000 --> 00:01:50,000
+so that makes it another serverless service,
+
+45
+00:01:50,000 --> 00:01:52,000
+and in this section, we're going to see Lambda,
+
+46
+00:01:52,000 --> 00:01:55,000
+which was the pioneer of serverless services.
+
+47
+00:01:55,000 --> 00:01:59,000
+So Lambda allows you to run functions in the cloud.
+
+48
+00:01:59,000 --> 00:02:01,000
+So this is it for the quick intro to serverless,
+
+49
+00:02:01,000 --> 00:02:04,000
+I will see you in the next lecture to talk about Lambda.
+

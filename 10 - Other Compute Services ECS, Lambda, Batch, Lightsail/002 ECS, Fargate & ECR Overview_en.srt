@@ -1,0 +1,296 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about ECS.
+
+2
+00:00:02,000 --> 00:00:05,000
+ECS stands for elastic container service,
+
+3
+00:00:05,000 --> 00:00:08,000
+and this is used to launch the docker containers
+
+4
+00:00:08,000 --> 00:00:10,000
+we just talked about on AWS.
+
+5
+00:00:10,000 --> 00:00:11,000
+For it to work,
+
+6
+00:00:11,000 --> 00:00:13,000
+we need the docker containers to run somewhere,
+
+7
+00:00:13,000 --> 00:00:16,000
+and so for ECS, you must provision
+
+8
+00:00:16,000 --> 00:00:18,000
+and maintain the infrastructure yourself.
+
+9
+00:00:18,000 --> 00:00:21,000
+So that means you need to create EC2 instances in advance.
+
+10
+00:00:21,000 --> 00:00:23,000
+AWS will take care of starting
+
+11
+00:00:23,000 --> 00:00:26,000
+or stopping the containers for you,
+
+12
+00:00:26,000 --> 00:00:27,000
+and it has integration
+
+13
+00:00:27,000 --> 00:00:29,000
+with an application balancer,
+
+14
+00:00:29,000 --> 00:00:31,000
+if you want to create a web application on ECS.
+
+15
+00:00:31,000 --> 00:00:35,000
+So as a diagram, you would have multiple EC2 instances
+
+16
+00:00:35,000 --> 00:00:39,000
+and we would need to create these EC2 instances in advance
+
+17
+00:00:39,000 --> 00:00:41,000
+and they will be running different containers
+
+18
+00:00:41,000 --> 00:00:43,000
+by the ECS service.
+
+19
+00:00:43,000 --> 00:00:44,000
+Now the ECS service,
+
+20
+00:00:44,000 --> 00:00:47,000
+any times it has a new docker container,
+
+21
+00:00:47,000 --> 00:00:51,000
+it will be smart enough to find on which EC2 instance
+
+22
+00:00:51,000 --> 00:00:53,000
+to place that docker container.
+
+23
+00:00:53,000 --> 00:00:55,000
+So anytime in the exam you see,
+
+24
+00:00:55,000 --> 00:00:59,000
+I want to run docker containers on AWS, think of ECS.
+
+25
+00:01:00,000 --> 00:01:02,000
+Now let's talk about Fargate.
+
+26
+00:01:02,000 --> 00:01:06,000
+So Fargate is also used to launch docker containers on AWS.
+
+27
+00:01:06,000 --> 00:01:08,000
+But this time with Fargate,
+
+28
+00:01:08,000 --> 00:01:10,000
+we don't need to provision any infrastructure.
+
+29
+00:01:10,000 --> 00:01:13,000
+So we don't need to create any EC2 instances
+
+30
+00:01:13,000 --> 00:01:14,000
+and manage them.
+
+31
+00:01:14,000 --> 00:01:18,000
+And this is a much more simple offering from AWS.
+
+32
+00:01:18,000 --> 00:01:21,000
+This is actually a serverless offering
+
+33
+00:01:21,000 --> 00:01:23,000
+because we don't manage any servers.
+
+34
+00:01:23,000 --> 00:01:26,000
+AWS will just run the containers that we need
+
+35
+00:01:26,000 --> 00:01:28,000
+based on the specification
+
+36
+00:01:28,000 --> 00:01:30,000
+of CPU and RAM for each container.
+
+37
+00:01:30,000 --> 00:01:33,000
+So Fargate is going to be a lot simpler to use
+
+38
+00:01:33,000 --> 00:01:34,000
+and I like it personally a lot.
+
+39
+00:01:34,000 --> 00:01:36,000
+Fargate is here.
+
+40
+00:01:36,000 --> 00:01:38,000
+Say we have to have a new docker container
+
+41
+00:01:38,000 --> 00:01:41,000
+to be run on Fargate, then Fargate will
+
+42
+00:01:41,000 --> 00:01:43,000
+automatically run that container for us.
+
+43
+00:01:43,000 --> 00:01:46,000
+We don't exactly know where, but it will be run.
+
+44
+00:01:46,000 --> 00:01:48,000
+And so the idea here is that with Fargate,
+
+45
+00:01:48,000 --> 00:01:51,000
+we don't manage any EC2 instances
+
+46
+00:01:51,000 --> 00:01:53,000
+and so it is easier to use.
+
+47
+00:01:53,000 --> 00:01:57,000
+So before with ECS, we first created our EC2 instances,
+
+48
+00:01:57,000 --> 00:01:58,000
+but with Fargate, we don't.
+
+49
+00:01:58,000 --> 00:02:00,000
+But both services will allow you
+
+50
+00:02:00,000 --> 00:02:02,000
+to run docker container on AWS.
+
+51
+00:02:03,000 --> 00:02:07,000
+Finally, for storing these docker images,
+
+52
+00:02:07,000 --> 00:02:09,000
+so that it can be run on the AWS,
+
+53
+00:02:09,000 --> 00:02:11,000
+you need to use a container registry.
+
+54
+00:02:11,000 --> 00:02:13,000
+And for this, we can use ECR,
+
+55
+00:02:13,000 --> 00:02:15,000
+which stands for elastic container registry.
+
+56
+00:02:15,000 --> 00:02:19,000
+It is a private docker registry on AWS,
+
+57
+00:02:19,000 --> 00:02:21,000
+and this is where you're going to store you docker images
+
+58
+00:02:21,000 --> 00:02:22,000
+so that it can be run
+
+59
+00:02:22,000 --> 00:02:26,000
+by the ECS service or the Fargate service.
+
+60
+00:02:26,000 --> 00:02:27,000
+So the second example,
+
+61
+00:02:27,000 --> 00:02:29,000
+we have ECR and Fargate.
+
+62
+00:02:29,000 --> 00:02:31,000
+We're going to store our images of our application
+
+63
+00:02:31,000 --> 00:02:35,000
+onto Amazon ECR, and then Fargate will be able
+
+64
+00:02:35,000 --> 00:02:38,000
+to look at these images and create a container from them,
+
+65
+00:02:38,000 --> 00:02:41,000
+and run them directly on the Fargate service.
+
+66
+00:02:41,000 --> 00:02:43,000
+So it could be one container here, one container there,
+
+67
+00:02:43,000 --> 00:02:47,000
+but this is ECR, so we could have multiple images as well,
+
+68
+00:02:47,000 --> 00:02:49,000
+creating different containers on Fargate.
+
+69
+00:02:49,000 --> 00:02:50,000
+So that's it.
+
+70
+00:02:50,000 --> 00:02:52,000
+Very, very simple.
+
+71
+00:02:52,000 --> 00:02:56,000
+So remember, ECS versus Fargate versus ECR,
+
+72
+00:02:56,000 --> 00:02:58,000
+that's all you need to know going into the exam.
+
+73
+00:02:58,000 --> 00:02:59,000
+I hope you liked it,
+
+74
+00:02:59,000 --> 00:03:01,000
+and I will see you in the next lecture.
+

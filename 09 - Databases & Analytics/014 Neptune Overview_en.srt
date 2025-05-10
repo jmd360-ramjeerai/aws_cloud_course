@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:02,000
+Now, let's talk about Amazon Neptune.
+
+2
+00:00:02,000 --> 00:00:05,000
+Neptune is a fully-managed graph database.
+
+3
+00:00:05,000 --> 00:00:09,000
+So an example of what a graph dataset would be,
+
+4
+00:00:09,000 --> 00:00:11,000
+would be, for example, something we all know
+
+5
+00:00:11,000 --> 00:00:12,000
+which is a social network.
+
+6
+00:00:12,000 --> 00:00:14,000
+So, if we look at a social network,
+
+7
+00:00:14,000 --> 00:00:15,000
+people are friends, they like, they connect,
+
+8
+00:00:15,000 --> 00:00:17,000
+they read, they comment and so on.
+
+9
+00:00:17,000 --> 00:00:19,000
+So users have friends, posts will have comments,
+
+10
+00:00:19,000 --> 00:00:21,000
+comments have likes from users,
+
+11
+00:00:21,000 --> 00:00:22,000
+users shares and like posts
+
+12
+00:00:22,000 --> 00:00:24,000
+and so, all these things are interconnected
+
+13
+00:00:24,000 --> 00:00:26,000
+and so, they create a graph.
+
+14
+00:00:26,000 --> 00:00:29,000
+And so, this is why Neptune is a great choice
+
+15
+00:00:29,000 --> 00:00:32,000
+of database when it comes to graph datasets.
+
+16
+00:00:32,000 --> 00:00:35,000
+So, Neptune has replication across 3 AZ,
+
+17
+00:00:35,000 --> 00:00:37,000
+up to 15 read replicas.
+
+18
+00:00:38,000 --> 00:00:40,000
+It's used to build and run applications
+
+19
+00:00:40,000 --> 00:00:42,000
+that are gonna be with highly connected datasets,
+
+20
+00:00:42,000 --> 00:00:43,000
+so like a social network,
+
+21
+00:00:43,000 --> 00:00:46,000
+and because Neptune is optimized to run queries
+
+22
+00:00:46,000 --> 00:00:50,000
+that are complex and hard on top of these graph datasets.
+
+23
+00:00:50,000 --> 00:00:53,000
+You can store up to billions of relations on the database
+
+24
+00:00:53,000 --> 00:00:56,000
+and query the graph with milliseconds latency.
+
+25
+00:00:56,000 --> 00:00:58,000
+It's highly available with application
+
+26
+00:00:58,000 --> 00:01:00,000
+across multiple Availability Zones.
+
+27
+00:01:00,000 --> 00:01:02,000
+And it's also great for storing knowledge graphs.
+
+28
+00:01:02,000 --> 00:01:05,000
+For example, the Wikipedia database is a knowledge graph
+
+29
+00:01:05,000 --> 00:01:08,000
+because all the Wikipedia articles are interconnected
+
+30
+00:01:08,000 --> 00:01:10,000
+with each other, fraud detection,
+
+31
+00:01:10,000 --> 00:01:13,000
+recommendations engine and social networking.
+
+32
+00:01:13,000 --> 00:01:15,000
+So, coming from an exam perspective,
+
+33
+00:01:15,000 --> 00:01:18,000
+anytime you see anything related to graph databases,
+
+34
+00:01:18,000 --> 00:01:19,000
+think no more than Neptune.
+
+35
+00:01:19,000 --> 00:01:20,000
+That's it.
+
+36
+00:01:20,000 --> 00:01:23,000
+I hope you liked it and I will see you in the next lecture.
+

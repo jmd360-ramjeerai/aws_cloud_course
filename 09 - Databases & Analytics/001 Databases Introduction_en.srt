@@ -1,0 +1,536 @@
+1
+00:00:00,000 --> 00:00:03,000
+Now let's talk about databases and AWS.
+
+2
+00:00:03,000 --> 00:00:05,000
+And first I want to give you an introduction
+
+3
+00:00:05,000 --> 00:00:07,000
+as to what is a database
+
+4
+00:00:07,000 --> 00:00:11,000
+and the different types of databases we have today.
+
+5
+00:00:11,000 --> 00:00:13,000
+So when you are storing data on disk,
+
+6
+00:00:13,000 --> 00:00:16,000
+would it be on an EBS drive, an EBS volume,
+
+7
+00:00:16,000 --> 00:00:20,000
+an EC2 Instance Store, Amazon S3, you have your limits.
+
+8
+00:00:20,000 --> 00:00:23,000
+If you want to store data in the structure way,
+
+9
+00:00:23,000 --> 00:00:25,000
+you may want to store it in a database.
+
+10
+00:00:25,000 --> 00:00:28,000
+And this structure is going to allow you
+
+11
+00:00:28,000 --> 00:00:30,000
+to build indexes and to efficiently query
+
+12
+00:00:30,000 --> 00:00:32,000
+or search through the data.
+
+13
+00:00:32,000 --> 00:00:35,000
+So well we have with EFS EBS, EC2 Instance Store
+
+14
+00:00:35,000 --> 00:00:39,000
+and Amazon S3, we can do per files operations
+
+15
+00:00:39,000 --> 00:00:42,000
+with databases, it's going to be a lot more structured.
+
+16
+00:00:42,000 --> 00:00:46,000
+We can even define relationships between your datasets.
+
+17
+00:00:46,000 --> 00:00:48,000
+So these databases nowadays,
+
+18
+00:00:48,000 --> 00:00:50,000
+they're all optimized for a purpose
+
+19
+00:00:50,000 --> 00:00:51,000
+and they will come with different features,
+
+20
+00:00:51,000 --> 00:00:53,000
+shapes and constraints.
+
+21
+00:00:53,000 --> 00:00:55,000
+From an exam perspective, it's up to you to understand
+
+22
+00:00:55,000 --> 00:00:57,000
+which database is going to fit best
+
+23
+00:00:57,000 --> 00:01:00,000
+at the use case given to you by the question.
+
+24
+00:01:00,000 --> 00:01:03,000
+So the first kind of database that has been very common
+
+25
+00:01:03,000 --> 00:01:04,000
+and it's still a very common today,
+
+26
+00:01:04,000 --> 00:01:07,000
+is called the relational databases.
+
+27
+00:01:07,000 --> 00:01:10,000
+So if you used Excel before, you know, Excel spreadsheets,
+
+28
+00:01:10,000 --> 00:01:12,000
+this is just the same as Excel spreadsheets,
+
+29
+00:01:12,000 --> 00:01:14,000
+but do you have links between each table.
+
+30
+00:01:14,000 --> 00:01:16,000
+So for example, we have the students table,
+
+31
+00:01:16,000 --> 00:01:18,000
+and as we can see, we have four columns
+
+32
+00:01:18,000 --> 00:01:20,000
+and there's a student ID, department ID,
+
+33
+00:01:20,000 --> 00:01:23,000
+a name and an email and then for example,
+
+34
+00:01:23,000 --> 00:01:24,000
+you would have a second spreadsheet
+
+35
+00:01:24,000 --> 00:01:26,000
+called the department spreadsheets
+
+36
+00:01:26,000 --> 00:01:29,000
+with text the department ID and as more information.
+
+37
+00:01:29,000 --> 00:01:32,000
+And the idea is that's in a relational database,
+
+38
+00:01:32,000 --> 00:01:35,000
+you are defining a relation between the department ID,
+
+39
+00:01:35,000 --> 00:01:38,000
+the second column in the students table,
+
+40
+00:01:38,000 --> 00:01:41,000
+into the first column of the departments table.
+
+41
+00:01:41,000 --> 00:01:42,000
+And you can even define more relations,
+
+42
+00:01:42,000 --> 00:01:45,000
+for example, you can define a subject's stable
+
+43
+00:01:45,000 --> 00:01:48,000
+and link the table of the students
+
+44
+00:01:48,000 --> 00:01:51,000
+to the subjects by defining another relation.
+
+45
+00:01:51,000 --> 00:01:54,000
+This is why it's called a relational database.
+
+46
+00:01:54,000 --> 00:01:56,000
+Now in relational databases,
+
+47
+00:01:56,000 --> 00:01:57,000
+the particularity clarity is that you can use
+
+48
+00:01:57,000 --> 00:02:01,000
+the SQL language to perform queries or lookups.
+
+49
+00:02:01,000 --> 00:02:05,000
+So these, whenever you hear SQL think relational databases.
+
+50
+00:02:06,000 --> 00:02:10,000
+Next, we have NoSQL Databases, NoSQL means non-SQL,
+
+51
+00:02:10,000 --> 00:02:13,000
+which means non relational databases.
+
+52
+00:02:13,000 --> 00:02:17,000
+So NoSQL are in more modern kind of databases.
+
+53
+00:02:17,000 --> 00:02:19,000
+They're built for a specific purpose
+
+54
+00:02:19,000 --> 00:02:21,000
+with a specific data model in mind
+
+55
+00:02:21,000 --> 00:02:25,000
+and have a flexible schema for building modern application.
+
+56
+00:02:25,000 --> 00:02:28,000
+The schema is basically the shape of the data.
+
+57
+00:02:28,000 --> 00:02:30,000
+So the benefits of using a NoSQL database
+
+58
+00:02:30,000 --> 00:02:31,000
+is that you have more flexibility.
+
+59
+00:02:31,000 --> 00:02:35,000
+It's easier to make the data model evolve,
+
+60
+00:02:35,000 --> 00:02:37,000
+it's scalable, so it's designed to scale out
+
+61
+00:02:37,000 --> 00:02:39,000
+by adding distributed servers.
+
+62
+00:02:39,000 --> 00:02:42,000
+So, the example from before the relational database,
+
+63
+00:02:42,000 --> 00:02:44,000
+it's not easy to add servers to scale it,
+
+64
+00:02:44,000 --> 00:02:48,000
+so you have to scale up by doing some vertical scaling,
+
+65
+00:02:48,000 --> 00:02:52,000
+but with no sequel databases, you can do horizontal scaling.
+
+66
+00:02:52,000 --> 00:02:53,000
+It's also high performance,
+
+67
+00:02:53,000 --> 00:02:55,000
+it's optimized for a specific data model.
+
+68
+00:02:55,000 --> 00:02:56,000
+It's highly functional,
+
+69
+00:02:56,000 --> 00:02:58,000
+the types are optimized for the model.
+
+70
+00:02:58,000 --> 00:03:01,000
+And finally, some examples of NoSQL databases
+
+71
+00:03:01,000 --> 00:03:03,000
+are going to be key-value databases,
+
+72
+00:03:03,000 --> 00:03:07,000
+document, graph, in-memory or a search databases.
+
+73
+00:03:07,000 --> 00:03:10,000
+We will be seeing those in this section.
+
+74
+00:03:10,000 --> 00:03:13,000
+So, for example, in the NoSQL database,
+
+75
+00:03:13,000 --> 00:03:15,000
+you can have the data in JSON format.
+
+76
+00:03:15,000 --> 00:03:18,000
+So JSON stands for JavaScript Object Notation,
+
+77
+00:03:18,000 --> 00:03:19,000
+and we've seen it before
+
+78
+00:03:19,000 --> 00:03:20,000
+this is the same language we've been using
+
+79
+00:03:20,000 --> 00:03:22,000
+when we defined our IAM policies,
+
+80
+00:03:22,000 --> 00:03:26,000
+and this is what a JSON document looked like.
+
+81
+00:03:26,000 --> 00:03:28,000
+As we can see, this does not look at all
+
+82
+00:03:28,000 --> 00:03:30,000
+like an Excel documents.
+
+83
+00:03:30,000 --> 00:03:33,000
+So JSON is a very common way to describe data
+
+84
+00:03:33,000 --> 00:03:34,000
+and as we can see in here,
+
+85
+00:03:34,000 --> 00:03:37,000
+we have different sub nesting of the data.
+
+86
+00:03:37,000 --> 00:03:40,000
+We have different fields, different name, different types.
+
+87
+00:03:40,000 --> 00:03:42,000
+And so, it is a very common way
+
+88
+00:03:42,000 --> 00:03:45,000
+to muddle data in a NoSQL model.
+
+89
+00:03:45,000 --> 00:03:46,000
+The data can be nested, for example,
+
+90
+00:03:46,000 --> 00:03:48,000
+if you look at address right here,
+
+91
+00:03:48,000 --> 00:03:51,000
+it is nested within the higher object elements.
+
+92
+00:03:51,000 --> 00:03:54,000
+So address and types are going to be nested.
+
+93
+00:03:54,000 --> 00:03:56,000
+The fields can change over time.
+
+94
+00:03:56,000 --> 00:04:00,000
+So it's up to us to add a new field into our JSON documents
+
+95
+00:04:00,000 --> 00:04:02,000
+and their support for arrays, for example,
+
+96
+00:04:02,000 --> 00:04:05,000
+John who is 30, has three different cars,
+
+97
+00:04:05,000 --> 00:04:09,000
+Ford, BMW, and Fiat, he's a lucky man.
+
+98
+00:04:09,000 --> 00:04:11,000
+Okay, so databases, as you can see get a different forms
+
+99
+00:04:11,000 --> 00:04:14,000
+and we'll be seeing them in details in the section.
+
+100
+00:04:14,000 --> 00:04:16,000
+So just some words around databases
+
+101
+00:04:16,000 --> 00:04:19,000
+and the shared responsibility model on AWS.
+
+102
+00:04:19,000 --> 00:04:23,000
+So AWS will offer to manage different databases for us.
+
+103
+00:04:23,000 --> 00:04:25,000
+So these are the offering we'll see
+
+104
+00:04:25,000 --> 00:04:28,000
+and the benefits of using a managed database,
+
+105
+00:04:28,000 --> 00:04:30,000
+is that it's very quick to provision.
+
+106
+00:04:30,000 --> 00:04:32,000
+Usually a database will have,
+
+107
+00:04:32,000 --> 00:04:34,000
+high availability in mind when designing it.
+
+108
+00:04:34,000 --> 00:04:36,000
+And if you wanna scale your database,
+
+109
+00:04:36,000 --> 00:04:40,000
+you can do vertical and horizontal scaling pretty easily.
+
+110
+00:04:40,000 --> 00:04:42,000
+They will also include some utilities
+
+111
+00:04:42,000 --> 00:04:45,000
+to do automated backup and restore of your databases
+
+112
+00:04:45,000 --> 00:04:47,000
+as well as operations and upgrades.
+
+113
+00:04:47,000 --> 00:04:50,000
+And if you need to patch the operating system
+
+114
+00:04:50,000 --> 00:04:52,000
+of the underlying instance,
+
+115
+00:04:52,000 --> 00:04:55,000
+actually it's not your responsibility anymore.
+
+116
+00:04:55,000 --> 00:04:57,000
+It's AWS's responsibility.
+
+117
+00:04:57,000 --> 00:05:00,000
+So AWS will be responsible for the entire database
+
+118
+00:05:00,000 --> 00:05:02,000
+in terms of patching.
+
+119
+00:05:02,000 --> 00:05:03,000
+The monitoring and alerting as well
+
+120
+00:05:03,000 --> 00:05:05,000
+are going to be integrated.
+
+121
+00:05:05,000 --> 00:05:07,000
+And so this is why using a managed database
+
+122
+00:05:07,000 --> 00:05:12,000
+on AWS is very, very important and very beneficial.
+
+123
+00:05:12,000 --> 00:05:14,000
+So, you are obviously able
+
+124
+00:05:14,000 --> 00:05:18,000
+to run your own database technology on an EC2 instance,
+
+125
+00:05:18,000 --> 00:05:21,000
+but if you do so, you need to handle yourself,
+
+126
+00:05:21,000 --> 00:05:25,000
+all the things associated with resiliency, backup, patching,
+
+127
+00:05:25,000 --> 00:05:28,000
+high availability, fault tolerance, and scaling.
+
+128
+00:05:28,000 --> 00:05:31,000
+So this is why in this case, using a managed database
+
+129
+00:05:31,000 --> 00:05:33,000
+is going to be a lifesaver
+
+130
+00:05:33,000 --> 00:05:35,000
+for so many of our use cases, okay?
+
+131
+00:05:35,000 --> 00:05:36,000
+So in this section,
+
+132
+00:05:36,000 --> 00:05:39,000
+we'll have a look at all the managed databases from AWS
+
+133
+00:05:39,000 --> 00:05:41,000
+and which use cases they fit.
+
+134
+00:05:41,000 --> 00:05:42,000
+So we'll see you in the next lecture.
+

@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:01,000
+So we have seen in this section
+
+2
+00:00:01,000 --> 00:00:04,000
+so many different database technologies
+
+3
+00:00:04,000 --> 00:00:06,000
+and the question is how do you migrate data
+
+4
+00:00:06,000 --> 00:00:07,000
+from one database to another?
+
+5
+00:00:07,000 --> 00:00:10,000
+For this we can use DMS which is properly named
+
+6
+00:00:10,000 --> 00:00:13,000
+the Database Migration Service.
+
+7
+00:00:13,000 --> 00:00:15,000
+So we use source database and once we extract the data
+
+8
+00:00:15,000 --> 00:00:17,000
+so we'll run an EC2 instance
+
+9
+00:00:17,000 --> 00:00:19,000
+that will be running the DMS software.
+
+10
+00:00:19,000 --> 00:00:21,000
+We'll extract the data from the source database
+
+11
+00:00:21,000 --> 00:00:23,000
+and then DMS will insert the data back
+
+12
+00:00:23,000 --> 00:00:26,000
+into a target database that will be somewhere else.
+
+13
+00:00:26,000 --> 00:00:30,000
+So with DMS we get a quick and secure database migration
+
+14
+00:00:30,000 --> 00:00:34,000
+into AWS that's going to be resilient and self healing.
+
+15
+00:00:34,000 --> 00:00:35,000
+And the cherry on the cake,
+
+16
+00:00:35,000 --> 00:00:38,000
+the source database remains available during the migration
+
+17
+00:00:38,000 --> 00:00:40,000
+so we don't have to take it down.
+
+18
+00:00:40,000 --> 00:00:43,000
+It supports many kinds of migration.
+
+19
+00:00:43,000 --> 00:00:45,000
+So one it's called an homogeneous migration
+
+20
+00:00:45,000 --> 00:00:47,000
+where you have Oracle to Oracle for example.
+
+21
+00:00:47,000 --> 00:00:51,000
+So it's the same database technology for the source database
+
+22
+00:00:51,000 --> 00:00:53,000
+and the target database.
+
+23
+00:00:53,000 --> 00:00:55,000
+Or it supports heterogeneous migrations
+
+24
+00:00:55,000 --> 00:00:57,000
+when the source database technology
+
+25
+00:00:57,000 --> 00:00:59,000
+and the target are different for example
+
+26
+00:00:59,000 --> 00:01:02,000
+a Microsoft SQL Server to Aurora.
+
+27
+00:01:02,000 --> 00:01:04,000
+And in that case, DMS is smart enough
+
+28
+00:01:04,000 --> 00:01:06,000
+to know how to convert data
+
+29
+00:01:06,000 --> 00:01:08,000
+from the source into the target.
+
+30
+00:01:08,000 --> 00:01:12,000
+So any time in the exam you see migration of a database,
+
+31
+00:01:12,000 --> 00:01:14,000
+DMS is going to be the answer for it.
+
+32
+00:01:14,000 --> 00:01:15,000
+I hope that was helpful
+
+33
+00:01:15,000 --> 00:01:17,000
+and I will see you in the next lecture.
+
