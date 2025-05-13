@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      code {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .quiz-content {
+        padding: 2.4rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0 auto;
+      }
+      .quiz-container {
+        margin: 0 auto;
+        max-width: 84rem;
+        padding: 0;
+      }
+      .question {
+        margin-bottom: 5rem;
+      }
+      .question span {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .question-prompt {
+        margin-top: 0.8rem;
+        font-weight: 700;
+      }
+      .question-answer {
+        margin-top: 1.6rem;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+      .question-answer label {
+        max-width: 80rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        min-width: 18rem;
+        border: solid #1c1d1f 2px;
+      }
+      .question-answer div {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+      }
+      .question-answer div:hover {
+        background-color: #f5f5f5;
+      }
+      .question-answer input {
+        display: none;
+      }
+      .question-answer span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.6rem;
+        top: 0;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+        border: 0.2rem solid #1c1d1f;
+        position: relative;
+      }
+      .selected {
+        background: #1c1d1f;
+        box-shadow: 0 0 0 0.4rem #fff inset;
+      }
+      .score {
+              position: fixed;
+            }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <div id="score" class="score">
+      <span>Score: N/A of N/A</span>
+    </div>
+    <div id="quiz-container" class="quiz-content"></div>
+
+    <script>
+      const quizData = {"pass_percent": 70, "questions": [{"_class": "assessment", "id": 18922262, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which Route 53 Routing Policies would you use to route traffic to multiple resources in proportions that you specify?</p>", "feedbacks": ["Simple Routing Policy is used for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.", "Weighted Routing Policy is used to route traffic to multiple resources in proportions that you specify.", "Latency Routing Policy is used when you have resources in multiple AWS Regions and you want to route traffic to the region that provides the best latency.", "Failover Routing Policy is used when you want to configure active-passive failover. Failover routing lets you route traffic to a resource when the resource is healthy or to a different resource when the first resource is unhealthy."], "relatedLectureIds": ["20056112"], "answers": ["<p>Simple Routing Policy</p>", "<p>Weighted Routing Policy</p>", "<p>Latency Routing Policy</p>", "<p>Failover Routing Policy</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "Which Route 53 Routing Policies would you use to route traffic to multiple resources in proportions that you specify?", "related_lectures": [{"_class": "lecture", "id": 20056112, "title": "Route 53 Overview", "created": "2020-05-25T18:22:13Z", "is_published": true, "asset": {"_class": "asset", "id": 25183448, "asset_type": "Video", "title": "CCP - Route 53 - Overview.mp4", "created": "2020-06-03T08:54:10Z"}, "object_index": 139, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056112"}]}, {"_class": "assessment", "id": 34448986, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which service is optimized to deploy ultra-low latency applications to 5G devices?</p>", "feedbacks": ["AWS Wavelength is an AWS Infrastructure offering optimized for mobile edge computing applications. Wavelength combines the high bandwidth and ultra-low latency of 5G networks with AWS compute and storage services to enable developers to innovate and build a whole new class of applications.", "Amazon Route 53 provides highly available and scalable Domain Name System (DNS), domain name registration, and health-checking web services. It is not used to deploy ultra-low latency applications to 5G devices.", "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment. It is not used to deploy ultra-low latency applications to 5G devices."], "relatedLectureIds": ["26623492"], "answers": ["<p>WaveLength</p>", "<p>Route&nbsp;53</p>", "<p>CloudFront</p>"]}, "correct_response": ["a"], "section": "", "question_plain": "Which service is optimized to deploy ultra-low latency applications to 5G devices?", "related_lectures": [{"_class": "lecture", "id": 26623492, "title": "AWS WaveLength", "created": "2021-05-21T07:04:55Z", "is_published": true, "asset": {"_class": "asset", "id": 33685486, "asset_type": "Video", "title": "CCP_-_WaveLength_-_Overview_v1.mp4", "created": "2021-05-20T19:21:24Z"}, "object_index": 146, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/26623492"}]}, {"_class": "assessment", "id": 18922760, "assessment_type": "multiple-choice", "prompt": {"question": "<p>You need to enable fast, easy, and secure transfers of files over long distances on S3.&nbsp;Which service would you use?</p>", "feedbacks": ["AWS Global Accelerator is a service that improves the availability and performance of your applications with local or global users, but it cannot be used on S3.", "Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront\u2019s globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.", "Cross-Region replication (CRR) is used to copy objects across Amazon S3 buckets in different AWS Regions. It does not enable fast, easy, and secure transfers of files over long distance."], "relatedLectureIds": ["20056132"], "answers": ["<p>AWS&nbsp;Global Accelerator</p>", "<p>S3 Transfer Acceleration</p>", "<p>S3 Cross-Region Replication</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "You need to enable fast, easy, and secure transfers of files over long distances on S3.&nbsp;Which service would you use?", "related_lectures": [{"_class": "lecture", "id": 20056132, "title": "S3 Transfer Acceleration", "created": "2020-05-25T18:22:54Z", "is_published": true, "asset": {"_class": "asset", "id": 25183438, "asset_type": "Video", "title": "CCP - S3 - Transfer Acceleration.mp4", "created": "2020-06-03T08:54:10Z"}, "object_index": 143, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056132"}]}, {"_class": "assessment", "id": 18922668, "assessment_type": "multiple-choice", "prompt": {"question": "<p>What does AWS&nbsp;CloudFront use to improve read performance?</p>", "feedbacks": ["DDoS Protection helps with availability, not with read performance. However, CloudFront protects against DDoS attacks with the CDN. ", "This is a distractor, it does not exist. It is made up with words related to the answer.", "CloudFront uses Edge Location to cache content, and therefore bring more of your content closer to your viewers to improve read performance.", "This is a distractor, it does not exist. It is made up with words related to the answer."], "relatedLectureIds": ["20056120"], "answers": ["<p>DDoS&nbsp;Protection</p>", "<p>S3 Buckets Fast-Read </p>", "<p>Caching Content in Edge Locations</p>", "<p>Caching Content in Edge Regions</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "What does AWS&nbsp;CloudFront use to improve read performance?", "related_lectures": [{"_class": "lecture", "id": 20056120, "title": "CloudFront Overview", "created": "2020-05-25T18:22:25Z", "is_published": true, "asset": {"_class": "asset", "id": 44830932, "asset_type": "Video", "title": "CCP_-_CloudFront_-_Overview_v2.mp4", "created": "2022-11-13T10:54:47Z"}, "object_index": 141, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056120"}]}, {"_class": "assessment", "id": 28717490, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which service can be used to run AWS infrastructure and services on-premises for a hybrid cloud architecture?</p>", "feedbacks": ["Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment. It is not used to run AWS infrastructure and services on-premises.", "AWS Outposts bring native AWS services, infrastructure, and operating models to virtually any data center, co-location space, or on-premises facility. ", "AWS Database Migration Service helps you migrate databases to AWS quickly and securely. It is not used to run AWS infrastructure and services on-premises.", "AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to virtually unlimited cloud storage. It does not let you run AWS infrastructure and services on-premises."], "relatedLectureIds": ["24682596"], "answers": ["<p>CloudFront</p>", "<p>Outposts</p>", "<p>DMS</p>", "<p>Storage Gateway</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "Which service can be used to run AWS infrastructure and services on-premises for a hybrid cloud architecture?", "related_lectures": [{"_class": "lecture", "id": 24682596, "title": "AWS Outposts", "created": "2021-01-31T19:46:25Z", "is_published": true, "asset": {"_class": "asset", "id": 31073262, "asset_type": "Video", "title": "CCP - Outposts.mp4", "created": "2021-01-31T19:32:57Z"}, "object_index": 145, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682596"}]}, {"_class": "assessment", "id": 18922120, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which of the following statements is NOT&nbsp;a reason for a global application?</p>", "feedbacks": ["A global application can reduce latency.", "A global application can handle a disaster in a region by failing-over to another region.", "A global application is not specifically used to scale elastically on demand. You can use Auto Scaling Groups for example if you want to elastically scale based on demand.", "A global application can help with attack protection as a distributed global infrastructure is harder to attack."], "relatedLectureIds": ["20056110"], "answers": ["<p>Decreased Latency</p>", "<p>Disaster Recovery</p>", "<p>Scale elastically on demand</p>", "<p>Attack protection</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "Which of the following statements is NOT&nbsp;a reason for a global application?", "related_lectures": [{"_class": "lecture", "id": 20056110, "title": "Why Global Applications?", "created": "2020-05-25T18:22:06Z", "is_published": true, "asset": {"_class": "asset", "id": 37453230, "asset_type": "Video", "title": "CCP - Global Infrastructure Intro.mp4", "created": "2021-11-11T16:51:52Z"}, "object_index": 138, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056110"}]}, {"_class": "assessment", "id": 18922576, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which features are available with Route 53?</p>", "feedbacks": ["Auto Scaling is not available with Route 53.", "Monitoring is not available with Route 53.", "DDoS Protection is not available with Route 53.", "Route 53 features are (non exhaustive list): Domain Registration, DNS, Health Checks, Routing Policy"], "relatedLectureIds": ["20056112"], "answers": ["<p>Health Checks, Auto Scaling, Routing Policy, DNS</p>", "<p>Load Balancing, DNS, Domain Registration, Monitoring</p>", "<p>Domain Registration, DNS, Health Checks, DDoS Protection</p>", "<p>Domain Registration, DNS, Health Checks, Routing Policy</p>"]}, "correct_response": ["d"], "section": "", "question_plain": "Which features are available with Route 53?", "related_lectures": [{"_class": "lecture", "id": 20056112, "title": "Route 53 Overview", "created": "2020-05-25T18:22:13Z", "is_published": true, "asset": {"_class": "asset", "id": 25183448, "asset_type": "Video", "title": "CCP - Route 53 - Overview.mp4", "created": "2020-06-03T08:54:10Z"}, "object_index": 139, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056112"}]}, {"_class": "assessment", "id": 18922676, "assessment_type": "multiple-choice", "prompt": {"question": "<p>With which services does&nbsp;CloudFront integrate to protect against web attacks?</p>", "feedbacks": ["You can use AWS WAF web access control lists (web ACLs) to help minimize the effects of a distributed denial of service (DDoS) attack. For additional protection against DDoS attacks, AWS also provides AWS Shield Standard and AWS Shield Advanced.", "IAM does not protect against web attacks. You can use AWS IAM to securely control individual and group access to your AWS resources.", "IAM does not protect against web attacks. You can use AWS IAM to securely control individual and group access to your AWS resources.", "Security Groups cannot be attached to CloudFront distributions. A security group acts as a virtual firewall for your instance to control inbound and outbound traffic."], "relatedLectureIds": ["20056120"], "answers": ["<p>WAF&nbsp;&amp;&nbsp;Shield</p>", "<p>WAF&nbsp;&amp;&nbsp;IAM</p>", "<p>IAM&nbsp;&amp;&nbsp;Shield</p>", "<p>Security Groups &amp;&nbsp;WAF</p>"]}, "correct_response": ["a"], "section": "", "question_plain": "With which services does&nbsp;CloudFront integrate to protect against web attacks?", "related_lectures": [{"_class": "lecture", "id": 20056120, "title": "CloudFront Overview", "created": "2020-05-25T18:22:25Z", "is_published": true, "asset": {"_class": "asset", "id": 44830932, "asset_type": "Video", "title": "CCP_-_CloudFront_-_Overview_v2.mp4", "created": "2022-11-13T10:54:47Z"}, "object_index": 141, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056120"}]}]};
+      var correct = 0;
+      var total = 0;
+      const questionData = quizData.questions
+      const passPercent = quizData.pass_percent
+
+      function main() {
+        total = questionData.length;
+
+        var questions = [];
+        for (var i = 0; i < questionData.length; i++) {
+          var question = questionData[i];
+          var questionText = question.prompt.question;
+          var answers = question.prompt.answers;
+          var correctAnswer = question.correct_response[0];
+          var correctAnswerText = answers[correctAnswer.charCodeAt(0) - 97];
+          var questionObj = {
+            question: questionText,
+            correctAnswer: correctAnswerText,
+            answers: answers,
+            id: question.id,
+          };
+          questions.push(questionObj);
+        }
+
+        updateScore();
+
+        // display the questions
+        var questionsContainer = document.getElementById("quiz-container");
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var questionElement = document.createElement("form");
+          questionElement.className = "question";
+          questionElement.innerHTML =
+            "<span>Question " +
+            (i + 1) +
+            ":</span>" +
+            '<div class="question-prompt">' +
+            question.question +
+            "</div>";
+          questionElement.id = question.id;
+          questionElement.classList.add("quiz-container");
+          var answersElement = document.createElement("ul");
+          answersElement.className = "answers";
+          for (var j = 0; j < question.answers.length; j++) {
+            var answer = question.answers[j];
+            var answerElement = document.createElement("li");
+            answerElement.className = "answer";
+            answerElement.innerHTML =
+              '<label for="input-' +
+              question.id +
+              "-" +
+              j +
+              '"><div onclick="select(' +
+              question.id +
+              ", " +
+              j +
+              ')"><span></span><input id="input-' +
+              question.id +
+              "-" +
+              j +
+              '" type="radio" name="question' +
+              i +
+              '" value="' +
+              j +
+              '">' +
+              answer +
+              "</input></div></label>";
+            answerElement.classList.add("question-answer");
+            answersElement.appendChild(answerElement);
+          }
+
+          questionElement.appendChild(answersElement);
+
+          // add a submit button
+          var submitButton = document.createElement("button");
+          submitButton.className = "submit";
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.add("submit-button");
+
+          submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var questionElement = e.target.parentElement;
+            var questionId = questionElement.id;
+            var question = questions.filter(function (q) {
+              return q.id == questionId;
+            })[0];
+
+            // set the border color of all answers to black
+            var answers = questionElement.getElementsByClassName("answer");
+            for (var i = 0; i < answers.length; i++) {
+              console.log(answers[i]);
+              answers[i].children[0].style.borderColor = "#1c1d1f";
+            }
+
+            var answer = questionElement.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (answer) {
+              var answerIndex = answer.value;
+              var answerText = question.answers[answerIndex];
+              if (answerText == question.correctAnswer) {
+                answer.parentElement.parentElement.style.borderColor =
+                  "limegreen";
+                // alert("Correct!");
+                correct++;
+                updateScore();
+              } else {
+                answer.parentElement.parentElement.style.borderColor = "red";
+                // alert("Incorrect!");
+              }
+            } else {
+              alert("Please select an answer.");
+            }
+          });
+
+          // add button
+          questionElement.appendChild(submitButton);
+
+          questionsContainer.appendChild(questionElement);
+        }
+      }
+
+      function select(question, answer) {
+        var questionElement = document.getElementById(question);
+        var answers = questionElement.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          var span = answers[i].children[0].children[0].children[0];
+          var input = answers[i].children[0].children[0].children[1];
+          span.classList.remove("selected");
+          input.checked = false;
+        }
+        var span = answers[answer].children[0].children[0].children[0];
+        var input = answers[answer].children[0].children[0].children[1];
+        span.classList.add("selected");
+        input.checked = true;
+      }
+
+      function updateScore() {
+        var scoreElem = document.getElementById("score");
+        const score = (correct / total) * 100;
+        scoreElem.innerHTML = "Score: " + score + "/" + passPercent + "%";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:03,000
+So we have seen CloudFormation and Beanstalk,
+
+2
+00:00:03,000 --> 00:00:05,000
+but now let's talk about CodeDeploys.
+
+3
+00:00:05,000 --> 00:00:06,000
+So CodeDeploys is also a way
+
+4
+00:00:06,000 --> 00:00:10,000
+for us to deploy our application automatically.
+
+5
+00:00:10,000 --> 00:00:13,000
+Now the difference that CodeDeploy is a bit more permissive.
+
+6
+00:00:13,000 --> 00:00:15,000
+It doesn't need to be using Beanstalk or CloudFormation.
+
+7
+00:00:15,000 --> 00:00:17,000
+This is completely independent.
+
+8
+00:00:17,000 --> 00:00:18,000
+So with CodeDeploy,
+
+9
+00:00:18,000 --> 00:00:19,000
+We have our application,
+
+10
+00:00:19,000 --> 00:00:20,000
+it's in version one,
+
+11
+00:00:20,000 --> 00:00:22,000
+and we want you to upgrade it into version two.
+
+12
+00:00:22,000 --> 00:00:25,000
+So CodeDeploy will find a way for us to do this.
+
+13
+00:00:25,000 --> 00:00:27,000
+So CodeDeploy works with two things.
+
+14
+00:00:27,000 --> 00:00:29,000
+It works with EC2 instances.
+
+15
+00:00:29,000 --> 00:00:32,000
+And so you can have many EC2 instances being upgraded
+
+16
+00:00:32,000 --> 00:00:34,000
+from V1 to V2,
+
+17
+00:00:34,000 --> 00:00:36,000
+but it also works with On-Premises Servers.
+
+18
+00:00:36,000 --> 00:00:38,000
+So if you have Servers On-Premises,
+
+19
+00:00:38,000 --> 00:00:40,000
+and you want to help them upgrade from version one
+
+20
+00:00:40,000 --> 00:00:42,000
+to version two for your applications,
+
+21
+00:00:42,000 --> 00:00:45,000
+it is possible to do it with CodeDeploy.
+
+22
+00:00:45,000 --> 00:00:47,000
+So CodeDeploy, If you look at it,
+
+23
+00:00:47,000 --> 00:00:48,000
+it is what's called a hybrid service
+
+24
+00:00:48,000 --> 00:00:51,000
+because it works both for On-Premises,
+
+25
+00:00:51,000 --> 00:00:53,000
+and for EC2 instances.
+
+26
+00:00:53,000 --> 00:00:55,000
+So CodeDeploy really allows you to work
+
+27
+00:00:55,000 --> 00:00:57,000
+with any kind of servers,
+
+28
+00:00:57,000 --> 00:00:59,000
+but you must provision the servers ahead of time.
+
+29
+00:00:59,000 --> 00:01:00,000
+Okay, It's up to you.
+
+30
+00:01:00,000 --> 00:01:02,000
+And you must configure them
+
+31
+00:01:02,000 --> 00:01:04,000
+to install the CodeDeploy agent
+
+32
+00:01:04,000 --> 00:01:07,000
+that will be assisting you to do these upgrades.
+
+33
+00:01:07,000 --> 00:01:10,000
+So CodeDeploy is quite a handy service on AWS.
+
+34
+00:01:10,000 --> 00:01:13,000
+It really allows people to do the transition
+
+35
+00:01:13,000 --> 00:01:16,000
+from On-Premises to AWS by using the same way
+
+36
+00:01:16,000 --> 00:01:18,000
+to deploy the application
+
+37
+00:01:18,000 --> 00:01:20,000
+either with your On-Premise Servers,
+
+38
+00:01:20,000 --> 00:01:21,000
+or your EC2 instances.
+
+39
+00:01:21,000 --> 00:01:22,000
+And it is an advanced service,
+
+40
+00:01:22,000 --> 00:01:24,000
+so I can't really demo it for you,
+
+41
+00:01:24,000 --> 00:01:27,000
+but what you need to remember is that it allows you to
+
+42
+00:01:27,000 --> 00:01:29,000
+upgrade both your EC2 instances, applications,
+
+43
+00:01:29,000 --> 00:01:33,000
+and your On-Premises Servers applications
+
+44
+00:01:33,000 --> 00:01:34,000
+from version one to version two,
+
+45
+00:01:34,000 --> 00:01:37,000
+automatically from a single interface.
+
+46
+00:01:37,000 --> 00:01:38,000
+So hope that was helpful.
+
+47
+00:01:38,000 --> 00:01:40,000
+And I will see you in the next lecture.
+

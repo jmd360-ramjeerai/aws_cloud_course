@@ -1,0 +1,396 @@
+1
+00:00:00,000 --> 00:00:01,000
+Welcome to this section
+
+2
+00:00:01,000 --> 00:00:04,000
+on deploying and managing infrastructure at scale.
+
+3
+00:00:04,000 --> 00:00:05,000
+In this section, we'll see different ways
+
+4
+00:00:05,000 --> 00:00:08,000
+to deploy your workloads onto AWS.
+
+5
+00:00:08,000 --> 00:00:10,000
+And the first technology I wanna talk about
+
+6
+00:00:10,000 --> 00:00:12,000
+is CloudFormation.
+
+7
+00:00:12,000 --> 00:00:14,000
+So CloudFormation is such an important technology
+
+8
+00:00:14,000 --> 00:00:15,000
+in the AWS
+
+9
+00:00:15,000 --> 00:00:17,000
+because it is a declarative way
+
+10
+00:00:17,000 --> 00:00:20,000
+of outlining your AWS infrastructure, for any resources,
+
+11
+00:00:20,000 --> 00:00:22,000
+and most of them are supported.
+
+12
+00:00:22,000 --> 00:00:23,000
+So to give you a concrete example,
+
+13
+00:00:23,000 --> 00:00:25,000
+in CloudFormation, you would say,
+
+14
+00:00:25,000 --> 00:00:26,000
+"I want a security group.
+
+15
+00:00:26,000 --> 00:00:28,000
+I want two EC2 instances
+
+16
+00:00:28,000 --> 00:00:30,000
+that will be using that security group.
+
+17
+00:00:30,000 --> 00:00:32,000
+I also want an S3 bucket.
+
+18
+00:00:32,000 --> 00:00:35,000
+And I want a load balancer in front of all these machines."
+
+19
+00:00:35,000 --> 00:00:36,000
+Then CloudFormation
+
+20
+00:00:36,000 --> 00:00:39,000
+automatically creates all these things for you
+
+21
+00:00:39,000 --> 00:00:40,000
+in the right order
+
+22
+00:00:40,000 --> 00:00:43,000
+with the exact configuration that you specify.
+
+23
+00:00:43,000 --> 00:00:46,000
+So the benefits of using CloudFormation are multiple.
+
+24
+00:00:46,000 --> 00:00:47,000
+But the first one
+
+25
+00:00:47,000 --> 00:00:50,000
+is that all your infrastructure is as code.
+
+26
+00:00:50,000 --> 00:00:50,000
+That means that
+
+27
+00:00:50,000 --> 00:00:53,000
+you will never, ever create resources manually
+
+28
+00:00:53,000 --> 00:00:54,000
+like we've done in this course,
+
+29
+00:00:54,000 --> 00:00:56,000
+which is excellent for control.
+
+30
+00:00:56,000 --> 00:00:58,000
+And that means that anytime you do a changes
+
+31
+00:00:58,000 --> 00:01:01,000
+to how your AWS cloud is doing,
+
+32
+00:01:01,000 --> 00:01:04,000
+then it needs to be reviewed through code review,
+
+33
+00:01:04,000 --> 00:01:07,000
+which is a great way to operate in a cloud.
+
+34
+00:01:07,000 --> 00:01:09,000
+On top of things, there is a cost advantage,
+
+35
+00:01:09,000 --> 00:01:11,000
+because each resource within the stack
+
+36
+00:01:11,000 --> 00:01:14,000
+is going to get a tag that is going to be similar
+
+37
+00:01:14,000 --> 00:01:17,000
+to all the other resources created within the stack.
+
+38
+00:01:17,000 --> 00:01:20,000
+And you can also easily estimate the cost of your resources
+
+39
+00:01:20,000 --> 00:01:22,000
+using the CloudFormation templates.
+
+40
+00:01:22,000 --> 00:01:24,000
+And finally, thanks to CloudFormation,
+
+41
+00:01:24,000 --> 00:01:26,000
+you can have a saving strategy.
+
+42
+00:01:26,000 --> 00:01:29,000
+For example, you can say that in some environment,
+
+43
+00:01:29,000 --> 00:01:32,000
+you could automate the deletion of all the templates
+
+44
+00:01:32,000 --> 00:01:32,000
+at 5:00 PM,
+
+45
+00:01:32,000 --> 00:01:35,000
+which will delete all the associated resources
+
+46
+00:01:35,000 --> 00:01:35,000
+with that template,
+
+47
+00:01:35,000 --> 00:01:39,000
+and then recreate it at 9:00 AM or 8:00 AM safely.
+
+48
+00:01:39,000 --> 00:01:40,000
+And so therefore, you have cost savings
+
+49
+00:01:40,000 --> 00:01:42,000
+because you don't have any resources
+
+50
+00:01:42,000 --> 00:01:44,000
+between 5:00 PM and 8:00 AM.
+
+51
+00:01:44,000 --> 00:01:45,000
+With CloudFormation,
+
+52
+00:01:45,000 --> 00:01:47,000
+it's super easy to create and delete resources,
+
+53
+00:01:47,000 --> 00:01:50,000
+which is one of the biggest cloud principle.
+
+54
+00:01:50,000 --> 00:01:51,000
+Then for productivity.
+
+55
+00:01:51,000 --> 00:01:53,000
+So as I said, you're able to destroy
+
+56
+00:01:53,000 --> 00:01:55,000
+and recreate infrastructure on the fly.
+
+57
+00:01:55,000 --> 00:01:58,000
+It's also generating diagrams for you,
+
+58
+00:01:58,000 --> 00:02:00,000
+for your templates, as we'll see very quickly.
+
+59
+00:02:00,000 --> 00:02:02,000
+And there's declarative programming,
+
+60
+00:02:02,000 --> 00:02:03,000
+so you don't need to figure out
+
+61
+00:02:03,000 --> 00:02:06,000
+if you need to create a DynamoDB table first,
+
+62
+00:02:06,000 --> 00:02:08,000
+or an EC2 instance, or all these things together.
+
+63
+00:02:08,000 --> 00:02:10,000
+The CloudFormation template is smart enough
+
+64
+00:02:10,000 --> 00:02:12,000
+to figure out how to do things.
+
+65
+00:02:12,000 --> 00:02:15,000
+Finally, with CloudFormation, we don't reinvent the wheel.
+
+66
+00:02:15,000 --> 00:02:17,000
+So that means that we can leverage existing templates
+
+67
+00:02:17,000 --> 00:02:20,000
+on the web, we can leverage documentation,
+
+68
+00:02:20,000 --> 00:02:24,000
+and CloudFormation supports almost all AWS resources.
+
+69
+00:02:24,000 --> 00:02:25,000
+That means that everything we'll see in this course
+
+70
+00:02:25,000 --> 00:02:27,000
+is supported by CloudFormation,
+
+71
+00:02:27,000 --> 00:02:28,000
+and in case it isn't,
+
+72
+00:02:28,000 --> 00:02:30,000
+you can use something called a custom resource
+
+73
+00:02:30,000 --> 00:02:32,000
+for resources that are not supported.
+
+74
+00:02:32,000 --> 00:02:33,000
+So CloudFormation
+
+75
+00:02:33,000 --> 00:02:38,000
+really is the base of infrastructure as code on AWS.
+
+76
+00:02:38,000 --> 00:02:41,000
+So as I said, you could visualize a CloudFormation template,
+
+77
+00:02:41,000 --> 00:02:44,000
+and for this you would use the Application Composer service.
+
+78
+00:02:44,000 --> 00:02:46,000
+So I took the liberty
+
+79
+00:02:46,000 --> 00:02:48,000
+to use a WordPress CloudFormation stack,
+
+80
+00:02:48,000 --> 00:02:51,000
+and visualize it in Application Composer.
+
+81
+00:02:51,000 --> 00:02:53,000
+And as you can see, we can see all the resources
+
+82
+00:02:53,000 --> 00:02:55,000
+of our CloudFormation templates.
+
+83
+00:02:55,000 --> 00:02:59,000
+So we can see the ALBListener, the database security group,
+
+84
+00:02:59,000 --> 00:03:01,000
+the SQL database, different security groups,
+
+85
+00:03:01,000 --> 00:03:04,000
+launch configuration, application balancers, and so on.
+
+86
+00:03:04,000 --> 00:03:07,000
+But on top of it, we can see the relations
+
+87
+00:03:07,000 --> 00:03:09,000
+between all of these components
+
+88
+00:03:09,000 --> 00:03:10,000
+and how they're linked together,
+
+89
+00:03:10,000 --> 00:03:12,000
+which is very handy
+
+90
+00:03:12,000 --> 00:03:15,000
+when you want to understand your architecture diagrams.
+
+91
+00:03:15,000 --> 00:03:16,000
+So from an exam perspective,
+
+92
+00:03:16,000 --> 00:03:18,000
+CloudFormation is going to be used
+
+93
+00:03:18,000 --> 00:03:21,000
+when we have infrastructure as code,
+
+94
+00:03:21,000 --> 00:03:23,000
+when we need to repeat an architecture
+
+95
+00:03:23,000 --> 00:03:26,000
+in different environments, different regions,
+
+96
+00:03:26,000 --> 00:03:28,000
+or even different AWS accounts.
+
+97
+00:03:28,000 --> 00:03:29,000
+So that's it for me.
+
+98
+00:03:29,000 --> 00:03:30,000
+I will see you in the next lecture
+
+99
+00:03:30,000 --> 00:03:32,000
+for a short practice on CloudFormation.
+

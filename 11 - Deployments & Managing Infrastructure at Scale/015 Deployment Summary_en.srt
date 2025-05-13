@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:01,000
+Okay, so let's summarize
+
+2
+00:00:01,000 --> 00:00:04,000
+everything we've learned about deployment on AWS.
+
+3
+00:00:04,000 --> 00:00:07,000
+So first CloudFormation, which is an AWS-only tool,
+
+4
+00:00:07,000 --> 00:00:10,000
+which is allowing you to do Infrastructure as Code
+
+5
+00:00:10,000 --> 00:00:14,000
+and works with almost all types of AWS resources.
+
+6
+00:00:14,000 --> 00:00:16,000
+This allows you to create templates,
+
+7
+00:00:16,000 --> 00:00:17,000
+and these templates can be used
+
+8
+00:00:17,000 --> 00:00:19,000
+to deploy infrastructure on AWS
+
+9
+00:00:19,000 --> 00:00:23,000
+and to use these templates across different Regions
+
+10
+00:00:23,000 --> 00:00:27,000
+and accounts to make your infrastructure truly repeatable.
+
+11
+00:00:27,000 --> 00:00:29,000
+Then we have Beanstalk, which is, again, AWS-only,
+
+12
+00:00:29,000 --> 00:00:30,000
+So Elastic Beanstalk,
+
+13
+00:00:30,000 --> 00:00:33,000
+which is a Platform as a Service or PaaS,
+
+14
+00:00:33,000 --> 00:00:36,000
+and it's limited to certain programming languages or Docker.
+
+15
+00:00:36,000 --> 00:00:38,000
+You can deploy your code consistently
+
+16
+00:00:38,000 --> 00:00:40,000
+with a known architecture, for example,
+
+17
+00:00:40,000 --> 00:00:43,000
+using the combination of a load balancer, EC2 instances,
+
+18
+00:00:43,000 --> 00:00:45,000
+and an RDS database.
+
+19
+00:00:45,000 --> 00:00:47,000
+CodeDeploy is to deploy
+
+20
+00:00:47,000 --> 00:00:49,000
+and upgrade any applications onto servers,
+
+21
+00:00:49,000 --> 00:00:52,000
+and this can be done on AWS,
+
+22
+00:00:52,000 --> 00:00:53,000
+for example, your EC2 instances,
+
+23
+00:00:53,000 --> 00:00:57,000
+but also it can be done on your on-premises infrastructure.
+
+24
+00:00:57,000 --> 00:00:58,000
+And this is why it's called
+
+25
+00:00:58,000 --> 00:01:00,000
+a hybrid type of service.
+
+26
+00:01:00,000 --> 00:01:01,000
+Systems Manager, yet again,
+
+27
+00:01:01,000 --> 00:01:03,000
+is a hybrid type of service,
+
+28
+00:01:03,000 --> 00:01:04,000
+which allows you to patch, configure,
+
+29
+00:01:04,000 --> 00:01:08,000
+and run commands at scale across all your servers.
+
+30
+00:01:08,000 --> 00:01:09,000
+So that's for all the deployment services,
+
+31
+00:01:09,000 --> 00:01:12,000
+but now let's talk about the developer services.
+
+32
+00:01:12,000 --> 00:01:13,000
+We've learned about CodeCommit,
+
+33
+00:01:13,000 --> 00:01:15,000
+which does come up in the exam,
+
+34
+00:01:15,000 --> 00:01:18,000
+which is to store code in a private Git repository,
+
+35
+00:01:18,000 --> 00:01:21,000
+giving you a version-controlled code repo,
+
+36
+00:01:21,000 --> 00:01:24,000
+CodeBuild, which is allowing you to build
+
+37
+00:01:24,000 --> 00:01:27,000
+and test your code in AWS in a serverless fashion,
+
+38
+00:01:27,000 --> 00:01:29,000
+CodeDeploy, which is allowing you
+
+39
+00:01:29,000 --> 00:01:31,000
+to deploy code onto servers,
+
+40
+00:01:31,000 --> 00:01:33,000
+so I bundle it both into the deployment
+
+41
+00:01:33,000 --> 00:01:34,000
+and the developer services
+
+42
+00:01:34,000 --> 00:01:36,000
+because they go along,
+
+43
+00:01:36,000 --> 00:01:38,000
+CodePipeline to do the orchestration
+
+44
+00:01:38,000 --> 00:01:40,000
+of a pipeline within AWS,
+
+45
+00:01:40,000 --> 00:01:42,000
+so from your code to your build, to your test,
+
+46
+00:01:42,000 --> 00:01:45,000
+your deployment, and your provisioning and so on,
+
+47
+00:01:45,000 --> 00:01:47,000
+CodeArtifacts to store software packages
+
+48
+00:01:47,000 --> 00:01:50,000
+and dependencies on AWS,
+
+49
+00:01:50,000 --> 00:01:52,000
+and then we have the CDK
+
+50
+00:01:52,000 --> 00:01:54,000
+to define your cloud infrastructure
+
+51
+00:01:54,000 --> 00:01:55,000
+using a programming language,
+
+52
+00:01:55,000 --> 00:01:57,000
+for example, JavaScript, TypeScript,
+
+53
+00:01:57,000 --> 00:01:58,000
+Java, Python, et cetera.
+
+54
+00:01:58,000 --> 00:02:02,000
+And this gets compiled into a CloudFormation template.
+
+55
+00:02:02,000 --> 00:02:03,000
+So that's it.
+
+56
+00:02:03,000 --> 00:02:04,000
+I hope you liked it,
+
+57
+00:02:04,000 --> 00:02:05,000
+and I will see you in the next section.
+

@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:01,000
+Now let's talk about
+
+2
+00:00:01,000 --> 00:00:03,000
+another service called CodeBuild.
+
+3
+00:00:03,000 --> 00:00:05,000
+So the name is explicit,
+
+4
+00:00:05,000 --> 00:00:08,000
+it allows you to build your code in the cloud.
+
+5
+00:00:08,000 --> 00:00:09,000
+So what does that mean?
+
+6
+00:00:09,000 --> 00:00:11,000
+That means that the source course is going to be compiled,
+
+7
+00:00:11,000 --> 00:00:13,000
+the tests are going to be run,
+
+8
+00:00:13,000 --> 00:00:16,000
+and then the output of which is going to produce packages,
+
+9
+00:00:16,000 --> 00:00:18,000
+and these packages are going to be ready to be deployed
+
+10
+00:00:18,000 --> 00:00:20,000
+for example, by CodeDeploy
+
+11
+00:00:20,000 --> 00:00:22,000
+onto servers so that your application can run.
+
+12
+00:00:22,000 --> 00:00:25,000
+So, as a diagram, what does it look like?
+
+13
+00:00:25,000 --> 00:00:27,000
+Well, say your code is in CodeCommit,
+
+14
+00:00:27,000 --> 00:00:30,000
+CodeBuild is going to retrieve this code from CodeCommit,
+
+15
+00:00:30,000 --> 00:00:32,000
+run some script that you have to define, build your code,
+
+16
+00:00:32,000 --> 00:00:35,000
+and then you will have a ready-to-deploy artifacts.
+
+17
+00:00:35,000 --> 00:00:37,000
+So why would you use CodeBuild?
+
+18
+00:00:37,000 --> 00:00:39,000
+Well it's fully managed and serverless.
+
+19
+00:00:39,000 --> 00:00:42,000
+It's continuously scalable and highly available
+
+20
+00:00:42,000 --> 00:00:44,000
+and secure, and with pay-as-you-go pricing,
+
+21
+00:00:44,000 --> 00:00:46,000
+that means that you only pay
+
+22
+00:00:46,000 --> 00:00:48,000
+for the time your code is being built.
+
+23
+00:00:48,000 --> 00:00:50,000
+There are no servers to manage.
+
+24
+00:00:50,000 --> 00:00:54,000
+And that means that you can really worry about just coding,
+
+25
+00:00:54,000 --> 00:00:56,000
+and making sure that a service within AWS,
+
+26
+00:00:56,000 --> 00:00:58,000
+will take its time to build your code
+
+27
+00:00:58,000 --> 00:01:00,000
+every single time you push a code updates
+
+28
+00:01:00,000 --> 00:01:02,000
+into your CodeCommit reupholstery.
+
+29
+00:01:02,000 --> 00:01:05,000
+So that's it, very simple, I hope you liked it,
+
+30
+00:01:05,000 --> 00:01:07,000
+and I will see you in the next lecture.
+

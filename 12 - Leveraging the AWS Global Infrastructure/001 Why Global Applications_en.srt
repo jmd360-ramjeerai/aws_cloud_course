@@ -1,0 +1,612 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so we are getting to a new section
+
+2
+00:00:02,000 --> 00:00:05,000
+on Global Infrastructure in AWS.
+
+3
+00:00:05,000 --> 00:00:08,000
+So why would you make a global application?
+
+4
+00:00:08,000 --> 00:00:09,000
+Well, a global application is an application
+
+5
+00:00:09,000 --> 00:00:12,000
+that will be deployed in multiple geographies.
+
+6
+00:00:12,000 --> 00:00:15,000
+And when you translate this onto AWS,
+
+7
+00:00:15,000 --> 00:00:17,000
+that could mean that you deploy your application
+
+8
+00:00:17,000 --> 00:00:21,000
+onto different AWS Regions or Edge Locations.
+
+9
+00:00:21,000 --> 00:00:24,000
+What this gives you is that for users around the world,
+
+10
+00:00:24,000 --> 00:00:26,000
+they will have decreased latency.
+
+11
+00:00:26,000 --> 00:00:30,000
+So latency is the time it takes for a network packet
+
+12
+00:00:30,000 --> 00:00:31,000
+to reach a server.
+
+13
+00:00:31,000 --> 00:00:34,000
+And so if you consider that the earth is big,
+
+14
+00:00:34,000 --> 00:00:36,000
+it will take a lot of time for,
+
+15
+00:00:36,000 --> 00:00:38,000
+I mean a "lot"
+
+16
+00:00:38,000 --> 00:00:40,000
+it would take more time for a packet
+
+17
+00:00:40,000 --> 00:00:42,000
+from Asia to reach the US.
+
+18
+00:00:42,000 --> 00:00:44,000
+So if you have a user in India, for example,
+
+19
+00:00:44,000 --> 00:00:46,000
+and your server is in the US,
+
+20
+00:00:46,000 --> 00:00:47,000
+they will have more lag,
+
+21
+00:00:47,000 --> 00:00:49,000
+it will be having more latency,
+
+22
+00:00:49,000 --> 00:00:52,000
+but if you deploy your application closer to users,
+
+23
+00:00:52,000 --> 00:00:54,000
+they will have a better experience.
+
+24
+00:00:54,000 --> 00:00:58,000
+So if we deploy our application in the US and in Asia,
+
+25
+00:00:58,000 --> 00:01:00,000
+then both our users in the US,
+
+26
+00:01:00,000 --> 00:01:04,000
+and both our users in Asia will have a better latency,
+
+27
+00:01:04,000 --> 00:01:07,000
+because it will be fast to reach your application servers.
+
+28
+00:01:07,000 --> 00:01:09,000
+So that will be the first reason.
+
+29
+00:01:09,000 --> 00:01:12,000
+The second reason would be to have a disaster recovery plan.
+
+30
+00:01:12,000 --> 00:01:13,000
+So the idea is that you don't wanna rely on
+
+31
+00:01:13,000 --> 00:01:16,000
+only one data center or one region.
+
+32
+00:01:16,000 --> 00:01:18,000
+For example, if an entire region goes down,
+
+33
+00:01:18,000 --> 00:01:19,000
+this has never happened
+
+34
+00:01:19,000 --> 00:01:20,000
+but it may happen someday,
+
+35
+00:01:20,000 --> 00:01:22,000
+because of an earthquake or a storm,
+
+36
+00:01:22,000 --> 00:01:25,000
+a power shutdown, politics, whatever,
+
+37
+00:01:25,000 --> 00:01:28,000
+then by having a disaster recovery strategy in place,
+
+38
+00:01:28,000 --> 00:01:30,000
+you can fail-over to another region
+
+39
+00:01:30,000 --> 00:01:32,000
+and your application will still be working.
+
+40
+00:01:32,000 --> 00:01:34,000
+So having a DR plan, a disaster recovery plan,
+
+41
+00:01:34,000 --> 00:01:36,000
+is super important
+
+42
+00:01:36,000 --> 00:01:40,000
+to increase the availability of your application.
+
+43
+00:01:40,000 --> 00:01:42,000
+Finally, the last reason why you would have
+
+44
+00:01:42,000 --> 00:01:45,000
+a global application is in case you are under attack.
+
+45
+00:01:45,000 --> 00:01:48,000
+So it is coming for hackers online
+
+46
+00:01:48,000 --> 00:01:50,000
+to attack your application,
+
+47
+00:01:50,000 --> 00:01:52,000
+to try to take it down for various reasons.
+
+48
+00:01:52,000 --> 00:01:55,000
+And so if you have your application across multiple regions
+
+49
+00:01:55,000 --> 00:01:57,000
+and distributed globally,
+
+50
+00:01:57,000 --> 00:02:00,000
+then it's going to be much harder for an attacker
+
+51
+00:02:00,000 --> 00:02:02,000
+to attack all of these locations at once.
+
+52
+00:02:02,000 --> 00:02:05,000
+And so you are more protected against these attacks.
+
+53
+00:02:05,000 --> 00:02:07,000
+Now AWS, they have this really cool website
+
+54
+00:02:07,000 --> 00:02:09,000
+that I will show you in a second,
+
+55
+00:02:09,000 --> 00:02:10,000
+which shows you all the regions,
+
+56
+00:02:10,000 --> 00:02:12,000
+Availability Zones and so on.
+
+57
+00:02:12,000 --> 00:02:14,000
+And so this will show you the regions,
+
+58
+00:02:14,000 --> 00:02:16,000
+this is where we are deploying our applications
+
+59
+00:02:16,000 --> 00:02:17,000
+and infrastructure.
+
+60
+00:02:17,000 --> 00:02:18,000
+And the regions, as we know,
+
+61
+00:02:18,000 --> 00:02:21,000
+they're made of multiple Availability Zones,
+
+62
+00:02:21,000 --> 00:02:24,000
+they are made themselves of multiple data centers.
+
+63
+00:02:24,000 --> 00:02:25,000
+And then we have Edge Locations.
+
+64
+00:02:25,000 --> 00:02:27,000
+We haven't seen them yet,
+
+65
+00:02:27,000 --> 00:02:29,000
+but they're called also Points of Presence,
+
+66
+00:02:29,000 --> 00:02:31,000
+and they're used for content delivery
+
+67
+00:02:31,000 --> 00:02:33,000
+to be as close as possible to users.
+
+68
+00:02:33,000 --> 00:02:36,000
+And then let's have a look at this website right now
+
+69
+00:02:36,000 --> 00:02:38,000
+to see how it works.
+
+70
+00:02:38,000 --> 00:02:40,000
+So this website shows you a map of the world,
+
+71
+00:02:40,000 --> 00:02:41,000
+and if you click on it,
+
+72
+00:02:41,000 --> 00:02:43,000
+you're able to look around the globe
+
+73
+00:02:43,000 --> 00:02:46,000
+and see where AWS has some presence.
+
+74
+00:02:46,000 --> 00:02:48,000
+So every orange box is going to be a region,
+
+75
+00:02:48,000 --> 00:02:51,000
+and as you can see you have regions all around the world,
+
+76
+00:02:51,000 --> 00:02:52,000
+but not everywhere.
+
+77
+00:02:52,000 --> 00:02:54,000
+And right now, if you click on regions,
+
+78
+00:02:54,000 --> 00:02:55,000
+you will see where they are
+
+79
+00:02:55,000 --> 00:02:58,000
+and how they are structured and so on.
+
+80
+00:02:58,000 --> 00:02:59,000
+And so for example, for Europe,
+
+81
+00:02:59,000 --> 00:03:01,000
+your region's Spain, London,
+
+82
+00:03:01,000 --> 00:03:03,000
+Ireland, Paris, Frankfurt, Milan, and Stockholm.
+
+83
+00:03:03,000 --> 00:03:06,000
+Then it is talking about Availability Zones.
+
+84
+00:03:06,000 --> 00:03:07,000
+So if we look at,
+
+85
+00:03:07,000 --> 00:03:10,000
+for example, a region like Northern Virginia,
+
+86
+00:03:10,000 --> 00:03:11,000
+this is a region right here,
+
+87
+00:03:11,000 --> 00:03:13,000
+but we have six blue points.
+
+88
+00:03:13,000 --> 00:03:17,000
+So we have six AZ in the Northern Virginia region.
+
+89
+00:03:17,000 --> 00:03:19,000
+But if we look for example at Europe
+
+90
+00:03:19,000 --> 00:03:21,000
+and we look at the Paris region,
+
+91
+00:03:21,000 --> 00:03:23,000
+we can see we have three blue dots around it,
+
+92
+00:03:23,000 --> 00:03:25,000
+so there're three Availability Zones.
+
+93
+00:03:25,000 --> 00:03:27,000
+So these AZ as you can see,
+
+94
+00:03:27,000 --> 00:03:30,000
+they're distant from one another
+
+95
+00:03:30,000 --> 00:03:31,000
+because in case something happens,
+
+96
+00:03:31,000 --> 00:03:33,000
+for example, North of Paris,
+
+97
+00:03:33,000 --> 00:03:36,000
+then the AZ South of Paris should not be affected,
+
+98
+00:03:36,000 --> 00:03:38,000
+but still these AZ are linked
+
+99
+00:03:38,000 --> 00:03:41,000
+by some very, very fast network.
+
+100
+00:03:41,000 --> 00:03:42,000
+So these are the AZ
+
+101
+00:03:42,000 --> 00:03:44,000
+and we can see every region has multiple AZ.
+
+102
+00:03:44,000 --> 00:03:46,000
+And then you have Points of Presence.
+
+103
+00:03:46,000 --> 00:03:48,000
+So these are the pink dots in this map,
+
+104
+00:03:48,000 --> 00:03:50,000
+and they are for content delivery networks,
+
+105
+00:03:50,000 --> 00:03:52,000
+so you cannot deploy an application there,
+
+106
+00:03:52,000 --> 00:03:54,000
+but something like CloudFront will be using it,
+
+107
+00:03:54,000 --> 00:03:57,000
+and we'll look at CloudFront in this section.
+
+108
+00:03:57,000 --> 00:03:58,000
+So as we can see, if we look at California,
+
+109
+00:03:58,000 --> 00:04:00,000
+we have the pink dots right here,
+
+110
+00:04:00,000 --> 00:04:01,000
+all around the US,
+
+111
+00:04:01,000 --> 00:04:04,000
+so that even your users that are close to the Mexico border
+
+112
+00:04:04,000 --> 00:04:06,000
+or even are in Mexico,
+
+113
+00:04:06,000 --> 00:04:09,000
+get some fast connection to AWS, okay?
+
+114
+00:04:09,000 --> 00:04:12,000
+And finally, obviously the network.
+
+115
+00:04:12,000 --> 00:04:14,000
+So these are the actual links between all the regions
+
+116
+00:04:14,000 --> 00:04:17,000
+and all the AZs and all the Points of Presence.
+
+117
+00:04:17,000 --> 00:04:19,000
+And the network is really, really stable.
+
+118
+00:04:19,000 --> 00:04:21,000
+This is actually a network from AWS.
+
+119
+00:04:21,000 --> 00:04:22,000
+So all of this is private.
+
+120
+00:04:22,000 --> 00:04:24,000
+So AWS went above and beyond
+
+121
+00:04:24,000 --> 00:04:26,000
+and actually installed cables under the water
+
+122
+00:04:26,000 --> 00:04:29,000
+to link for example, between Europe and the US
+
+123
+00:04:29,000 --> 00:04:31,000
+or to link between Europe and Africa and so on.
+
+124
+00:04:31,000 --> 00:04:33,000
+So this is a really cool map, I really like it.
+
+125
+00:04:33,000 --> 00:04:36,000
+But as you can see, the extent of network is huge,
+
+126
+00:04:36,000 --> 00:04:38,000
+and this is a private network,
+
+127
+00:04:38,000 --> 00:04:41,000
+which helps AWS have some fast and reliable connection
+
+128
+00:04:41,000 --> 00:04:44,000
+between all their different zones and regions.
+
+129
+00:04:44,000 --> 00:04:46,000
+So that's it, that's what I went through with this website,
+
+130
+00:04:46,000 --> 00:04:49,000
+have a look, I think it's really cool to get an idea of how
+
+131
+00:04:49,000 --> 00:04:52,000
+the cloud really can help you have a global presence.
+
+132
+00:04:52,000 --> 00:04:54,000
+So to summarize on AWS,
+
+133
+00:04:54,000 --> 00:04:57,000
+for the Global DNS, we're going to learn about Route 53.
+
+134
+00:04:57,000 --> 00:04:59,000
+It is going to help us route the users
+
+135
+00:04:59,000 --> 00:05:02,000
+to the closest deployment with the least latency.
+
+136
+00:05:02,000 --> 00:05:05,000
+And it's going to be great for disaster recovery strategies.
+
+137
+00:05:05,000 --> 00:05:07,000
+Then for Global Content Delivery Network,
+
+138
+00:05:07,000 --> 00:05:09,000
+a CDN will be using CloudFront,
+
+139
+00:05:09,000 --> 00:05:11,000
+and it's going to be able to replicate
+
+140
+00:05:11,000 --> 00:05:14,000
+parts of our applications into these Edge Locations
+
+141
+00:05:14,000 --> 00:05:16,000
+to again, decrease the latency for our users
+
+142
+00:05:16,000 --> 00:05:18,000
+and also cache the common request
+
+143
+00:05:18,000 --> 00:05:20,000
+to give an improved user experience
+
+144
+00:05:20,000 --> 00:05:21,000
+and a decreased latency.
+
+145
+00:05:21,000 --> 00:05:25,000
+Then we'll see about S3 Transfer Acceleration
+
+146
+00:05:25,000 --> 00:05:27,000
+to accelerate the global uploads and downloads
+
+147
+00:05:27,000 --> 00:05:28,000
+into Amazon S3.
+
+148
+00:05:28,000 --> 00:05:31,000
+And finally, the AWS Global Accelerator,
+
+149
+00:05:31,000 --> 00:05:32,000
+which is going to improve
+
+150
+00:05:32,000 --> 00:05:34,000
+the global application availability and performance
+
+151
+00:05:34,000 --> 00:05:37,000
+using the AWS global network.
+
+152
+00:05:37,000 --> 00:05:39,000
+So we have a busy section, I hope you're excited,
+
+153
+00:05:39,000 --> 00:05:41,000
+and I will see you in the next lecture.
+

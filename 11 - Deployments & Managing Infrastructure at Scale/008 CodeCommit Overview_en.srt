@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:01,000
+So now let's get
+
+2
+00:00:01,000 --> 00:00:04,000
+into the code-related tools in AWS.
+
+3
+00:00:04,000 --> 00:00:07,000
+So before pushing the application code to servers,
+
+4
+00:00:07,000 --> 00:00:09,000
+you need to store it somewhere.
+
+5
+00:00:09,000 --> 00:00:12,000
+And developers usually choose a code repository.
+
+6
+00:00:12,000 --> 00:00:14,000
+Usually that was going to be backed
+
+7
+00:00:14,000 --> 00:00:16,000
+using the Git technology, G-I-T.
+
+8
+00:00:16,000 --> 00:00:19,000
+And so a very famous public offering is called GitHub.
+
+9
+00:00:19,000 --> 00:00:22,000
+But AWS has a competing product.
+
+10
+00:00:22,000 --> 00:00:24,000
+That is going to be CodeCommit.
+
+11
+00:00:24,000 --> 00:00:26,000
+And so CodeCommit is a way for you
+
+12
+00:00:26,000 --> 00:00:27,000
+to store your code
+
+13
+00:00:27,000 --> 00:00:31,000
+within AWS in a version control repository.
+
+14
+00:00:31,000 --> 00:00:34,000
+So it's going to be for Git-based repository.
+
+15
+00:00:34,000 --> 00:00:36,000
+And why would you have that?
+
+16
+00:00:36,000 --> 00:00:38,000
+Well, once you have a Git-based repository,
+
+17
+00:00:38,000 --> 00:00:40,000
+it becomes incredibly easy for developers
+
+18
+00:00:40,000 --> 00:00:44,000
+to collaborate with each other on the code.
+
+19
+00:00:44,000 --> 00:00:45,000
+The code changes are going
+
+20
+00:00:45,000 --> 00:00:47,000
+to be automatically versioned and can be rolled back.
+
+21
+00:00:47,000 --> 00:00:49,000
+And so the benefit is that with CodeCommit,
+
+22
+00:00:49,000 --> 00:00:52,000
+you have a fully-managed code repository.
+
+23
+00:00:52,000 --> 00:00:53,000
+It's scalable and highly available,
+
+24
+00:00:53,000 --> 00:00:56,000
+but also it lives within your AWS accounts.
+
+25
+00:00:56,000 --> 00:00:58,000
+So it's private, secure,
+
+26
+00:00:58,000 --> 00:01:01,000
+and it's going to be integrated with all AWS services.
+
+27
+00:01:01,000 --> 00:01:03,000
+So I will see you in the next lecture.
+

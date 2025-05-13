@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      code {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .quiz-content {
+        padding: 2.4rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0 auto;
+      }
+      .quiz-container {
+        margin: 0 auto;
+        max-width: 84rem;
+        padding: 0;
+      }
+      .question {
+        margin-bottom: 5rem;
+      }
+      .question span {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .question-prompt {
+        margin-top: 0.8rem;
+        font-weight: 700;
+      }
+      .question-answer {
+        margin-top: 1.6rem;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+      .question-answer label {
+        max-width: 80rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        min-width: 18rem;
+        border: solid #1c1d1f 2px;
+      }
+      .question-answer div {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+      }
+      .question-answer div:hover {
+        background-color: #f5f5f5;
+      }
+      .question-answer input {
+        display: none;
+      }
+      .question-answer span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.6rem;
+        top: 0;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+        border: 0.2rem solid #1c1d1f;
+        position: relative;
+      }
+      .selected {
+        background: #1c1d1f;
+        box-shadow: 0 0 0 0.4rem #fff inset;
+      }
+      .score {
+              position: fixed;
+            }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <div id="score" class="score">
+      <span>Score: N/A of N/A</span>
+    </div>
+    <div id="quiz-container" class="quiz-content"></div>
+
+    <script>
+      const quizData = {"pass_percent": 70, "questions": [{"_class": "assessment", "id": 18817338, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which AWS&nbsp;managed service allows to automate software deployments to a hybrid mix of EC2 Instances and On-Premises servers?</p>", "relatedLectureIds": ["20056074"], "feedbacks": ["AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.", "AWS CloudFormation provides a common language for you to model and provision AWS and third party application resources in your cloud environment. It does not automate software deployments to a hybrid mix.", "AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud. It does not automate software deployments to a hybrid mix. ", "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. It is not used to store or collaborate on code."], "answers": ["<p>CodeDeploy</p>", "<p>CloudFormation</p>", "<p>Elastic Beanstalk</p>", "<p>CodePipeline</p>"]}, "correct_response": ["a"], "section": "", "question_plain": "Which AWS&nbsp;managed service allows to automate software deployments to a hybrid mix of EC2 Instances and On-Premises servers?", "related_lectures": [{"_class": "lecture", "id": 20056074, "title": "CodeDeploy Overview", "created": "2020-05-25T18:20:58Z", "is_published": true, "asset": {"_class": "asset", "id": 25183458, "asset_type": "Video", "title": "CCP - CodeDeploy Overview.mp4", "created": "2020-06-03T08:54:10Z"}, "object_index": 128, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056074"}]}, {"_class": "assessment", "id": 28717456, "assessment_type": "multiple-choice", "prompt": {"question": "<p>You are a software developer working on a project with your team. You need a secure and reliable version control system to store, share, and collaborate your code with the team. Which AWS service can help the developers?</p>", "relatedLectureIds": ["24682558"], "feedbacks": ["AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises. It is not used to store or collaborate on code.", "AWS CodeCommit is a secure, highly scalable, managed source control service that makes it easier for teams to collaborate on code. It also provides software version control.", "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. It is not used to store or collaborate on code.", "AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud. It does not automate software deployments to a hybrid mix. "], "answers": ["<p>CodeDeploy</p>", "<p>CodeCommit</p>", "<p>CodePipeline</p>", "<p>Elastic Beanstalk</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "You are a software developer working on a project with your team. You need a secure and reliable version control system to store, share, and collaborate your code with the team. Which AWS service can help the developers?", "related_lectures": [{"_class": "lecture", "id": 24682558, "title": "CodeCommit Overview", "created": "2021-01-31T19:45:03Z", "is_published": true, "asset": {"_class": "asset", "id": 56533366, "asset_type": "Video", "title": "CCP_-_CodeCommit_v2.mp4", "created": "2024-05-12T07:09:23Z"}, "object_index": 130, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682558"}]}, {"_class": "assessment", "id": 18817502, "assessment_type": "multiple-choice", "prompt": {"question": "<p>You need a unified user interface that gives you visibility, control, and patching capabilities for your&nbsp;EC2 Instances on AWS, as well as for servers running in your on-premises data centers. Which service should you use?</p>", "relatedLectureIds": ["20056088"], "feedbacks": ["AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to virtually unlimited cloud storage. ", "AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud. It does not automate software deployments to a hybrid mix. ", "Elastic Container Service (ECS) is used to launch Docker containers on AWS.", "AWS Systems Manager gives you visibility and control of your infrastructure on AWS. It is used for patching systems at scale."], "answers": ["<p>Storage Gateway</p>", "<p>Elastic Beanstalk</p>", "<p>Elastic Container Service</p>", "<p>Systems Manager</p>"]}, "correct_response": ["d"], "section": "", "question_plain": "You need a unified user interface that gives you visibility, control, and patching capabilities for your&nbsp;EC2 Instances on AWS, as well as for servers running in your on-premises data centers. Which service should you use?", "related_lectures": [{"_class": "lecture", "id": 20056088, "title": "Systems Manager (SSM) Overview", "created": "2020-05-25T18:21:29Z", "is_published": true, "asset": {"_class": "asset", "id": 47699294, "asset_type": "Video", "title": "CCP_-_SSM_-_Overview.mp4", "created": "2023-03-25T13:27:53Z"}, "object_index": 134, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056088"}]}, {"_class": "assessment", "id": 34448992, "assessment_type": "multiple-choice", "prompt": {"relatedLectureIds": ["26623490"], "question": "<p>A developer would like to deploy infrastructure on AWS but only knows Python. Which AWS service can assist him?</p>", "feedbacks": ["The AWS SDK for Java simpli\ufb01es use of AWS services by providing a set of libraries that are consistent and familiar for Java developers. It is not used to deploy infrastructure using familiar programming languages.", "The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages.", "AWS CloudFormation provides a common language for you to model and provision AWS and third party application resources in your cloud environment. However, you cannot use familiar programming languages, only YAML or JSON.", "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. It is not used to deploy infrastructure using familiar programming languages."], "answers": ["<p>Software Development Kit (SDK)</p>", "<p>Cloud Development Kit (CDK)</p>", "<p>CloudFormation</p>", "<p>CodeBuild</p>"]}, "correct_response": ["b"], "section": "", "question_plain": "A developer would like to deploy infrastructure on AWS but only knows Python. Which AWS service can assist him?", "related_lectures": [{"_class": "lecture", "id": 26623490, "title": "CDK Overview", "created": "2021-05-21T07:04:17Z", "is_published": true, "asset": {"_class": "asset", "id": 33685534, "asset_type": "Video", "title": "CCP_-_CDK_-_Overview_v1.mp4", "created": "2021-05-20T19:21:24Z"}, "object_index": 125, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/26623490"}]}, {"_class": "assessment", "id": 18817246, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which of the following allows you to deploy any AWS Infrastructure as a Code?</p>", "relatedLectureIds": ["20056060"], "feedbacks": ["Elastic Beanstalk is a Platform as a Service (PaaS). You only manage data and applications.", "AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.", "AWS CloudFormation provides a common language for you to model and provision AWS and third party application resources in your cloud environment. It allows you to deploy Infrastructure as a Code.", "AWS Systems Manager gives you visibility and control of your infrastructure on AWS, it does not deploy Infrastructure as a Code."], "answers": ["<p>Elastic Beanstalk</p>", "<p>CodeDeploy</p>", "<p>CloudFormation</p>", "<p>Systems Manager</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "Which of the following allows you to deploy any AWS Infrastructure as a Code?", "related_lectures": [{"_class": "lecture", "id": 20056060, "title": "CloudFormation Overview", "created": "2020-05-25T18:20:28Z", "is_published": true, "asset": {"_class": "asset", "id": 56533216, "asset_type": "Video", "title": "CCP_-_CloudFormation_-_Overview_v2.mp4", "created": "2024-05-12T06:54:44Z"}, "object_index": 123, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056060"}]}, {"_class": "assessment", "id": 18817272, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which service is referred to as a Platform as a Service (PaaS)?</p>", "relatedLectureIds": ["20056068"], "feedbacks": ["Elastic Beanstalk is a Platform as a Service (PaaS). You only manage data and applications. AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud", "AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.", "AWS CloudFormation provides a common language for you to model and provision AWS and third party application resources in your cloud environment. It allows you to deploy Infrastructure as a Code.", "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is an Infrastructure as a Service."], "answers": ["<p>Elastic Beanstalk</p>", "<p>CodeDeploy</p>", "<p>CloudFormation</p>", "<p>EC2</p>"]}, "correct_response": ["a"], "section": "", "question_plain": "Which service is referred to as a Platform as a Service (PaaS)?", "related_lectures": [{"_class": "lecture", "id": 20056068, "title": "Beanstalk Overview", "created": "2020-05-25T18:20:44Z", "is_published": true, "asset": {"_class": "asset", "id": 54587232, "asset_type": "Video", "title": "CCP_-_Beanstalk_-_Overview_v2.mp4", "created": "2024-02-11T17:51:48Z"}, "object_index": 126, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056068"}]}, {"_class": "assessment", "id": 18817326, "assessment_type": "multiple-choice", "prompt": {"relatedLectureIds": ["20056060"], "question": "<p>What is called the declaration of the AWS resources that make up a stack?</p>", "feedbacks": ["This does not exist. It is made up with words related to the right name.", "This does not exist. It is made up with words related to the right name.", "AWS CloudFormation templates are JSON or YAML-formatted text files. They are declarations of the AWS resources that make up a stack.", "This does not exist. It is made up with words related to the right name."], "answers": ["<p>CloudFormation Schemas</p>", "<p>CloudFormation Diagrams</p>", "<p>CloudFormation Templates</p>", "<p>CloudFormation&nbsp;Models</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "What is called the declaration of the AWS resources that make up a stack?", "related_lectures": [{"_class": "lecture", "id": 20056060, "title": "CloudFormation Overview", "created": "2020-05-25T18:20:28Z", "is_published": true, "asset": {"_class": "asset", "id": 56533216, "asset_type": "Video", "title": "CCP_-_CloudFormation_-_Overview_v2.mp4", "created": "2024-05-12T06:54:44Z"}, "object_index": 123, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056060"}]}, {"_class": "assessment", "id": 28717472, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which of the following services can a developer use to store code dependencies?</p>", "relatedLectureIds": ["24682568"], "feedbacks": ["AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. CodeBuild can retrieve code dependencies, but it is not used to store them.", "AWS CodeCommit is a secure, highly scalable, managed source control service that makes it easier for teams to collaborate on code. It also provides software version control. It is not used to store code dependencies.", "AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.", "AWS CodeArtifact is a fully managed artifact repository (also called code dependencies) service that makes it easy for organizations of any size to securely store, publish, and share software packages used in their software development process."], "answers": ["<p>CodeBuild</p>", "<p>CodeCommit</p>", "<p>CodeDeploy</p>", "<p>CodeArtifact</p>"]}, "correct_response": ["d"], "section": "", "question_plain": "Which of the following services can a developer use to store code dependencies?", "related_lectures": [{"_class": "lecture", "id": 24682568, "title": "CodeArtifact Overview", "created": "2021-01-31T19:45:22Z", "is_published": true, "asset": {"_class": "asset", "id": 31073380, "asset_type": "Video", "title": "CCP - CodeArtifact.mp4", "created": "2021-01-31T19:32:58Z"}, "object_index": 133, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682568"}]}, {"_class": "assessment", "id": 28717460, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which serverless service can be used to build code and run tests?</p>", "relatedLectureIds": ["24682562"], "feedbacks": ["AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.", "The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages. It is not used to build and test code.", "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. It is not used to build and test code.", "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. With CodeBuild, you don\u2019t need to provision, manage, and scale your own build servers, it is serverless."], "answers": ["<p>CodeDeploy</p>", "<p>Cloud Development Kit (CDK)</p>", "<p>CodePipeline</p>", "<p>CodeBuild</p>"]}, "correct_response": ["d"], "section": "", "question_plain": "Which serverless service can be used to build code and run tests?", "related_lectures": [{"_class": "lecture", "id": 24682562, "title": "CodeBuild Overview", "created": "2021-01-31T19:45:09Z", "is_published": true, "asset": {"_class": "asset", "id": 31073288, "asset_type": "Video", "title": "CCP - CodeBuild.mp4", "created": "2021-01-31T19:32:58Z"}, "object_index": 131, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682562"}]}, {"_class": "assessment", "id": 18817310, "assessment_type": "multiple-choice", "prompt": {"relatedLectureIds": ["20056060"], "question": "<p>CloudFormation and Elastic Beanstalk are free of use.</p>", "feedbacks": ["CloudFormation and Elastic Beanstalk are free of use, but you do pay for the resources created.", "CloudFormation and Elastic Beanstalk are free of use, but you do pay for the resources created."], "answers": ["<p>True</p>", "<p>False</p>"]}, "correct_response": ["a"], "section": "", "question_plain": "CloudFormation and Elastic Beanstalk are free of use.", "related_lectures": [{"_class": "lecture", "id": 20056060, "title": "CloudFormation Overview", "created": "2020-05-25T18:20:28Z", "is_published": true, "asset": {"_class": "asset", "id": 56533216, "asset_type": "Video", "title": "CCP_-_CloudFormation_-_Overview_v2.mp4", "created": "2024-05-12T06:54:44Z"}, "object_index": 123, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056060"}]}]};
+      var correct = 0;
+      var total = 0;
+      const questionData = quizData.questions
+      const passPercent = quizData.pass_percent
+
+      function main() {
+        total = questionData.length;
+
+        var questions = [];
+        for (var i = 0; i < questionData.length; i++) {
+          var question = questionData[i];
+          var questionText = question.prompt.question;
+          var answers = question.prompt.answers;
+          var correctAnswer = question.correct_response[0];
+          var correctAnswerText = answers[correctAnswer.charCodeAt(0) - 97];
+          var questionObj = {
+            question: questionText,
+            correctAnswer: correctAnswerText,
+            answers: answers,
+            id: question.id,
+          };
+          questions.push(questionObj);
+        }
+
+        updateScore();
+
+        // display the questions
+        var questionsContainer = document.getElementById("quiz-container");
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var questionElement = document.createElement("form");
+          questionElement.className = "question";
+          questionElement.innerHTML =
+            "<span>Question " +
+            (i + 1) +
+            ":</span>" +
+            '<div class="question-prompt">' +
+            question.question +
+            "</div>";
+          questionElement.id = question.id;
+          questionElement.classList.add("quiz-container");
+          var answersElement = document.createElement("ul");
+          answersElement.className = "answers";
+          for (var j = 0; j < question.answers.length; j++) {
+            var answer = question.answers[j];
+            var answerElement = document.createElement("li");
+            answerElement.className = "answer";
+            answerElement.innerHTML =
+              '<label for="input-' +
+              question.id +
+              "-" +
+              j +
+              '"><div onclick="select(' +
+              question.id +
+              ", " +
+              j +
+              ')"><span></span><input id="input-' +
+              question.id +
+              "-" +
+              j +
+              '" type="radio" name="question' +
+              i +
+              '" value="' +
+              j +
+              '">' +
+              answer +
+              "</input></div></label>";
+            answerElement.classList.add("question-answer");
+            answersElement.appendChild(answerElement);
+          }
+
+          questionElement.appendChild(answersElement);
+
+          // add a submit button
+          var submitButton = document.createElement("button");
+          submitButton.className = "submit";
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.add("submit-button");
+
+          submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var questionElement = e.target.parentElement;
+            var questionId = questionElement.id;
+            var question = questions.filter(function (q) {
+              return q.id == questionId;
+            })[0];
+
+            // set the border color of all answers to black
+            var answers = questionElement.getElementsByClassName("answer");
+            for (var i = 0; i < answers.length; i++) {
+              console.log(answers[i]);
+              answers[i].children[0].style.borderColor = "#1c1d1f";
+            }
+
+            var answer = questionElement.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (answer) {
+              var answerIndex = answer.value;
+              var answerText = question.answers[answerIndex];
+              if (answerText == question.correctAnswer) {
+                answer.parentElement.parentElement.style.borderColor =
+                  "limegreen";
+                // alert("Correct!");
+                correct++;
+                updateScore();
+              } else {
+                answer.parentElement.parentElement.style.borderColor = "red";
+                // alert("Incorrect!");
+              }
+            } else {
+              alert("Please select an answer.");
+            }
+          });
+
+          // add button
+          questionElement.appendChild(submitButton);
+
+          questionsContainer.appendChild(questionElement);
+        }
+      }
+
+      function select(question, answer) {
+        var questionElement = document.getElementById(question);
+        var answers = questionElement.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          var span = answers[i].children[0].children[0].children[0];
+          var input = answers[i].children[0].children[0].children[1];
+          span.classList.remove("selected");
+          input.checked = false;
+        }
+        var span = answers[answer].children[0].children[0].children[0];
+        var input = answers[answer].children[0].children[0].children[1];
+        span.classList.add("selected");
+        input.checked = true;
+      }
+
+      function updateScore() {
+        var scoreElem = document.getElementById("score");
+        const score = (correct / total) * 100;
+        scoreElem.innerHTML = "Score: " + score + "/" + passPercent + "%";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,416 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about Beanstalk.
+
+2
+00:00:02,000 --> 00:00:05,000
+So when we have deployed a web application in AWS,
+
+3
+00:00:05,000 --> 00:00:08,000
+we typically follow a architecture
+
+4
+00:00:08,000 --> 00:00:10,000
+called a 3-tier architecture.
+
+5
+00:00:10,000 --> 00:00:13,000
+So our users talk to a load balancer
+
+6
+00:00:13,000 --> 00:00:16,000
+that could be in multiple available zones.
+
+7
+00:00:16,000 --> 00:00:17,000
+Then the load balancer will forward traffic
+
+8
+00:00:17,000 --> 00:00:20,000
+to multiple EC2 instances managed by
+
+9
+00:00:20,000 --> 00:00:21,000
+an auto scaling scaling group.
+
+10
+00:00:21,000 --> 00:00:24,000
+And then these EC2 instances need to store data somewhere
+
+11
+00:00:24,000 --> 00:00:27,000
+so they will use a database such as Amazon RDS
+
+12
+00:00:27,000 --> 00:00:29,000
+for a relational database to read and write data.
+
+13
+00:00:29,000 --> 00:00:32,000
+And if they need to have an in-memory database
+
+14
+00:00:32,000 --> 00:00:36,000
+for an in-memory cache, then they can also use ElastiCache
+
+15
+00:00:36,000 --> 00:00:39,000
+to store a retrieve the session data or the cached data.
+
+16
+00:00:39,000 --> 00:00:41,000
+Now this architecture is something
+
+17
+00:00:41,000 --> 00:00:43,000
+we can easily reproduce manually.
+
+18
+00:00:43,000 --> 00:00:47,000
+We can also reproduce it on AWS through CloudFormation,
+
+19
+00:00:47,000 --> 00:00:48,000
+but there is a better way.
+
+20
+00:00:48,000 --> 00:00:51,000
+So when you're a developer on AWS,
+
+21
+00:00:51,000 --> 00:00:53,000
+you don't want to be managing infrastructure,
+
+22
+00:00:53,000 --> 00:00:55,000
+you just want to be deploying code, okay?
+
+23
+00:00:55,000 --> 00:00:58,000
+You don't want to be able to configure all the databases,
+
+24
+00:00:58,000 --> 00:00:59,000
+the load balancers, et cetera,
+
+25
+00:00:59,000 --> 00:01:02,000
+and you wanna make sure that whatever you're doing scales.
+
+26
+00:01:02,000 --> 00:01:05,000
+And as we saw, most web applications will have the same
+
+27
+00:01:05,000 --> 00:01:08,000
+or similar architecture with a load balancer
+
+28
+00:01:08,000 --> 00:01:09,000
+and an auto scaling group.
+
+29
+00:01:09,000 --> 00:01:12,000
+So as a developer on AWS, all that you want to do
+
+30
+00:01:12,000 --> 00:01:14,000
+is to run your code.
+
+31
+00:01:14,000 --> 00:01:16,000
+Possibly you want to run your code
+
+32
+00:01:16,000 --> 00:01:19,000
+for different applications and environments the same way.
+
+33
+00:01:19,000 --> 00:01:22,000
+So there comes Elastic Beanstalk.
+
+34
+00:01:22,000 --> 00:01:24,000
+So Elastic Beanstalk is a developer centric view
+
+35
+00:01:24,000 --> 00:01:27,000
+of deploying an application on AWS.
+
+36
+00:01:27,000 --> 00:01:28,000
+And behind Beanstalk
+
+37
+00:01:28,000 --> 00:01:30,000
+we have the same components we've seen before.
+
+38
+00:01:30,000 --> 00:01:33,000
+So your EC2 instances, your auto scaling group,
+
+39
+00:01:33,000 --> 00:01:36,000
+your Elastic Load Balancer, your RDS database, et cetera.
+
+40
+00:01:36,000 --> 00:01:39,000
+But in Beanstalk, it's a developer centric view.
+
+41
+00:01:39,000 --> 00:01:41,000
+So it's one view that's easy to make sense of
+
+42
+00:01:41,000 --> 00:01:42,000
+with everything in it.
+
+43
+00:01:42,000 --> 00:01:44,000
+And we still have control over the configuration
+
+44
+00:01:44,000 --> 00:01:48,000
+of all the components, but it is all within Beanstalk.
+
+45
+00:01:48,000 --> 00:01:51,000
+So Beanstalk from a cloud perspective
+
+46
+00:01:51,000 --> 00:01:55,000
+is a platform as a service or PaaS
+
+47
+00:01:55,000 --> 00:01:57,000
+because we just worry about the code.
+
+48
+00:01:57,000 --> 00:02:01,000
+So to summarize, we saw infrastructure as a service,
+
+49
+00:02:01,000 --> 00:02:02,000
+so IaaS.
+
+50
+00:02:02,000 --> 00:02:06,000
+We saw platform as a service for Beanstalk, PaaS,
+
+51
+00:02:06,000 --> 00:02:09,000
+and then we're going to see software as a service
+
+52
+00:02:09,000 --> 00:02:11,000
+for other services on AWS.
+
+53
+00:02:11,000 --> 00:02:12,000
+So using Beanstalk is free,
+
+54
+00:02:12,000 --> 00:02:16,000
+but you're going to pay for the underlying instances.
+
+55
+00:02:16,000 --> 00:02:18,000
+So Elastic Beanstalk is a managed service.
+
+56
+00:02:18,000 --> 00:02:21,000
+That means that all the EC2 instance configuration
+
+57
+00:02:21,000 --> 00:02:24,000
+and operating system will be handled by Beanstalk itself.
+
+58
+00:02:24,000 --> 00:02:27,000
+The deployment strategy can be configured,
+
+59
+00:02:27,000 --> 00:02:28,000
+but again, the deployment itself
+
+60
+00:02:28,000 --> 00:02:31,000
+is going to be performed by Elastic Beanstalk.
+
+61
+00:02:31,000 --> 00:02:34,000
+All the capacity provisioning through an auto scaling group
+
+62
+00:02:34,000 --> 00:02:36,000
+and load balancing are done by Beanstalk.
+
+63
+00:02:36,000 --> 00:02:38,000
+And the application health monitoring
+
+64
+00:02:38,000 --> 00:02:40,000
+and responsiveness is also included
+
+65
+00:02:40,000 --> 00:02:42,000
+in the Beanstalk dashboard.
+
+66
+00:02:42,000 --> 00:02:44,000
+So what is your responsibility as a developer?
+
+67
+00:02:44,000 --> 00:02:46,000
+Well, just the application code,
+
+68
+00:02:46,000 --> 00:02:48,000
+and that makes Elastic Beanstalk
+
+69
+00:02:48,000 --> 00:02:50,000
+a very developer friendly service.
+
+70
+00:02:50,000 --> 00:02:53,000
+There are three architecture models with Elastic Beanstalk.
+
+71
+00:02:53,000 --> 00:02:55,000
+The first one is single instant deployment,
+
+72
+00:02:55,000 --> 00:02:57,000
+which is good for development environment,
+
+73
+00:02:57,000 --> 00:03:00,000
+but if you wanna scale up, you can have a load balancer
+
+74
+00:03:00,000 --> 00:03:02,000
+and an ASG, which is going to be great for production
+
+75
+00:03:02,000 --> 00:03:04,000
+or pre-production web applications.
+
+76
+00:03:04,000 --> 00:03:08,000
+And finally, if you want to have non-web apps in production,
+
+77
+00:03:08,000 --> 00:03:12,000
+for example, workers, you have an option to only have
+
+78
+00:03:12,000 --> 00:03:14,000
+an auto scaling group on as a standalone.
+
+79
+00:03:15,000 --> 00:03:18,000
+Beanstalk can be used to support many platforms.
+
+80
+00:03:18,000 --> 00:03:23,000
+For example, Go, Java, as well .NET, Node.js, PHP,
+
+81
+00:03:23,000 --> 00:03:27,000
+Python, Ruby, Packer, Docker, Multi Docker,
+
+82
+00:03:27,000 --> 00:03:28,000
+and Preconfigured Docker.
+
+83
+00:03:28,000 --> 00:03:29,000
+You don't need to remember this for the exam,
+
+84
+00:03:29,000 --> 00:03:32,000
+but as you can see, Beanstalk supports a lot of ways
+
+85
+00:03:32,000 --> 00:03:34,000
+to deploy your application, including Docker
+
+86
+00:03:34,000 --> 00:03:37,000
+and many programming languages.
+
+87
+00:03:37,000 --> 00:03:39,000
+Finally, a question that may come up in the exam
+
+88
+00:03:39,000 --> 00:03:40,000
+is around health monitoring.
+
+89
+00:03:40,000 --> 00:03:43,000
+So Beanstalk does have a full monitoring suite available
+
+90
+00:03:43,000 --> 00:03:45,000
+within the service itself.
+
+91
+00:03:45,000 --> 00:03:47,000
+And so there's going to be a health agent
+
+92
+00:03:47,000 --> 00:03:48,000
+on each EC2 instance within Beanstalk
+
+93
+00:03:48,000 --> 00:03:51,000
+that is going to push metrics to CloudWatch.
+
+94
+00:03:51,000 --> 00:03:53,000
+And then within Beanstalk you can view these metrics,
+
+95
+00:03:53,000 --> 00:03:55,000
+do some monitoring and so on.
+
+96
+00:03:55,000 --> 00:03:57,000
+But it will also check for application health
+
+97
+00:03:57,000 --> 00:03:58,000
+and will publish health events.
+
+98
+00:03:58,000 --> 00:04:01,000
+So these are just a bunch of screenshots that I've gotten
+
+99
+00:04:01,000 --> 00:04:03,000
+to really show you that Beanstalk
+
+100
+00:04:03,000 --> 00:04:05,000
+is a way to do health monitoring for your applications.
+
+101
+00:04:05,000 --> 00:04:07,000
+So now I really want to give you an idea
+
+102
+00:04:07,000 --> 00:04:09,000
+of how Elastic Beanstalk works.
+
+103
+00:04:09,000 --> 00:04:11,000
+So we'll see you in the next lecture for the hands-on
+
+104
+00:04:11,000 --> 00:04:13,000
+to give you a concrete demo.
+

@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:00,000
+The first service
+
+2
+00:00:00,000 --> 00:00:02,000
+that is going to be very important for
+
+3
+00:00:02,000 --> 00:00:06,000
+us to deploy a global application is Amazon Route 53.
+
+4
+00:00:06,000 --> 00:00:10,000
+So, Route 53 is a managed DNS or Domain Name System.
+
+5
+00:00:10,000 --> 00:00:11,000
+And what does the DNS?
+
+6
+00:00:11,000 --> 00:00:13,000
+Well, DNS is just like a phone book.
+
+7
+00:00:13,000 --> 00:00:15,000
+It's a collection of rules and records,
+
+8
+00:00:15,000 --> 00:00:19,000
+which help clients find the right servers through URLs.
+
+9
+00:00:19,000 --> 00:00:22,000
+So let's go through the most common records in AWS.
+
+10
+00:00:22,000 --> 00:00:23,000
+For example,
+
+11
+00:00:23,000 --> 00:00:27,000
+say you are mapping www.google.com to an IPv4 address.
+
+12
+00:00:29,000 --> 00:00:31,000
+Then this is called an A record.
+
+13
+00:00:31,000 --> 00:00:36,000
+If you are mapping www.google.com to a long IPv6 address,
+
+14
+00:00:36,000 --> 00:00:39,000
+it's called the quadruple A record.
+
+15
+00:00:39,000 --> 00:00:43,000
+Also, if you map a host name to another host name,
+
+16
+00:00:43,000 --> 00:00:46,000
+so search the www.google.com come into the previous address.
+
+17
+00:00:46,000 --> 00:00:47,000
+It's called a CNAME because we're
+
+18
+00:00:47,000 --> 00:00:49,000
+mapping a host name to host name.
+
+19
+00:00:49,000 --> 00:00:50,000
+And then finally,
+
+20
+00:00:50,000 --> 00:00:53,000
+if you're mapping a host name into an AWS resource,
+
+21
+00:00:53,000 --> 00:00:56,000
+it's a special type of record called an Alias record.
+
+22
+00:00:56,000 --> 00:00:59,000
+And that works for you if you have an ELB,
+
+23
+00:00:59,000 --> 00:01:01,000
+or if using CloudFronts, S3,
+
+24
+00:01:01,000 --> 00:01:03,000
+an RDS database, et cetera, et cetera.
+
+25
+00:01:03,000 --> 00:01:04,000
+Now, going into the exam,
+
+26
+00:01:04,000 --> 00:01:07,000
+you don't need to know all the types of records,
+
+27
+00:01:07,000 --> 00:01:08,000
+but I just wanted to give you an overview of
+
+28
+00:01:08,000 --> 00:01:10,000
+them in this lecture.
+
+29
+00:01:10,000 --> 00:01:11,000
+So, from an Exam perspective,
+
+30
+00:01:11,000 --> 00:01:14,000
+Route 53 is a managed DNS,
+
+31
+00:01:14,000 --> 00:01:16,000
+but let's go one step further because you need to
+
+32
+00:01:16,000 --> 00:01:18,000
+understand a little bit better how it works.
+
+33
+00:01:18,000 --> 00:01:19,000
+So for example,
+
+34
+00:01:19,000 --> 00:01:20,000
+for Route 53 say,
+
+35
+00:01:20,000 --> 00:01:23,000
+we want to see what happens for an A Record.
+
+36
+00:01:23,000 --> 00:01:25,000
+So our Web browser is here.
+
+37
+00:01:25,000 --> 00:01:25,000
+That's a Web browser,
+
+38
+00:01:25,000 --> 00:01:28,000
+and we have an Application Server that we've deployed that
+
+39
+00:01:28,000 --> 00:01:30,000
+has a public IPv4.
+
+40
+00:01:30,000 --> 00:01:32,000
+Now we want to be able to access our application server
+
+41
+00:01:32,000 --> 00:01:34,000
+using a normal URL.
+
+42
+00:01:34,000 --> 00:01:37,000
+So for this, we're going to go into Route 53 and
+
+43
+00:01:37,000 --> 00:01:39,000
+we're going to create a, A Record.
+
+44
+00:01:39,000 --> 00:01:41,000
+And so that when the Web browser does
+
+45
+00:01:41,000 --> 00:01:45,000
+a DNS Request for myapp.mydomain.com
+
+46
+00:01:45,000 --> 00:01:49,000
+then the DNS will reply back with an IP.
+
+47
+00:01:49,000 --> 00:01:53,000
+And then that IP can be used by our Web browser to
+
+48
+00:01:53,000 --> 00:01:55,000
+get to our correct server.
+
+49
+00:01:55,000 --> 00:01:58,000
+and then get the HTTP Response from our server.
+
+50
+00:01:58,000 --> 00:02:01,000
+And this is the basics of how a DNS work at
+
+51
+00:02:01,000 --> 00:02:02,000
+a very, very high level.
+
+52
+00:02:02,000 --> 00:02:05,000
+What you need to understand as well for Route 53,
+
+53
+00:02:05,000 --> 00:02:08,000
+from an Exam perspective is the Routing Policies.
+
+54
+00:02:08,000 --> 00:02:11,000
+So, we need to know them at a high-level and decide what's
+
+55
+00:02:11,000 --> 00:02:12,000
+the right one based on the use case,
+
+56
+00:02:12,000 --> 00:02:14,000
+because you'll see, it's pretty simple.
+
+57
+00:02:14,000 --> 00:02:16,000
+So, the first one is called a Simple Routing Policy,
+
+58
+00:02:16,000 --> 00:02:18,000
+which has No health checks.
+
+59
+00:02:18,000 --> 00:02:21,000
+So our Web browser will go into our DNS system,
+
+60
+00:02:21,000 --> 00:02:25,000
+does a DNS query and gets an IPv4 for example as a result,
+
+61
+00:02:25,000 --> 00:02:27,000
+that's a Simple Routing Policy.
+
+62
+00:02:27,000 --> 00:02:29,000
+The basic one, we can understand.
+
+63
+00:02:29,000 --> 00:02:30,000
+The Weighted Routing Policy,
+
+64
+00:02:30,000 --> 00:02:33,000
+allows us to distribute the traffic across
+
+65
+00:02:33,000 --> 00:02:35,000
+multiple Institute instances.
+
+66
+00:02:35,000 --> 00:02:36,000
+So in this example,
+
+67
+00:02:36,000 --> 00:02:39,000
+we have to assign weights to our Institute instances,
+
+68
+00:02:39,000 --> 00:02:41,000
+for example, 70, 20, and 10,
+
+69
+00:02:41,000 --> 00:02:45,000
+and then our DNS we'll make sure that our clients have
+
+70
+00:02:45,000 --> 00:02:47,000
+70% of the traffic onto the first one,
+
+71
+00:02:47,000 --> 00:02:49,000
+20% of the traffic onto the second one and
+
+72
+00:02:49,000 --> 00:02:52,000
+10% of the traffic on to the third one.
+
+73
+00:02:52,000 --> 00:02:55,000
+This is effectively some kind of load balancing.
+
+74
+00:02:55,000 --> 00:02:57,000
+So in this Weighted Routing Policy,
+
+75
+00:02:57,000 --> 00:02:59,000
+we can use health checks.
+
+76
+00:02:59,000 --> 00:03:02,000
+Next, we have the Latency Routing Policy.
+
+77
+00:03:02,000 --> 00:03:03,000
+So in this example,
+
+78
+00:03:03,000 --> 00:03:06,000
+we'll say we are displaying our application globally,
+
+79
+00:03:06,000 --> 00:03:07,000
+one in California,
+
+80
+00:03:07,000 --> 00:03:09,000
+and the other one in Australia.
+
+81
+00:03:09,000 --> 00:03:11,000
+And our users are all around the world.
+
+82
+00:03:11,000 --> 00:03:14,000
+The Latency Routing Policy we'll look at where
+
+83
+00:03:14,000 --> 00:03:16,000
+the user is located.
+
+84
+00:03:16,000 --> 00:03:18,000
+And if they're located close to
+
+85
+00:03:18,000 --> 00:03:20,000
+our Kelly American Institute instance,
+
+86
+00:03:20,000 --> 00:03:23,000
+then they will be redirected to talk to that server.
+
+87
+00:03:23,000 --> 00:03:25,000
+And if they're close to Australia,
+
+88
+00:03:25,000 --> 00:03:26,000
+then they will be redirected to
+
+89
+00:03:26,000 --> 00:03:27,000
+talk to the Australia server.
+
+90
+00:03:27,000 --> 00:03:29,000
+And this is based on the latency.
+
+91
+00:03:29,000 --> 00:03:31,000
+So, in this example,
+
+92
+00:03:31,000 --> 00:03:34,000
+Route 53 will be used to minimize the latency between the
+
+93
+00:03:34,000 --> 00:03:36,000
+users and the servers by making the
+
+94
+00:03:36,000 --> 00:03:38,000
+users connect to the server.
+
+95
+00:03:38,000 --> 00:03:40,000
+That is the closest to them.
+
+96
+00:03:40,000 --> 00:03:41,000
+And then finally,
+
+97
+00:03:41,000 --> 00:03:44,000
+we have a Failover Routing Policy in which
+
+98
+00:03:44,000 --> 00:03:46,000
+we have a client and we have
+
+99
+00:03:46,000 --> 00:03:48,000
+a primary institute instance and a Failover one.
+
+100
+00:03:48,000 --> 00:03:53,000
+And so our DNS system will do a Health check On the primary.
+
+101
+00:03:53,000 --> 00:03:55,000
+And in case the primary instance fails,
+
+102
+00:03:55,000 --> 00:03:57,000
+then we will be redirected to the failovers.
+
+103
+00:03:57,000 --> 00:03:59,000
+This helps with disaster recovery.
+
+104
+00:03:59,000 --> 00:04:03,000
+So the clients will know exactly thanks to Route 53,
+
+105
+00:04:03,000 --> 00:04:05,000
+which instance to connect to based on the
+
+106
+00:04:05,000 --> 00:04:06,000
+health of that instance.
+
+107
+00:04:06,000 --> 00:04:07,000
+So that's it,
+
+108
+00:04:07,000 --> 00:04:09,000
+that's our the four Routing Policies you need to know.
+
+109
+00:04:09,000 --> 00:04:11,000
+Just a first one does not have a Health check.
+
+110
+00:04:11,000 --> 00:04:13,000
+All the other ones have Health checks and they
+
+111
+00:04:13,000 --> 00:04:15,000
+all serve different purposes.
+
+112
+00:04:15,000 --> 00:04:17,000
+So, Weighted Routing Policy is to distribute the
+
+113
+00:04:17,000 --> 00:04:19,000
+traffic across multiple institute instances.
+
+114
+00:04:19,000 --> 00:04:21,000
+Latency is to minimize latency and
+
+115
+00:04:21,000 --> 00:04:24,000
+Failover is to help with Disaster Recovery.
+
+116
+00:04:24,000 --> 00:04:26,000
+So hope that was helpful.
+
+117
+00:04:26,000 --> 00:04:28,000
+And I will see you in the next lecture.
+

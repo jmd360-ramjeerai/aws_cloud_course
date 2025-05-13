@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so now let's talk about the CDK
+
+2
+00:00:02,000 --> 00:00:05,000
+or AWS Cloud Development Kit.
+
+3
+00:00:05,000 --> 00:00:08,000
+So this is a way for you to define your cloud infrastructure
+
+4
+00:00:08,000 --> 00:00:10,000
+using a familiar programming language.
+
+5
+00:00:10,000 --> 00:00:13,000
+For example, you do not want to use CloudFormation directly
+
+6
+00:00:13,000 --> 00:00:15,000
+because this is a YAML format.
+
+7
+00:00:15,000 --> 00:00:17,000
+You like JavaScript or TypeScript, you like Python,
+
+8
+00:00:17,000 --> 00:00:19,000
+you like Java, you like .NET,
+
+9
+00:00:19,000 --> 00:00:21,000
+and you would like to just write your cloud infrastructure
+
+10
+00:00:21,000 --> 00:00:22,000
+using these languages.
+
+11
+00:00:22,000 --> 00:00:25,000
+So thanks to the CDK, you can do that,
+
+12
+00:00:25,000 --> 00:00:27,000
+and then once you do so by using your programming languages,
+
+13
+00:00:27,000 --> 00:00:30,000
+the code will be compiled by the CDK
+
+14
+00:00:30,000 --> 00:00:33,000
+into a usable CloudFormation template
+
+15
+00:00:33,000 --> 00:00:35,000
+in JSON or YAML formats.
+
+16
+00:00:35,000 --> 00:00:37,000
+Therefore, you can deploy your infrastructure
+
+17
+00:00:37,000 --> 00:00:38,000
+and your application runtime code together
+
+18
+00:00:38,000 --> 00:00:42,000
+because they can possibly share the same languages.
+
+19
+00:00:42,000 --> 00:00:43,000
+Which is great for Lambda function,
+
+20
+00:00:43,000 --> 00:00:46,000
+great for Docker containers in ECS and EKS.
+
+21
+00:00:46,000 --> 00:00:47,000
+So let's take an example.
+
+22
+00:00:47,000 --> 00:00:50,000
+So let's choose Python, for example,
+
+23
+00:00:50,000 --> 00:00:51,000
+as a programming language.
+
+24
+00:00:51,000 --> 00:00:54,000
+So we're going to write our own CDK application in Python,
+
+25
+00:00:54,000 --> 00:00:56,000
+and we're going to do define our Lambda function
+
+26
+00:00:56,000 --> 00:01:00,000
+of that MDB table and maybe for other services in AWS.
+
+27
+00:01:00,000 --> 00:01:04,000
+Then this CDK application, using the CDK CLI,
+
+28
+00:01:04,000 --> 00:01:07,000
+is going to be transformed into CloudFormation templates.
+
+29
+00:01:07,000 --> 00:01:09,000
+And that CloudFormation template,
+
+30
+00:01:09,000 --> 00:01:10,000
+which is a generated CloudFormation template,
+
+31
+00:01:10,000 --> 00:01:13,000
+can then be applied into CloudFormation
+
+32
+00:01:13,000 --> 00:01:15,000
+to deploy our infrastructure.
+
+33
+00:01:15,000 --> 00:01:16,000
+But the idea is that we want to use
+
+34
+00:01:16,000 --> 00:01:20,000
+a cloud infrastructure using a programming language,
+
+35
+00:01:20,000 --> 00:01:23,000
+because it allows us to get, for example, type safety.
+
+36
+00:01:23,000 --> 00:01:25,000
+Or to have more familiar constructs and so on,
+
+37
+00:01:25,000 --> 00:01:27,000
+or to go quicker, or to reuse some code,
+
+38
+00:01:27,000 --> 00:01:30,000
+or to have for loops, these kind of things.
+
+39
+00:01:30,000 --> 00:01:34,000
+So here's an example of what a CDK code would look like.
+
+40
+00:01:34,000 --> 00:01:35,000
+So in this example, this is using,
+
+41
+00:01:35,000 --> 00:01:37,000
+I believe, JavaScript or TypeScript.
+
+42
+00:01:37,000 --> 00:01:42,000
+We have a VPC that is defined, we have an ECS cluster,
+
+43
+00:01:42,000 --> 00:01:44,000
+and we have an Application Load Balancer
+
+44
+00:01:44,000 --> 00:01:46,000
+with a Fargate service.
+
+45
+00:01:46,000 --> 00:01:51,000
+And so these three things will be compiled by the CDK, CLI
+
+46
+00:01:51,000 --> 00:01:53,000
+into CloudFormation template that will be usable,
+
+47
+00:01:53,000 --> 00:01:55,000
+and that you can upload and deploy.
+
+48
+00:01:55,000 --> 00:01:57,000
+So that's it for the CDK.
+
+49
+00:01:57,000 --> 00:01:57,000
+I hope you liked it.
+
+50
+00:01:57,000 --> 00:01:59,000
+And I will see you in the next lecture.
+

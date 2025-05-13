@@ -1,0 +1,856 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so let's go ahead and practice
+
+2
+00:00:02,000 --> 00:00:04,000
+using the Beanstalk service.
+
+3
+00:00:04,000 --> 00:00:07,000
+So I'm gonna go into the Elastic Beanstalk console
+
+4
+00:00:07,000 --> 00:00:10,000
+and we're going to create our first application.
+
+5
+00:00:10,000 --> 00:00:12,000
+So we have an option
+
+6
+00:00:12,000 --> 00:00:14,000
+to choose either a Web server environment
+
+7
+00:00:14,000 --> 00:00:16,000
+or a Worker environment.
+
+8
+00:00:16,000 --> 00:00:17,000
+So right now we want to run a website,
+
+9
+00:00:17,000 --> 00:00:19,000
+so we'll choose Web server environment,
+
+10
+00:00:19,000 --> 00:00:22,000
+but if you wanted to process tasks off of a queue,
+
+11
+00:00:22,000 --> 00:00:25,000
+then we would choose a Worker environment,
+
+12
+00:00:25,000 --> 00:00:27,000
+but we will only do Web server.
+
+13
+00:00:27,000 --> 00:00:29,000
+So let's create an Application,
+
+14
+00:00:29,000 --> 00:00:31,000
+and this one is called MyApplication.
+
+15
+00:00:32,000 --> 00:00:34,000
+Okay, so next, we scroll down
+
+16
+00:00:34,000 --> 00:00:37,000
+and we have Environment information.
+
+17
+00:00:37,000 --> 00:00:38,000
+So the Environment is sort of filled,
+
+18
+00:00:38,000 --> 00:00:42,000
+but I'm just going to call this one MyApplication-dev
+
+19
+00:00:42,000 --> 00:00:44,000
+because this is going to represent
+
+20
+00:00:44,000 --> 00:00:46,000
+my development environment.
+
+21
+00:00:46,000 --> 00:00:48,000
+A Domain name is going to be automatically generated
+
+22
+00:00:48,000 --> 00:00:50,000
+for my application,
+
+23
+00:00:50,000 --> 00:00:52,000
+and this is how I will access my web servers.
+
+24
+00:00:52,000 --> 00:00:54,000
+Okay, so we scroll down
+
+25
+00:00:54,000 --> 00:00:56,000
+and now we need to choose a platform.
+
+26
+00:00:56,000 --> 00:00:58,000
+So this Platform is going to be managed
+
+27
+00:00:58,000 --> 00:01:01,000
+and I will choose Node.js,
+
+28
+00:01:01,000 --> 00:01:03,000
+and then I will just choose the default options.
+
+29
+00:01:03,000 --> 00:01:04,000
+You may see something different than me,
+
+30
+00:01:04,000 --> 00:01:07,000
+but by using the latest defaults,
+
+31
+00:01:07,000 --> 00:01:09,000
+you should be fine and good to go.
+
+32
+00:01:09,000 --> 00:01:12,000
+Next, we need to choose some Application code.
+
+33
+00:01:12,000 --> 00:01:14,000
+So I'll use a Sample application.
+
+34
+00:01:14,000 --> 00:01:15,000
+We can definitely approve that on code,
+
+35
+00:01:15,000 --> 00:01:17,000
+but we don't have that right now,
+
+36
+00:01:17,000 --> 00:01:19,000
+and so this Sample application will be matching
+
+37
+00:01:19,000 --> 00:01:22,000
+the environment I have right here.
+
+38
+00:01:22,000 --> 00:01:23,000
+Okay, so let's scroll down.
+
+39
+00:01:23,000 --> 00:01:26,000
+We have Presets and Beanstalk can be quite complicated
+
+40
+00:01:26,000 --> 00:01:28,000
+for the configuration, and as such,
+
+41
+00:01:28,000 --> 00:01:30,000
+we can set recommended values
+
+42
+00:01:30,000 --> 00:01:33,000
+for either a single instance, which is free tier eligible,
+
+43
+00:01:33,000 --> 00:01:35,000
+or high availability where we have
+
+44
+00:01:35,000 --> 00:01:37,000
+a load balancer for example,
+
+45
+00:01:37,000 --> 00:01:38,000
+or custom configuration
+
+46
+00:01:38,000 --> 00:01:40,000
+if you wanted to customize everything.
+
+47
+00:01:40,000 --> 00:01:41,000
+Now to keep things simple,
+
+48
+00:01:41,000 --> 00:01:43,000
+we're going to go over Single instance.
+
+49
+00:01:43,000 --> 00:01:45,000
+So click on Next,
+
+50
+00:01:46,000 --> 00:01:47,000
+and next we have a tricky bit.
+
+51
+00:01:47,000 --> 00:01:49,000
+We need to configure the Service access.
+
+52
+00:01:49,000 --> 00:01:52,000
+So it's the IAM roles that will allow Beanstalk
+
+53
+00:01:52,000 --> 00:01:54,000
+to do what it needs to do.
+
+54
+00:01:54,000 --> 00:01:55,000
+So it's very simple.
+
+55
+00:01:55,000 --> 00:01:59,000
+We can just go ahead and create a new Service role,
+
+56
+00:01:59,000 --> 00:02:02,000
+and this will create the elasticbeanstalk-service-role.
+
+57
+00:02:02,000 --> 00:02:04,000
+Now, I think that right now this is a new console,
+
+58
+00:02:04,000 --> 00:02:06,000
+so there may be a bug, and this is not pre-filled,
+
+59
+00:02:06,000 --> 00:02:07,000
+so we need to go ahead
+
+60
+00:02:07,000 --> 00:02:11,000
+and create manually the EC2 Instance profile.
+
+61
+00:02:11,000 --> 00:02:14,000
+So as such, I'm gonna go into the IAM console,
+
+62
+00:02:16,000 --> 00:02:18,000
+and on the left hand side I will go into Roles
+
+63
+00:02:18,000 --> 00:02:20,000
+and I will Create a role
+
+64
+00:02:20,000 --> 00:02:25,000
+and it's for a service, it's for EC2, you click on Next,
+
+65
+00:02:26,000 --> 00:02:28,000
+then for Permissions policy, you just filter,
+
+66
+00:02:28,000 --> 00:02:30,000
+and you type in beanstalk,
+
+67
+00:02:30,000 --> 00:02:35,000
+and you need to add the WebTier, the WorkerTier,
+
+68
+00:02:35,000 --> 00:02:37,000
+and the MulticontainerDocker.
+
+69
+00:02:38,000 --> 00:02:41,000
+This should be enough to get started.
+
+70
+00:02:41,000 --> 00:02:43,000
+So we click on Next,
+
+71
+00:02:43,000 --> 00:02:45,000
+and then for the role name,
+
+72
+00:02:45,000 --> 00:02:48,000
+enter aws, then elasticbeanstalk-ec2-role,
+
+73
+00:02:51,000 --> 00:02:52,000
+with hyphens in between.
+
+74
+00:02:52,000 --> 00:02:56,000
+Okay, so now we go ahead and we Create this role,
+
+75
+00:02:59,000 --> 00:03:02,000
+and this role right here is going to be the one
+
+76
+00:03:02,000 --> 00:03:04,000
+we're using in Beanstalk.
+
+77
+00:03:04,000 --> 00:03:07,000
+So I'll go back here, I refresh this,
+
+78
+00:03:07,000 --> 00:03:08,000
+and as you can see, it got prefilled,
+
+79
+00:03:08,000 --> 00:03:11,000
+so the aws-elasticbeanstalk-ec2-role.
+
+80
+00:03:11,000 --> 00:03:14,000
+So once you've done that, you're good to go.
+
+81
+00:03:14,000 --> 00:03:18,000
+If you clicked on Next, you would have to go over networking
+
+82
+00:03:18,000 --> 00:03:20,000
+and database and instance traffic, scaling,
+
+83
+00:03:20,000 --> 00:03:22,000
+all these kind of things but they're optional.
+
+84
+00:03:22,000 --> 00:03:23,000
+And right now the thing we're going to do
+
+85
+00:03:23,000 --> 00:03:26,000
+is just click on Skip to review
+
+86
+00:03:27,000 --> 00:03:30,000
+because we just wanna use the defaults that were set
+
+87
+00:03:30,000 --> 00:03:32,000
+for the single instance mode.
+
+88
+00:03:32,000 --> 00:03:33,000
+So make sure under Service access
+
+89
+00:03:33,000 --> 00:03:36,000
+that you do have the Service role
+
+90
+00:03:36,000 --> 00:03:38,000
+and the EC2 instance profile selected,
+
+91
+00:03:38,000 --> 00:03:39,000
+and when you're good to go,
+
+92
+00:03:39,000 --> 00:03:42,000
+you can definitely look at those, but they're complicated.
+
+93
+00:03:42,000 --> 00:03:44,000
+Click on Submit and this will go
+
+94
+00:03:44,000 --> 00:03:47,000
+and create our first Beanstalk environment.
+
+95
+00:03:48,000 --> 00:03:50,000
+So now if we scroll down under Events, as you can see,
+
+96
+00:03:50,000 --> 00:03:52,000
+some events are happening
+
+97
+00:03:52,000 --> 00:03:55,000
+and these events actually come from a service
+
+98
+00:03:55,000 --> 00:03:56,000
+called CloudFormation.
+
+99
+00:03:57,000 --> 00:04:00,000
+So if you go into the CloudFormation console,
+
+100
+00:04:00,000 --> 00:04:04,000
+we can see our Elastic Bean Stack right here,
+
+101
+00:04:04,000 --> 00:04:07,000
+so I'm going to just go on the right hand side
+
+102
+00:04:07,000 --> 00:04:09,000
+and make it bigger.
+
+103
+00:04:09,000 --> 00:04:12,000
+So under Events, if you're clicking fast enough,
+
+104
+00:04:12,000 --> 00:04:15,000
+you will still see that stuff is being CREATED_IN_PROGRES,
+
+105
+00:04:15,000 --> 00:04:17,000
+And then once stuff is done being created,
+
+106
+00:04:17,000 --> 00:04:19,000
+it goes to CREATE_COMPLETE.
+
+107
+00:04:19,000 --> 00:04:22,000
+So this is the line of events of all the things happening
+
+108
+00:04:22,000 --> 00:04:24,000
+within your CloudFormation template,
+
+109
+00:04:24,000 --> 00:04:26,000
+and all the things that is being created by CloudFormation.
+
+110
+00:04:26,000 --> 00:04:29,000
+CloudFormation is a service we'll see later on.
+
+111
+00:04:29,000 --> 00:04:30,000
+But here on the Resources,
+
+112
+00:04:30,000 --> 00:04:33,000
+we can see we have created an Autoscaling group,
+
+113
+00:04:33,000 --> 00:04:36,000
+we have created a LaunchConfiguration and so on,
+
+114
+00:04:36,000 --> 00:04:37,000
+and Elastic IP and so on.
+
+115
+00:04:37,000 --> 00:04:40,000
+One thing you can look at is under Template,
+
+116
+00:04:40,000 --> 00:04:43,000
+you can view the template in Application Composer,
+
+117
+00:04:43,000 --> 00:04:46,000
+and the cool thing about it is that we can visually see
+
+118
+00:04:46,000 --> 00:04:49,000
+what is being created by CloudFormation.
+
+119
+00:04:49,000 --> 00:04:50,000
+So we can see for example,
+
+120
+00:04:50,000 --> 00:04:52,000
+that we have a LaunchConfiguration,
+
+121
+00:04:52,000 --> 00:04:55,000
+we have SecurityGroup, we have an Elastic IP,
+
+122
+00:04:55,000 --> 00:04:57,000
+a WaitCondition, and a ConditionHandle.
+
+123
+00:04:57,000 --> 00:05:00,000
+So this is very handy to start visualizing
+
+124
+00:05:00,000 --> 00:05:04,000
+what Elastic Beanstalk is creating for us behind the scenes.
+
+125
+00:05:04,000 --> 00:05:07,000
+So now let's go back into Elastic Beanstalk.
+
+126
+00:05:07,000 --> 00:05:10,000
+So in the Events tab as we can see now,
+
+127
+00:05:10,000 --> 00:05:11,000
+we have some information.
+
+128
+00:05:11,000 --> 00:05:15,000
+For example, a SecurityGroup was created
+
+129
+00:05:15,000 --> 00:05:18,000
+and then an Elastic IP was created.
+
+130
+00:05:18,000 --> 00:05:21,000
+Then we wait for the EC2 instances to launch,
+
+131
+00:05:21,000 --> 00:05:23,000
+and then the instances will be created.
+
+132
+00:05:23,000 --> 00:05:27,000
+So if I switch now and I go under EC2,
+
+133
+00:05:27,000 --> 00:05:28,000
+the EC2 console,
+
+134
+00:05:30,000 --> 00:05:33,000
+and look at my Instances running, actually yes,
+
+135
+00:05:33,000 --> 00:05:36,000
+one of my Instances is running,
+
+136
+00:05:36,000 --> 00:05:38,000
+it's using a t3 micro,
+
+137
+00:05:38,000 --> 00:05:39,000
+and as we can see,
+
+138
+00:05:39,000 --> 00:05:43,000
+this Instance has a Public IP address right here.
+
+139
+00:05:43,000 --> 00:05:46,000
+And if I go on the left hand side under Elastic IPs,
+
+140
+00:05:46,000 --> 00:05:49,000
+we can see that this Elastic IP address was created
+
+141
+00:05:49,000 --> 00:05:53,000
+and is allocated to our EC2 Instance.
+
+142
+00:05:53,000 --> 00:05:55,000
+And if I go under Auto Scaling groups,
+
+143
+00:05:55,000 --> 00:05:58,000
+we can see that an auto scaling group was created.
+
+144
+00:05:58,000 --> 00:06:02,000
+And this Auto Scaling group under Instance management
+
+145
+00:06:02,000 --> 00:06:04,000
+is managing my only EC2 instance.
+
+146
+00:06:04,000 --> 00:06:07,000
+That's what it's called a single EC2 instance.
+
+147
+00:06:07,000 --> 00:06:09,000
+So all of this makes sense
+
+148
+00:06:09,000 --> 00:06:12,000
+and that's what Beanstalk is created.
+
+149
+00:06:12,000 --> 00:06:14,000
+And at the end of it, when everything is launched,
+
+150
+00:06:14,000 --> 00:06:16,000
+you'll say, "Okay, successfully launched,"
+
+151
+00:06:16,000 --> 00:06:18,000
+and it will be Ok for Health,
+
+152
+00:06:18,000 --> 00:06:21,000
+and what we get out of it is a domain name.
+
+153
+00:06:21,000 --> 00:06:22,000
+So if I click on this domain name
+
+154
+00:06:22,000 --> 00:06:24,000
+and open it in a new tab,
+
+155
+00:06:24,000 --> 00:06:28,000
+I get actually access to my Beanstalk environment
+
+156
+00:06:28,000 --> 00:06:30,000
+and my single EC2 Instance, and it says,
+
+157
+00:06:30,000 --> 00:06:32,000
+"Congratulations, you are now running
+
+158
+00:06:32,000 --> 00:06:36,000
+Elastic Beanstalk on this EC2 Instance," which is amazing.
+
+159
+00:06:36,000 --> 00:06:38,000
+So you can see very simply,
+
+160
+00:06:38,000 --> 00:06:42,000
+Beanstalk was creating for us just from the code,
+
+161
+00:06:42,000 --> 00:06:44,000
+the sample code that we were using,
+
+162
+00:06:44,000 --> 00:06:46,000
+it generated all the infrastructure
+
+163
+00:06:46,000 --> 00:06:50,000
+to start successfully my application, my web server,
+
+164
+00:06:50,000 --> 00:06:52,000
+which is very, very good.
+
+165
+00:06:52,000 --> 00:06:54,000
+So now let's have a look at a couple of options.
+
+166
+00:06:54,000 --> 00:06:58,000
+So if we wanted to upload a new version, we click on here,
+
+167
+00:06:58,000 --> 00:06:59,000
+we could upload a new version
+
+168
+00:06:59,000 --> 00:07:03,000
+and automatically it would be deployed to my EC2 Instances.
+
+169
+00:07:03,000 --> 00:07:06,000
+So we don't have that, but just to give you an overview.
+
+170
+00:07:06,000 --> 00:07:09,000
+Health gives you some information around the health checks
+
+171
+00:07:09,000 --> 00:07:11,000
+of all your instances if you had many.
+
+172
+00:07:11,000 --> 00:07:13,000
+You can go under Logs to view the logs
+
+173
+00:07:13,000 --> 00:07:15,000
+of your application.
+
+174
+00:07:15,000 --> 00:07:16,000
+You can go to Monitoring
+
+175
+00:07:16,000 --> 00:07:19,000
+to have a look at all the metrics for your application.
+
+176
+00:07:19,000 --> 00:07:22,000
+So we get really like some view centric
+
+177
+00:07:22,000 --> 00:07:24,000
+around all MyApplication itself.
+
+178
+00:07:24,000 --> 00:07:27,000
+The Alarms, Manage updates,
+
+179
+00:07:27,000 --> 00:07:27,000
+which is when Beanstalk, the sets,
+
+180
+00:07:27,000 --> 00:07:31,000
+that sets you update our entire environment.
+
+181
+00:07:31,000 --> 00:07:33,000
+And then if you click on Configuration,
+
+182
+00:07:33,000 --> 00:07:36,000
+you can actually have a look at all the configuration
+
+183
+00:07:36,000 --> 00:07:40,000
+of your Beanstalk environments, modify them and apply them,
+
+184
+00:07:40,000 --> 00:07:43,000
+which are quite, quite well-rounded,
+
+185
+00:07:43,000 --> 00:07:45,000
+but we don't need to know about this right now.
+
+186
+00:07:45,000 --> 00:07:49,000
+Now, more importantly, if we go under MyApplication,
+
+187
+00:07:49,000 --> 00:07:52,000
+as we can see right here, there's MyApplication-dev.
+
+188
+00:07:52,000 --> 00:07:54,000
+That's one environment, but I could go ahead
+
+189
+00:07:54,000 --> 00:07:56,000
+and create a second environment,
+
+190
+00:07:56,000 --> 00:07:58,000
+for example, MyApplication prod,
+
+191
+00:07:58,000 --> 00:07:59,000
+and that will allow us
+
+192
+00:07:59,000 --> 00:08:03,000
+to really think about environments overall.
+
+193
+00:08:03,000 --> 00:08:07,000
+So that's it for an overview of Beanstalk.
+
+194
+00:08:07,000 --> 00:08:12,000
+So to reason about it, Beanstalk is centered around code
+
+195
+00:08:12,000 --> 00:08:13,000
+and environments for your code.
+
+196
+00:08:13,000 --> 00:08:16,000
+Whereas if you wanted to look at CloudFormation,
+
+197
+00:08:16,000 --> 00:08:18,000
+the service we had seen before,
+
+198
+00:08:18,000 --> 00:08:21,000
+CloudFormation is used to deploy stacks arbitrarily
+
+199
+00:08:21,000 --> 00:08:24,000
+with any kind of infrastructure.
+
+200
+00:08:24,000 --> 00:08:27,000
+So we've seen all that Beanstalk has created,
+
+201
+00:08:27,000 --> 00:08:29,000
+including my AutoScanning group, my EC2 Instance,
+
+202
+00:08:29,000 --> 00:08:31,000
+the Elastic IP and so on.
+
+203
+00:08:31,000 --> 00:08:33,000
+And so if you are in a course
+
+204
+00:08:33,000 --> 00:08:35,000
+that has more Beanstalk lectures,
+
+205
+00:08:35,000 --> 00:08:38,000
+so for example, the Certified Developer Course,
+
+206
+00:08:38,000 --> 00:08:40,000
+then do not delete your application,
+
+207
+00:08:40,000 --> 00:08:41,000
+we'll be using it more.
+
+208
+00:08:41,000 --> 00:08:45,000
+But if you are done with the Beanstalk lectures,
+
+209
+00:08:45,000 --> 00:08:47,000
+you've known enough for the exam.
+
+210
+00:08:47,000 --> 00:08:50,000
+So what you can do is take your application, do Action,
+
+211
+00:08:50,000 --> 00:08:52,000
+and then Delete application,
+
+212
+00:08:52,000 --> 00:08:53,000
+and then you will have cleaned up.
+
+213
+00:08:53,000 --> 00:08:54,000
+So that's it.
+
+214
+00:08:54,000 --> 00:08:58,000
+Make your own call, and I will see you in the next lecture.
+

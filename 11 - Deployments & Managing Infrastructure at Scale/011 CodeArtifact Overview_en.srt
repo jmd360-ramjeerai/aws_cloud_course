@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about AWS CodeArtifact.
+
+2
+00:00:02,000 --> 00:00:05,000
+So software packages the developer creates depends usually
+
+3
+00:00:05,000 --> 00:00:07,000
+on each other to be built,
+
+4
+00:00:07,000 --> 00:00:10,000
+and so there's like an architecture of software packages.
+
+5
+00:00:10,000 --> 00:00:13,000
+And so it's called also code dependencies.
+
+6
+00:00:13,000 --> 00:00:16,000
+And so to store and retrieve these dependencies,
+
+7
+00:00:16,000 --> 00:00:18,000
+it's called artifact management.
+
+8
+00:00:18,000 --> 00:00:19,000
+And so traditionally,
+
+9
+00:00:19,000 --> 00:00:22,000
+you need to set up your own artifact management system
+
+10
+00:00:22,000 --> 00:00:24,000
+maybe on Amazon S3
+
+11
+00:00:24,000 --> 00:00:26,000
+or using some custom software on EC2 instances,
+
+12
+00:00:26,000 --> 00:00:28,000
+and that may be complicated.
+
+13
+00:00:28,000 --> 00:00:31,000
+So AWS came up with CodeArtifact, which is a secure,
+
+14
+00:00:31,000 --> 00:00:34,000
+scalable and cost-effective artifact management software,
+
+15
+00:00:35,000 --> 00:00:37,000
+service for software development, sorry.
+
+16
+00:00:37,000 --> 00:00:38,000
+And so what that means is that now,
+
+17
+00:00:38,000 --> 00:00:40,000
+instead of setting up your own infrastructure,
+
+18
+00:00:40,000 --> 00:00:42,000
+you can just use CodeArtifact,
+
+19
+00:00:42,000 --> 00:00:44,000
+and all the common dependency management tools
+
+20
+00:00:44,000 --> 00:00:47,000
+that developers use, such as Maven, Gradle, npm,
+
+21
+00:00:47,000 --> 00:00:49,000
+yarn, twine, pip, and NuGet,
+
+22
+00:00:49,000 --> 00:00:52,000
+can just talk to CodeArtifact
+
+23
+00:00:52,000 --> 00:00:55,000
+to store and retrieve these code dependencies.
+
+24
+00:00:55,000 --> 00:00:57,000
+So your developers now have a place by default
+
+25
+00:00:57,000 --> 00:01:00,000
+that's secure to store and retrieve these dependencies,
+
+26
+00:01:00,000 --> 00:01:04,000
+and that means that once you push your code to CodeCommit
+
+27
+00:01:04,000 --> 00:01:06,000
+and CodeBuild we'll build it, then CodeBuild
+
+28
+00:01:06,000 --> 00:01:08,000
+can also retrieve the dependencies directly
+
+29
+00:01:08,000 --> 00:01:09,000
+from CodeArtifact.
+
+30
+00:01:09,000 --> 00:01:11,000
+So from an exam perspective,
+
+31
+00:01:11,000 --> 00:01:13,000
+CodeArtifact is going to be very helpful
+
+32
+00:01:13,000 --> 00:01:17,000
+if your team needs a artifact management system
+
+33
+00:01:17,000 --> 00:01:20,000
+or a place to store their code dependencies.
+
+34
+00:01:20,000 --> 00:01:21,000
+So that's it.
+
+35
+00:01:21,000 --> 00:01:22,000
+I hope you liked it,
+
+36
+00:01:22,000 --> 00:01:24,000
+and I will see you in the next lecture.
+

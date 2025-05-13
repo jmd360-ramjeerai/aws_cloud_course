@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:02,000
+Okay, so now let's talk about
+
+2
+00:00:02,000 --> 00:00:06,000
+an exciting development which is called AWS Outposts.
+
+3
+00:00:06,000 --> 00:00:07,000
+What is hybrid cloud?
+
+4
+00:00:07,000 --> 00:00:10,000
+Businesses that keep an on-premise infrastructure
+
+5
+00:00:10,000 --> 00:00:12,000
+alongside a cloud infrastructure
+
+6
+00:00:12,000 --> 00:00:14,000
+are called hybrid cloud.
+
+7
+00:00:16,000 --> 00:00:17,000
+And when we have that,
+
+8
+00:00:17,000 --> 00:00:20,000
+we have two ways of dealing with IT systems.
+
+9
+00:00:20,000 --> 00:00:23,000
+We have one for the cloud of AWS, for example
+
+10
+00:00:23,000 --> 00:00:26,000
+using the console of AWS, the CLI
+
+11
+00:00:26,000 --> 00:00:29,000
+and the APIs from AWS,
+
+12
+00:00:29,000 --> 00:00:30,000
+but also we have another one
+
+13
+00:00:30,000 --> 00:00:34,000
+that is dedicated to on-premises infrastructure.
+
+14
+00:00:34,000 --> 00:00:36,000
+And so, that means two different types of skillsets,
+
+15
+00:00:36,000 --> 00:00:37,000
+two different types of API,
+
+16
+00:00:37,000 --> 00:00:40,000
+and that may be complicated.
+
+17
+00:00:40,000 --> 00:00:42,000
+So it was said, "Okay, we do recognize
+
+18
+00:00:42,000 --> 00:00:44,000
+that some companies will run a hybrid cloud
+
+19
+00:00:44,000 --> 00:00:47,000
+therefore, let's create Outpost."
+
+20
+00:00:47,000 --> 00:00:49,000
+And Outpost our server racks
+
+21
+00:00:49,000 --> 00:00:51,000
+that offer the same AWS infrastructure,
+
+22
+00:00:51,000 --> 00:00:53,000
+services, API and tools
+
+23
+00:00:53,000 --> 00:00:56,000
+to build your own application on-premises
+
+24
+00:00:56,000 --> 00:00:57,000
+just like in the cloud.
+
+25
+00:00:57,000 --> 00:00:58,000
+So what this means is that
+
+26
+00:00:58,000 --> 00:01:00,000
+they will come and set up
+
+27
+00:01:00,000 --> 00:01:04,000
+and manage Outpost racks which are servers
+
+28
+00:01:04,000 --> 00:01:06,000
+within your on premises infrastructure.
+
+29
+00:01:06,000 --> 00:01:09,000
+And then these servers come preloaded
+
+30
+00:01:09,000 --> 00:01:11,000
+with the (indistinct) services
+
+31
+00:01:11,000 --> 00:01:13,000
+but you can benefit them from on-premises.
+
+32
+00:01:13,000 --> 00:01:16,000
+So as we can see now on your corporate data center
+
+33
+00:01:16,000 --> 00:01:20,000
+you will have your Outpost racks directly set up by AWS.
+
+34
+00:01:20,000 --> 00:01:22,000
+And this allows you to extend
+
+35
+00:01:22,000 --> 00:01:24,000
+the (indistinct) services directly
+
+36
+00:01:24,000 --> 00:01:26,000
+onto your on-premises data centers
+
+37
+00:01:26,000 --> 00:01:28,000
+which is I think revolutionary.
+
+38
+00:01:28,000 --> 00:01:31,000
+But a difference between an EC2 instance
+
+39
+00:01:31,000 --> 00:01:32,000
+running on the cloud
+
+40
+00:01:32,000 --> 00:01:34,000
+and an EC2 instance running in your own data center
+
+41
+00:01:34,000 --> 00:01:38,000
+is that now you are responsible for their security,
+
+42
+00:01:38,000 --> 00:01:41,000
+the physical security of the rack itself
+
+43
+00:01:41,000 --> 00:01:44,000
+because that rack is within your own data center.
+
+44
+00:01:45,000 --> 00:01:47,000
+The benefits from using Outposts are many,
+
+45
+00:01:47,000 --> 00:01:49,000
+first of all, you get low latency access
+
+46
+00:01:49,000 --> 00:01:51,000
+to on-premise the system,
+
+47
+00:01:51,000 --> 00:01:52,000
+you get local data processing
+
+48
+00:01:52,000 --> 00:01:56,000
+so the data may actually never leave your on-premise system
+
+49
+00:01:56,000 --> 00:01:57,000
+and never go to the cloud,
+
+50
+00:01:57,000 --> 00:01:59,000
+data residency, so again, it lives
+
+51
+00:01:59,000 --> 00:02:00,000
+within your own data centers.
+
+52
+00:02:00,000 --> 00:02:03,000
+It's easy for example, to start the migration
+
+53
+00:02:03,000 --> 00:02:05,000
+from on-premise is to Outpost
+
+54
+00:02:05,000 --> 00:02:08,000
+and then when you're ready from Outpost to the cloud.
+
+55
+00:02:08,000 --> 00:02:09,000
+It's a fully managed service.
+
+56
+00:02:09,000 --> 00:02:11,000
+So AWS will manage the service for you.
+
+57
+00:02:11,000 --> 00:02:13,000
+And with Outpost for now,
+
+58
+00:02:13,000 --> 00:02:15,000
+you can launch a lot of services
+
+59
+00:02:15,000 --> 00:02:19,000
+such as Amazon EC2, Amazon EBS, Amazon S3
+
+60
+00:02:19,000 --> 00:02:24,000
+Amazon EKS, Amazon ECS, Amazon RDS, and Amazon EMR.
+
+61
+00:02:24,000 --> 00:02:28,000
+So it's really a cool way to extend the cloud directly
+
+62
+00:02:28,000 --> 00:02:32,000
+onto your own our infrastructure on-premises system,
+
+63
+00:02:32,000 --> 00:02:33,000
+and this is revolutionary.
+
+64
+00:02:33,000 --> 00:02:35,000
+So this may come up in the exam.
+
+65
+00:02:35,000 --> 00:02:36,000
+I hope you liked it.
+
+66
+00:02:36,000 --> 00:02:38,000
+And I will see you in the next lecture.
+

@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:01,000
+So next we have CodePipeline.
+
+2
+00:00:01,000 --> 00:00:03,000
+So how do we know that
+
+3
+00:00:03,000 --> 00:00:05,000
+CodeCommit and CodeBuild are connected?
+
+4
+00:00:05,000 --> 00:00:07,000
+Well, we can connect them using CodePipeline.
+
+5
+00:00:07,000 --> 00:00:09,000
+So CodePipeline is going to be a way
+
+6
+00:00:09,000 --> 00:00:12,000
+for us to orchestrate the different steps
+
+7
+00:00:12,000 --> 00:00:14,000
+to have the code automatically pushed to production?
+
+8
+00:00:14,000 --> 00:00:15,000
+What does that mean?
+
+9
+00:00:15,000 --> 00:00:19,000
+Well, maybe we want to define a pipeline that takes the code
+
+10
+00:00:19,000 --> 00:00:21,000
+builds it, tests it, provision some servers
+
+11
+00:00:21,000 --> 00:00:24,000
+and then deploys the application on those servers
+
+12
+00:00:24,000 --> 00:00:25,000
+but it could be more complicated.
+
+13
+00:00:25,000 --> 00:00:27,000
+And so to orchestrate all these steps
+
+14
+00:00:27,000 --> 00:00:28,000
+you need a pipeline tool
+
+15
+00:00:28,000 --> 00:00:31,000
+and this is going to be CodePipeline.
+
+16
+00:00:31,000 --> 00:00:32,000
+And so you may or may not
+
+17
+00:00:32,000 --> 00:00:34,000
+have heard of the term CICG, which may stand
+
+18
+00:00:34,000 --> 00:00:37,000
+for Continuous Integration and Continuous Delivery.
+
+19
+00:00:37,000 --> 00:00:38,000
+It is the whole concept
+
+20
+00:00:38,000 --> 00:00:41,000
+that every time a developer pushes the code
+
+21
+00:00:41,000 --> 00:00:44,000
+into a repository, it is being built, tested
+
+22
+00:00:44,000 --> 00:00:46,000
+and deployed on to some servers.
+
+23
+00:00:46,000 --> 00:00:49,000
+So if we look at CodePipeline, say we have code
+
+24
+00:00:49,000 --> 00:00:51,000
+as an orchestration layer,
+
+25
+00:00:51,000 --> 00:00:53,000
+it will take its code from CodeCommit
+
+26
+00:00:53,000 --> 00:00:56,000
+build it with CodeBuild, then decide to deploy it
+
+27
+00:00:56,000 --> 00:00:58,000
+with CodeDeploy, and may be deployed
+
+28
+00:00:58,000 --> 00:01:01,000
+into an Elastic Beanstalk environment as one example.
+
+29
+00:01:01,000 --> 00:01:03,000
+But it's just one way of building a pipeline,
+
+30
+00:01:03,000 --> 00:01:05,000
+okay, there's so many different ways.
+
+31
+00:01:05,000 --> 00:01:06,000
+So why would you use CodePipeline?
+
+32
+00:01:06,000 --> 00:01:08,000
+Well, the benefits is that it's fully managed.
+
+33
+00:01:08,000 --> 00:01:10,000
+It's compatible with so many services such
+
+34
+00:01:10,000 --> 00:01:12,000
+as CodeCommit, CodeBuild
+
+35
+00:01:12,000 --> 00:01:15,000
+CodeDeploy, Elastic Beanstalk, CloudFormation, GitHub
+
+36
+00:01:15,000 --> 00:01:19,000
+and other third party services and custom plugins.
+
+37
+00:01:19,000 --> 00:01:22,000
+And it gives you fast delivery and rapid updates.
+
+38
+00:01:22,000 --> 00:01:27,000
+So it is at the core of the CICD services within AWS.
+
+39
+00:01:27,000 --> 00:01:30,000
+And so anytime you see orchestration of pipeline
+
+40
+00:01:30,000 --> 00:01:33,000
+in your exam, you have to think AWS CodePipeline.
+
+41
+00:01:33,000 --> 00:01:35,000
+So that's it, I hope you liked it.
+
+42
+00:01:35,000 --> 00:01:37,000
+And I will see you in the next lecture.
+

@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:01,000
+So now let's talk about
+
+2
+00:00:01,000 --> 00:00:03,000
+the AWS Global Accelerator.
+
+3
+00:00:03,000 --> 00:00:07,000
+It is used to improve the global application availability
+
+4
+00:00:07,000 --> 00:00:10,000
+and performance using the AWS global network.
+
+5
+00:00:10,000 --> 00:00:13,000
+The idea is that your requests are going to be routed
+
+6
+00:00:13,000 --> 00:00:16,000
+through the internal network we saw from before from AWS
+
+7
+00:00:16,000 --> 00:00:19,000
+and this is going to allow you to optimize the route
+
+8
+00:00:19,000 --> 00:00:22,000
+to your application for about 60%.
+
+9
+00:00:22,000 --> 00:00:23,000
+So lets take an example,
+
+10
+00:00:23,000 --> 00:00:26,000
+We have deployed an application browser in India
+
+11
+00:00:26,000 --> 00:00:28,000
+and users all around the world
+
+12
+00:00:28,000 --> 00:00:30,000
+want to access our application.
+
+13
+00:00:30,000 --> 00:00:32,000
+What they will do using the Google Accelerator
+
+14
+00:00:32,000 --> 00:00:34,000
+is actually connect to an edge location
+
+15
+00:00:34,000 --> 00:00:37,000
+and the edge location will be routing the traffic
+
+16
+00:00:37,000 --> 00:00:40,000
+directly into India.
+
+17
+00:00:40,000 --> 00:00:41,000
+Well, the benefit we get out of it is that
+
+18
+00:00:41,000 --> 00:00:45,000
+the traffic on the public internet only happens
+
+19
+00:00:45,000 --> 00:00:48,000
+between America and the closest edge location
+
+20
+00:00:48,000 --> 00:00:51,000
+and then it leverages the private AWS network
+
+21
+00:00:51,000 --> 00:00:54,000
+to speed up the connection from the Edge location
+
+22
+00:00:54,000 --> 00:00:56,000
+to your application browser.
+
+23
+00:00:56,000 --> 00:00:57,000
+So this is the same for Europe
+
+24
+00:00:57,000 --> 00:00:59,000
+and this is the same for Australia.
+
+25
+00:01:01,000 --> 00:01:03,000
+On top of it, you only access your application
+
+26
+00:01:03,000 --> 00:01:05,000
+through two static IPs called Anycast IPs
+
+27
+00:01:05,000 --> 00:01:07,000
+and then using the static Anycast IP,
+
+28
+00:01:07,000 --> 00:01:10,000
+you will be redacted automatically
+
+29
+00:01:10,000 --> 00:01:12,000
+to the correct edge location.
+
+30
+00:01:12,000 --> 00:01:14,000
+And then the edge location, as I said,
+
+31
+00:01:14,000 --> 00:01:16,000
+will be sending the traffic to your application.
+
+32
+00:01:16,000 --> 00:01:19,000
+So there's a diagram I really liked from the website of AWS
+
+33
+00:01:19,000 --> 00:01:22,000
+which is showing what happens without a Global Accelerator.
+
+34
+00:01:22,000 --> 00:01:26,000
+So your clients to get to your application in your region
+
+35
+00:01:26,000 --> 00:01:28,000
+can go through a lot of hops an a lot of network
+
+36
+00:01:28,000 --> 00:01:29,000
+and there could be problems
+
+37
+00:01:29,000 --> 00:01:32,000
+and there could be latencies added to it.
+
+38
+00:01:32,000 --> 00:01:34,000
+But if you use the Global Accelerator
+
+39
+00:01:34,000 --> 00:01:36,000
+then you just connect to an Edge location of AWS
+
+40
+00:01:37,000 --> 00:01:39,000
+and then very quickly from the Edge location
+
+41
+00:01:39,000 --> 00:01:41,000
+to the region you're connecting to,
+
+42
+00:01:41,000 --> 00:01:44,000
+it goes through the private AWS network,
+
+43
+00:01:44,000 --> 00:01:46,000
+which is much faster.
+
+44
+00:01:46,000 --> 00:01:49,000
+Finally, I also get questions around what is the difference
+
+45
+00:01:49,000 --> 00:01:51,000
+between Global Accelerator and CloudFront.
+
+46
+00:01:51,000 --> 00:01:54,000
+So they both use the global network of AWS
+
+47
+00:01:54,000 --> 00:01:56,000
+and the edge locations around the world.
+
+48
+00:01:56,000 --> 00:02:00,000
+And they will both integrate with Sheild for DDoS protection
+
+49
+00:02:00,000 --> 00:02:02,000
+but CloudFront is a content delivery network
+
+50
+00:02:02,000 --> 00:02:06,000
+which is used to cage content at the edge such as images,
+
+51
+00:02:06,000 --> 00:02:07,000
+videos, and websites
+
+52
+00:02:07,000 --> 00:02:10,000
+and the content is served at the edge with CloudFront.
+
+53
+00:02:10,000 --> 00:02:11,000
+Okay.
+
+54
+00:02:11,000 --> 00:02:12,000
+Because it caged at the edge location.
+
+55
+00:02:12,000 --> 00:02:14,000
+For Global Accelerator, there is no caching.
+
+56
+00:02:14,000 --> 00:02:16,000
+All the requests are going to be passed on
+
+57
+00:02:16,000 --> 00:02:17,000
+from the edge locations
+
+58
+00:02:17,000 --> 00:02:20,000
+back to your application in your regions.
+
+59
+00:02:20,000 --> 00:02:21,000
+And so therefore what it's going to do
+
+60
+00:02:21,000 --> 00:02:23,000
+is that it's going to improve the performance
+
+61
+00:02:23,000 --> 00:02:27,000
+of these queries over a wide range of TCP or UDP
+
+62
+00:02:27,000 --> 00:02:29,000
+which is amazing if you have an HTTP use case
+
+63
+00:02:29,000 --> 00:02:31,000
+if you require a static IP address
+
+64
+00:02:31,000 --> 00:02:34,000
+or if you require fast deterministic
+
+65
+00:02:34,000 --> 00:02:36,000
+regional failover and good performance.
+
+66
+00:02:36,000 --> 00:02:37,000
+So remember they're very different.
+
+67
+00:02:37,000 --> 00:02:39,000
+CloudFront is a content delivery network,
+
+68
+00:02:39,000 --> 00:02:41,000
+you cage content at the edge
+
+69
+00:02:41,000 --> 00:02:44,000
+and Global Accelerator is to make your request go faster
+
+70
+00:02:44,000 --> 00:02:47,000
+and go through the internal AWS network globally.
+
+71
+00:02:47,000 --> 00:02:49,000
+So I'd like to show you a small tool
+
+72
+00:02:49,000 --> 00:02:51,000
+which allows you to do a speed comparison
+
+73
+00:02:51,000 --> 00:02:53,000
+for AWS Global Accelerator.
+
+74
+00:02:54,000 --> 00:02:55,000
+Okay.
+
+75
+00:02:55,000 --> 00:02:58,000
+So this is a speed comparison tool which allows you to see
+
+76
+00:02:58,000 --> 00:03:00,000
+if Global Accelerator makes a difference
+
+77
+00:03:00,000 --> 00:03:01,000
+compared to the public internet.
+
+78
+00:03:01,000 --> 00:03:04,000
+So let's do a test of five megabytes.
+
+79
+00:03:04,000 --> 00:03:08,000
+And what this is going to do is to try to upload a file
+
+80
+00:03:08,000 --> 00:03:12,000
+of five megabytes or download it as well, sorry,
+
+81
+00:03:12,000 --> 00:03:14,000
+in different regions around the world
+
+82
+00:03:14,000 --> 00:03:18,000
+regardless of if it's going over direct internet
+
+83
+00:03:18,000 --> 00:03:20,000
+or global accelerator.
+
+84
+00:03:20,000 --> 00:03:21,000
+And so it does it region by region
+
+85
+00:03:21,000 --> 00:03:25,000
+as we can see in a US-based one, Northern Virginia,
+
+86
+00:03:25,000 --> 00:03:27,000
+if I wanted to download a file over the internet
+
+87
+00:03:27,000 --> 00:03:31,000
+it was done in over 1,293 millisecond.
+
+88
+00:03:31,000 --> 00:03:33,000
+Whereas using Global Accelerator,
+
+89
+00:03:33,000 --> 00:03:38,000
+it was 23% faster because it was only 1002 milliseconds.
+
+90
+00:03:39,000 --> 00:03:41,000
+So this is going to make a huge difference for regions
+
+91
+00:03:41,000 --> 00:03:43,000
+that are far away from me.
+
+92
+00:03:43,000 --> 00:03:46,000
+So I'm in Europe, so Northern Virginia is far away from me,
+
+93
+00:03:46,000 --> 00:03:47,000
+it's across the ocean.
+
+94
+00:03:47,000 --> 00:03:51,000
+Oregon as well, it's on the West Coast of the US
+
+95
+00:03:51,000 --> 00:03:53,000
+so it's across the ocean and across the US.
+
+96
+00:03:53,000 --> 00:03:57,000
+So I'm getting a 31% improvement of speed,
+
+97
+00:03:57,000 --> 00:03:59,000
+but Ireland, which is a region that's literally next to me
+
+98
+00:03:59,000 --> 00:04:02,000
+as we can see, we have the same performance
+
+99
+00:04:02,000 --> 00:04:04,000
+over the internet or Global Accelerator
+
+100
+00:04:04,000 --> 00:04:07,000
+because it says next door, same for Frankfurt, Tokyo,
+
+101
+00:04:07,000 --> 00:04:09,000
+I'm getting better performance.
+
+102
+00:04:09,000 --> 00:04:11,000
+Singapore I expect also a better performance
+
+103
+00:04:11,000 --> 00:04:14,000
+and Sydney I expect a huge performance differential.
+
+104
+00:04:14,000 --> 00:04:17,000
+So let's have a look at the results in a second,
+
+105
+00:04:17,000 --> 00:04:20,000
+but what this shows you is that using Global Accelerator
+
+106
+00:04:20,000 --> 00:04:22,000
+because it goes over the private network of AWS
+
+107
+00:04:22,000 --> 00:04:24,000
+as fast as early on as possible,
+
+108
+00:04:24,000 --> 00:04:26,000
+you are going to get better performance
+
+109
+00:04:28,000 --> 00:04:30,000
+and this is the whole idea behind Global Accelerator.
+
+110
+00:04:30,000 --> 00:04:34,000
+So Singapore, yes, was 34% faster, which was great.
+
+111
+00:04:34,000 --> 00:04:38,000
+So 5,000 milliseconds versus 3.4 seconds.
+
+112
+00:04:39,000 --> 00:04:44,000
+And to finish with Sydney, I'm seeing a 53% improvement
+
+113
+00:04:45,000 --> 00:04:47,000
+in speed with Global Accelerator.
+
+114
+00:04:47,000 --> 00:04:50,000
+So this really shows you the power of Global Accelerator
+
+115
+00:04:50,000 --> 00:04:51,000
+when you have global applications.
+
+116
+00:04:51,000 --> 00:04:52,000
+So that's it for this lecture.
+
+117
+00:04:52,000 --> 00:04:55,000
+I hope you liked it and I will see you in the next lecture.
+
