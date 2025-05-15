@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:02,000
+So now let's talk about Amazon MQ.
+
+2
+00:00:02,000 --> 00:00:05,000
+So we know about SQS and SNS
+
+3
+00:00:05,000 --> 00:00:07,000
+and they're cloud-native services
+
+4
+00:00:07,000 --> 00:00:10,000
+because they are proprietary protocols from AWS.
+
+5
+00:00:10,000 --> 00:00:13,000
+They use their own sets of APIs.
+
+6
+00:00:13,000 --> 00:00:17,000
+But if you are running traditional application on-premises,
+
+7
+00:00:17,000 --> 00:00:19,000
+you may use open protocols
+
+8
+00:00:19,000 --> 00:00:24,000
+such as MQTT, AMQP, STOMP, Openwire, WSS.
+
+9
+00:00:25,000 --> 00:00:28,000
+And when you're migrating your application to the cloud,
+
+10
+00:00:28,000 --> 00:00:31,000
+you may not want to re-engineer your application
+
+11
+00:00:31,000 --> 00:00:35,000
+to use the SQS and the SNS protocols or APIs.
+
+12
+00:00:35,000 --> 00:00:39,000
+So instead, you wanna use the traditional protocols
+
+13
+00:00:39,000 --> 00:00:42,000
+you used to, such as MQTT, AMQP, and so on.
+
+14
+00:00:42,000 --> 00:00:44,000
+So for this, we can use Amazon MQ.
+
+15
+00:00:44,000 --> 00:00:46,000
+So Amazon MQ is very simple.
+
+16
+00:00:46,000 --> 00:00:51,000
+It's a managed message broker service for two technologies,
+
+17
+00:00:51,000 --> 00:00:54,000
+for RabbitMQ and for ActiveMQ.
+
+18
+00:00:54,000 --> 00:00:57,000
+So RabbitMQ and ActiveMQ are, for example,
+
+19
+00:00:57,000 --> 00:01:00,000
+on-premises technologies that provide you access
+
+20
+00:01:00,000 --> 00:01:03,000
+to the open protocols I just mentioned.
+
+21
+00:01:03,000 --> 00:01:06,000
+So then we can get a managed version of these brokers
+
+22
+00:01:06,000 --> 00:01:08,000
+onto the cloud thanks to Amazon MQ.
+
+23
+00:01:08,000 --> 00:01:11,000
+So as such, you can understand the implications.
+
+24
+00:01:11,000 --> 00:01:15,000
+First of all, Amazon MQ doesn't scale as much as SQS or SNS,
+
+25
+00:01:15,000 --> 00:01:18,000
+which have sort of like infinite scaling.
+
+26
+00:01:18,000 --> 00:01:20,000
+And because Amazon MQ runs on servers,
+
+27
+00:01:20,000 --> 00:01:22,000
+you may have server issues.
+
+28
+00:01:22,000 --> 00:01:24,000
+And so you can run multi-AZ setup
+
+29
+00:01:24,000 --> 00:01:28,000
+with a failover if you want to be highly available.
+
+30
+00:01:28,000 --> 00:01:31,000
+Also, Amazon MQ comes with both a queue feature,
+
+31
+00:01:31,000 --> 00:01:33,000
+so it looks like SQS,
+
+32
+00:01:33,000 --> 00:01:36,000
+and topic features, it looks like SNS
+
+33
+00:01:36,000 --> 00:01:38,000
+as part of a single broker.
+
+34
+00:01:39,000 --> 00:01:43,000
+So Amazon MQ is going to be used only and only if
+
+35
+00:01:43,000 --> 00:01:45,000
+a company is migrating to the cloud
+
+36
+00:01:45,000 --> 00:01:48,000
+and needs to use one of these open protocols,
+
+37
+00:01:48,000 --> 00:01:51,000
+such as MQTT, AMQP, STOMP, et cetera, et cetera.
+
+38
+00:01:51,000 --> 00:01:53,000
+Otherwise, it should be using SQS and SNS
+
+39
+00:01:53,000 --> 00:01:55,000
+because they scale a lot better
+
+40
+00:01:55,000 --> 00:01:56,000
+and they're way more integrated
+
+41
+00:01:56,000 --> 00:02:00,000
+with Amazon Web Services than Amazon MQ.
+
+42
+00:02:00,000 --> 00:02:03,000
+So I hope that helps and I will see you in the next lecture.
+

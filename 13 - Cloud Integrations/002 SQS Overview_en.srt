@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:02,000
+So let's first talk about their first service
+
+2
+00:00:02,000 --> 00:00:04,000
+which would allow us to decouple our applications
+
+3
+00:00:04,000 --> 00:00:06,000
+which is Amazon SQS,
+
+4
+00:00:06,000 --> 00:00:08,000
+which stands for Simple Queue Service.
+
+5
+00:00:08,000 --> 00:00:09,000
+So what's a queue?
+
+6
+00:00:09,000 --> 00:00:12,000
+Well, say we are creating an SQS queue right here.
+
+7
+00:00:12,000 --> 00:00:15,000
+What we enable us to do is to have producers
+
+8
+00:00:15,000 --> 00:00:18,000
+send messages into that queue,
+
+9
+00:00:18,000 --> 00:00:20,000
+and then it could be one producer
+
+10
+00:00:20,000 --> 00:00:23,000
+but it could be as well, multiple producers.
+
+11
+00:00:23,000 --> 00:00:26,000
+And then once the messages are stored in the queue,
+
+12
+00:00:26,000 --> 00:00:28,000
+then they could be read by consumers
+
+13
+00:00:28,000 --> 00:00:29,000
+who will be polling the queue.
+
+14
+00:00:29,000 --> 00:00:31,000
+That means requesting messages from the queue.
+
+15
+00:00:31,000 --> 00:00:33,000
+They will be polling the queue
+
+16
+00:00:33,000 --> 00:00:34,000
+and it could be one consumer.
+
+17
+00:00:34,000 --> 00:00:36,000
+They could also be multiple consumers.
+
+18
+00:00:36,000 --> 00:00:40,000
+And in this example, once the consumer poll messages
+
+19
+00:00:40,000 --> 00:00:41,000
+they will share the work.
+
+20
+00:00:41,000 --> 00:00:43,000
+So each consumer will get different messages
+
+21
+00:00:43,000 --> 00:00:45,000
+and when they're done processing a message
+
+22
+00:00:45,000 --> 00:00:48,000
+maybe for example, to process a video
+
+23
+00:00:48,000 --> 00:00:50,000
+then they will delete the message
+
+24
+00:00:50,000 --> 00:00:52,000
+from the queue and it will be gone.
+
+25
+00:00:52,000 --> 00:00:55,000
+So in this mechanism, we have the producers sending messages
+
+26
+00:00:55,000 --> 00:00:57,000
+into the queue and they're decoupled from the consumer
+
+27
+00:00:57,000 --> 00:00:59,000
+reading the messages from the queue
+
+28
+00:00:59,000 --> 00:01:01,000
+and processing them at different speed.
+
+29
+00:01:01,000 --> 00:01:03,000
+So when you have an SQS
+
+30
+00:01:03,000 --> 00:01:07,000
+turns out that it is the AWS oldest offering.
+
+31
+00:01:07,000 --> 00:01:08,000
+It's over 10 years old.
+
+32
+00:01:08,000 --> 00:01:11,000
+It was one of the first services to appear
+
+33
+00:01:11,000 --> 00:01:13,000
+as part of the AWS cloud.
+
+34
+00:01:13,000 --> 00:01:16,000
+It is fully managed, so it's a serverless service.
+
+35
+00:01:16,000 --> 00:01:17,000
+You don't provision servers
+
+36
+00:01:17,000 --> 00:01:20,000
+and it's used to decouple applications.
+
+37
+00:01:20,000 --> 00:01:21,000
+So this is the exam tip.
+
+38
+00:01:21,000 --> 00:01:23,000
+If you see decouple, then think of SQS.
+
+39
+00:01:23,000 --> 00:01:26,000
+It will scale seamlessly from example, from one message
+
+40
+00:01:26,000 --> 00:01:29,000
+per second to tens of thousands of messages per second.
+
+41
+00:01:29,000 --> 00:01:31,000
+And the default retention
+
+42
+00:01:31,000 --> 00:01:34,000
+of the messages is four days, maximum of 14 days.
+
+43
+00:01:34,000 --> 00:01:37,000
+So you need to process them within that default retention.
+
+44
+00:01:37,000 --> 00:01:40,000
+There's no limit to how many messages can be in a queue.
+
+45
+00:01:40,000 --> 00:01:43,000
+And then once the consumers read the messages
+
+46
+00:01:43,000 --> 00:01:44,000
+then they have to be deleted.
+
+47
+00:01:44,000 --> 00:01:46,000
+So they're gone.
+
+48
+00:01:46,000 --> 00:01:47,000
+There is low latency, we're talking about less
+
+49
+00:01:47,000 --> 00:01:50,000
+than 10 milliseconds, unpublish and subscribe.
+
+50
+00:01:50,000 --> 00:01:53,000
+And then consumers share the work to read messages
+
+51
+00:01:53,000 --> 00:01:54,000
+and scale horizontally.
+
+52
+00:01:55,000 --> 00:01:58,000
+So SQS can be used to decouple
+
+53
+00:01:58,000 --> 00:01:59,000
+between your application tiers.
+
+54
+00:01:59,000 --> 00:02:02,000
+So here's a classic solution architecture.
+
+55
+00:02:02,000 --> 00:02:04,000
+We have our web servers and they're taking request
+
+56
+00:02:04,000 --> 00:02:07,000
+maybe through an application balancer.
+
+57
+00:02:07,000 --> 00:02:09,000
+They're served through EC2 instances
+
+58
+00:02:09,000 --> 00:02:10,000
+in an auto scaling group.
+
+59
+00:02:10,000 --> 00:02:12,000
+And then, for example, say that our users
+
+60
+00:02:12,000 --> 00:02:15,000
+want us to process some videos.
+
+61
+00:02:15,000 --> 00:02:16,000
+Then instead of sending it directly
+
+62
+00:02:16,000 --> 00:02:19,000
+to the video application, we can instead
+
+63
+00:02:19,000 --> 00:02:23,000
+insert messages into an SQS queue,
+
+64
+00:02:23,000 --> 00:02:25,000
+and then we will have a video processing layer
+
+65
+00:02:25,000 --> 00:02:28,000
+made of an auto scaling group with EC2 instances.
+
+66
+00:02:28,000 --> 00:02:32,000
+And these EC2 instances, we'll be reading from the SQS queue
+
+67
+00:02:32,000 --> 00:02:34,000
+and processing our videos.
+
+68
+00:02:34,000 --> 00:02:37,000
+The cool thing about it is that we can scale the second auto
+
+69
+00:02:37,000 --> 00:02:40,000
+scaling group independently from the first one
+
+70
+00:02:40,000 --> 00:02:42,000
+and this is why it's called decoupling.
+
+71
+00:02:42,000 --> 00:02:44,000
+And on top of it, the scaling can happen based
+
+72
+00:02:44,000 --> 00:02:46,000
+on how many messages, for example,
+
+73
+00:02:46,000 --> 00:02:48,000
+there are in the SQS queue.
+
+74
+00:02:48,000 --> 00:02:51,000
+And this would really allow us to have two layers,
+
+75
+00:02:51,000 --> 00:02:54,000
+the web servers and the video processing fully decoupled
+
+76
+00:02:54,000 --> 00:02:57,000
+from the SQS queue and scaling independently.
+
+77
+00:02:57,000 --> 00:02:59,000
+This will give us the best user experience
+
+78
+00:02:59,000 --> 00:03:02,000
+and also the best cost efficiency and scaling concerns.
+
+79
+00:03:02,000 --> 00:03:06,000
+Another feature for Amazon SQS is to have FIFO queues.
+
+80
+00:03:06,000 --> 00:03:10,000
+So FIFO means First In First Out, and that corresponds
+
+81
+00:03:10,000 --> 00:03:12,000
+to the ordering of the messages within the queue.
+
+82
+00:03:12,000 --> 00:03:14,000
+So if you have a producer sending messages
+
+83
+00:03:14,000 --> 00:03:18,000
+in a specific order such as 1, 2, 3, and 4
+
+84
+00:03:18,000 --> 00:03:22,000
+then the consumer will also read these messages in order.
+
+85
+00:03:22,000 --> 00:03:25,000
+So example 1, 2, 3, 4.
+
+86
+00:03:25,000 --> 00:03:27,000
+So when you have a normal SQS queue
+
+87
+00:03:27,000 --> 00:03:29,000
+consumers can read messages altogether
+
+88
+00:03:29,000 --> 00:03:32,000
+and they could be in different orders.
+
+89
+00:03:32,000 --> 00:03:34,000
+But with Amazon SQS FIFO queues
+
+90
+00:03:34,000 --> 00:03:36,000
+the message are going to be in order
+
+91
+00:03:36,000 --> 00:03:39,000
+and it's just a feature you need to remember for the exam.
+
+92
+00:03:39,000 --> 00:03:41,000
+Okay, that's it for this lecture.
+
+93
+00:03:41,000 --> 00:03:44,000
+I hope you liked it and I will see you in the next lecture.
+

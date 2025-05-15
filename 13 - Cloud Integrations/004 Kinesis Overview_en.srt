@@ -1,0 +1,196 @@
+1
+00:00:00,000 --> 00:00:02,000
+Now let's talk about Amazon Kinesis.
+
+2
+00:00:02,000 --> 00:00:04,000
+So, for the exam,
+
+3
+00:00:04,000 --> 00:00:06,000
+Kinesis is equal to real-time big data streaming
+
+4
+00:00:06,000 --> 00:00:08,000
+and it's all you should know.
+
+5
+00:00:08,000 --> 00:00:09,000
+And I'm going to give you a little bit more information
+
+6
+00:00:09,000 --> 00:00:11,000
+because there will be not enough, I guess,
+
+7
+00:00:11,000 --> 00:00:13,000
+for your own understanding.
+
+8
+00:00:13,000 --> 00:00:16,000
+So Kinesis is as a managed service used to collect, process
+
+9
+00:00:16,000 --> 00:00:20,000
+and analyze real-time streaming data at any scale.
+
+10
+00:00:20,000 --> 00:00:22,000
+It's too detailed to know all these things
+
+11
+00:00:22,000 --> 00:00:23,000
+for the Cloud Practitioner Exam
+
+12
+00:00:23,000 --> 00:00:25,000
+but still I'm going to give them to you.
+
+13
+00:00:25,000 --> 00:00:25,000
+It's good to know.
+
+14
+00:00:25,000 --> 00:00:27,000
+So there's, Kinesis data streams
+
+15
+00:00:27,000 --> 00:00:30,000
+which is a low latency streaming service to ingest it
+
+16
+00:00:30,000 --> 00:00:32,000
+at scale from hundreds of thousands of sources
+
+17
+00:00:32,000 --> 00:00:35,000
+and the source could be whatever can produce data
+
+18
+00:00:35,000 --> 00:00:37,000
+for example, a truck, a boat, an IOT device
+
+19
+00:00:37,000 --> 00:00:39,000
+whatever you can think of.
+
+20
+00:00:39,000 --> 00:00:40,000
+Then you have Kinesis Data Firehose
+
+21
+00:00:40,000 --> 00:00:42,000
+which is to load these streams
+
+22
+00:00:42,000 --> 00:00:46,000
+into places that we know already, such as Amazon S3,
+
+23
+00:00:46,000 --> 00:00:49,000
+Redshift, ElasticSearch, et cetera, et cetera.
+
+24
+00:00:49,000 --> 00:00:51,000
+We have Kinesis Data Analytics
+
+25
+00:00:51,000 --> 00:00:53,000
+which is to perform real-time analytics
+
+26
+00:00:53,000 --> 00:00:55,000
+on the stream using the SQL language.
+
+27
+00:00:55,000 --> 00:00:57,000
+And finally Kinesis Video Streams
+
+28
+00:00:57,000 --> 00:00:59,000
+to monitor real-time video streams
+
+29
+00:00:59,000 --> 00:01:01,000
+for analytics or machine learning.
+
+30
+00:01:01,000 --> 00:01:05,000
+So at the CCP level, all you need to know
+
+31
+00:01:05,000 --> 00:01:06,000
+is that Kinesis is used
+
+32
+00:01:06,000 --> 00:01:08,000
+for real-time big data streaming,
+
+33
+00:01:08,000 --> 00:01:10,000
+but the sub-services of Kinesis
+
+34
+00:01:10,000 --> 00:01:11,000
+really line up this way.
+
+35
+00:01:11,000 --> 00:01:13,000
+So we have Amazon Kinesis streams
+
+36
+00:01:13,000 --> 00:01:15,000
+that are going to be getting data
+
+37
+00:01:15,000 --> 00:01:18,000
+from click streams, IOT devices, metrics,
+
+38
+00:01:18,000 --> 00:01:20,000
+log servers, all these kind of things.
+
+39
+00:01:20,000 --> 00:01:22,000
+Then we can use Kinesis Data Analytics
+
+40
+00:01:22,000 --> 00:01:24,000
+if we wanted to analyze this data
+
+41
+00:01:24,000 --> 00:01:26,000
+and produce output in real-time.
+
+42
+00:01:26,000 --> 00:01:29,000
+And then we could use Kinesis Firehose
+
+43
+00:01:29,000 --> 00:01:32,000
+to send these outputs directly into destinations
+
+44
+00:01:32,000 --> 00:01:34,000
+such as an Amazon S3 buckets
+
+45
+00:01:34,000 --> 00:01:35,000
+or an Amazon Redshift database
+
+46
+00:01:35,000 --> 00:01:37,000
+where we can analyze this data
+
+47
+00:01:37,000 --> 00:01:40,000
+and perform more analytics down the road if we wanted to.
+
+48
+00:01:40,000 --> 00:01:42,000
+So that's it for Kinesis, I hope you liked it.
+
+49
+00:01:42,000 --> 00:01:44,000
+And I will see you in the next lecture.
+

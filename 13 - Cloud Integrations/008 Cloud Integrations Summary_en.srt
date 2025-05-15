@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:01,000
+Okay, so let's summarize everything
+
+2
+00:00:01,000 --> 00:00:03,000
+we've learned in this section.
+
+3
+00:00:03,000 --> 00:00:07,000
+So SQS is a queuing service in AWS
+
+4
+00:00:07,000 --> 00:00:09,000
+and we can have multiple producers into an SQS queue.
+
+5
+00:00:09,000 --> 00:00:11,000
+The messages are going to be kept
+
+6
+00:00:11,000 --> 00:00:14,000
+up to 14 days in the queue, then deleted.
+
+7
+00:00:14,000 --> 00:00:16,000
+Consumers can read these messages
+
+8
+00:00:16,000 --> 00:00:17,000
+and they will share the reads.
+
+9
+00:00:17,000 --> 00:00:18,000
+So they will split the reads
+
+10
+00:00:18,000 --> 00:00:21,000
+and then once a message is read and processed
+
+11
+00:00:21,000 --> 00:00:22,000
+then it's going to be deleted.
+
+12
+00:00:22,000 --> 00:00:25,000
+So when a consumer is done, the message is gone.
+
+13
+00:00:25,000 --> 00:00:28,000
+It's used to decouple applications within AWS.
+
+14
+00:00:28,000 --> 00:00:32,000
+So anytime you see queuing and decoupling, think SQS.
+
+15
+00:00:32,000 --> 00:00:35,000
+SNS is a notification service in AWS.
+
+16
+00:00:35,000 --> 00:00:38,000
+And so we have producers and subscribers.
+
+17
+00:00:38,000 --> 00:00:43,000
+So it could be email, Lambda, SQS queues, HTTP, mobile
+
+18
+00:00:43,000 --> 00:00:46,000
+and if you have multiple subscribers onto one SNS topic
+
+19
+00:00:46,000 --> 00:00:50,000
+then SNS will send a message to all of them.
+
+20
+00:00:50,000 --> 00:00:52,000
+SNS doesn't retain any message
+
+21
+00:00:52,000 --> 00:00:54,000
+so it's not a durable store of messages
+
+22
+00:00:54,000 --> 00:00:57,000
+and it's going to be used again for pub/sub,
+
+23
+00:00:57,000 --> 00:01:02,000
+for subscribers, for topics and notifications within AWS.
+
+24
+00:01:02,000 --> 00:01:04,000
+Finally, we've seen Kinesis
+
+25
+00:01:04,000 --> 00:01:07,000
+which is a real time data streaming service
+
+26
+00:01:07,000 --> 00:01:08,000
+which is going to have some data persistence
+
+27
+00:01:08,000 --> 00:01:10,000
+and also you can run analytics
+
+28
+00:01:10,000 --> 00:01:12,000
+on top of Kinesis in real time.
+
+29
+00:01:12,000 --> 00:01:14,000
+And finally, we have Amazon MQ
+
+30
+00:01:14,000 --> 00:01:16,000
+which is a managed message broker
+
+31
+00:01:16,000 --> 00:01:19,000
+for Active MQ and RabbitMQ in the cloud.
+
+32
+00:01:19,000 --> 00:01:21,000
+So if you want to migrate from on-premises
+
+33
+00:01:21,000 --> 00:01:24,000
+to the cloud and use the MQTT, AMQP,
+
+34
+00:01:24,000 --> 00:01:27,000
+or other kind of protocols, this is a service for you.
+
+35
+00:01:27,000 --> 00:01:28,000
+So that's it for this section.
+
+36
+00:01:28,000 --> 00:01:31,000
+I hope you liked it and I will see you in the next section.
+

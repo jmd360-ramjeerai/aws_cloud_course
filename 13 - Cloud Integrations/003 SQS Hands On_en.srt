@@ -1,0 +1,304 @@
+1
+00:00:00,000 --> 00:00:03,000
+So let's go and practice the SQS service.
+
+2
+00:00:03,000 --> 00:00:06,000
+So in SQS we see it's a message queuing service
+
+3
+00:00:06,000 --> 00:00:08,000
+and the idea is that we have a high-throughput
+
+4
+00:00:08,000 --> 00:00:11,000
+system-to-system messaging service.
+
+5
+00:00:11,000 --> 00:00:13,000
+So we're going to go ahead and create a queue,
+
+6
+00:00:13,000 --> 00:00:14,000
+which is going to be free.
+
+7
+00:00:14,000 --> 00:00:16,000
+So as you can see, we have two types of queue
+
+8
+00:00:16,000 --> 00:00:19,000
+we can create, a standard queue or a FIFO queue.
+
+9
+00:00:19,000 --> 00:00:21,000
+Now this is way beyond the scope of the exam
+
+10
+00:00:21,000 --> 00:00:23,000
+for the Cloud Practitioner.
+
+11
+00:00:23,000 --> 00:00:24,000
+So I'm just going to do standard
+
+12
+00:00:24,000 --> 00:00:27,000
+and I will call my queue demo-sqs.
+
+13
+00:00:27,000 --> 00:00:30,000
+In terms of the configuration, you can safely don't look
+
+14
+00:00:30,000 --> 00:00:31,000
+at all these things, again, it's more advanced
+
+15
+00:00:31,000 --> 00:00:33,000
+than we need to know as well as the access policy,
+
+16
+00:00:33,000 --> 00:00:35,000
+we can leave everything as default.
+
+17
+00:00:35,000 --> 00:00:37,000
+So what I'll just do is create the queue.
+
+18
+00:00:38,000 --> 00:00:41,000
+Now my queue is created, and we can start sending
+
+19
+00:00:41,000 --> 00:00:43,000
+and receiving messages from it.
+
+20
+00:00:43,000 --> 00:00:45,000
+So let me close these panels right here.
+
+21
+00:00:45,000 --> 00:00:48,000
+So we have all the configuration panels here, but again,
+
+22
+00:00:48,000 --> 00:00:49,000
+not in this scope, so let's not do,
+
+23
+00:00:49,000 --> 00:00:51,000
+deal with them right now,
+
+24
+00:00:51,000 --> 00:00:53,000
+but here we have our queue details where we can find
+
+25
+00:00:53,000 --> 00:00:55,000
+the type of queue it is, the name,
+
+26
+00:00:55,000 --> 00:00:58,000
+whether or not we enable encryption and so on.
+
+27
+00:00:58,000 --> 00:00:59,000
+And we if we click on more,
+
+28
+00:00:59,000 --> 00:01:01,000
+we get some more information and we get some information
+
+29
+00:01:01,000 --> 00:01:03,000
+around how many messages are available,
+
+30
+00:01:03,000 --> 00:01:05,000
+how many messages are in flight,
+
+31
+00:01:05,000 --> 00:01:06,000
+how many messages are delayed?
+
+32
+00:01:06,000 --> 00:01:09,000
+So what we're going do is to produce and consume permits.
+
+33
+00:01:09,000 --> 00:01:11,000
+So for it we'll go on the top right hand side
+
+34
+00:01:11,000 --> 00:01:14,000
+and there is send and receive messages.
+
+35
+00:01:14,000 --> 00:01:17,000
+So once I click on send and receive messages,
+
+36
+00:01:17,000 --> 00:01:18,000
+you can send a message
+
+37
+00:01:18,000 --> 00:01:21,000
+so we'll send the message, hello world.
+
+38
+00:01:21,000 --> 00:01:24,000
+And then we can just click on send message.
+
+39
+00:01:24,000 --> 00:01:26,000
+Now as you can see, the message has been sent
+
+40
+00:01:26,000 --> 00:01:28,000
+and it's ready to be delivered,
+
+41
+00:01:28,000 --> 00:01:29,000
+received and if you click on view details,
+
+42
+00:01:29,000 --> 00:01:31,000
+you can get some information around that message,
+
+43
+00:01:31,000 --> 00:01:34,000
+so the message ID as well as the MD5 attributes,
+
+44
+00:01:34,000 --> 00:01:36,000
+but more importantly, if we scroll down,
+
+45
+00:01:36,000 --> 00:01:38,000
+we can see that now in the receive message section,
+
+46
+00:01:38,000 --> 00:01:40,000
+one message is available.
+
+47
+00:01:40,000 --> 00:01:44,000
+So if I just do another one, so I say another hello
+
+48
+00:01:44,000 --> 00:01:47,000
+and press send message, now you see that
+
+49
+00:01:47,000 --> 00:01:49,000
+the messages available is two.
+
+50
+00:01:49,000 --> 00:01:52,000
+So now we need to poll the queue to receive these messages.
+
+51
+00:01:52,000 --> 00:01:54,000
+So click on poll for messages,
+
+52
+00:01:54,000 --> 00:01:57,000
+and this will go ahead and retrieve these messages for me.
+
+53
+00:01:57,000 --> 00:02:00,000
+As we can see, the two messages here are showing up
+
+54
+00:02:00,000 --> 00:02:02,000
+and on application, we click on them,
+
+55
+00:02:02,000 --> 00:02:05,000
+we'd actually read them, so look at the body and say,
+
+56
+00:02:05,000 --> 00:02:06,000
+okay, this looks like hello world,
+
+57
+00:02:06,000 --> 00:02:08,000
+which is the exact message I sent.
+
+58
+00:02:08,000 --> 00:02:09,000
+We could look at some attributes and so on.
+
+59
+00:02:09,000 --> 00:02:11,000
+If there were say, if there were some sets,
+
+60
+00:02:11,000 --> 00:02:13,000
+but what the application will do is that it will read
+
+61
+00:02:13,000 --> 00:02:15,000
+the messages and this is the application you would have
+
+62
+00:02:15,000 --> 00:02:18,000
+to code obviously and then when the message processing
+
+63
+00:02:18,000 --> 00:02:20,000
+is done, you would click on the messages
+
+64
+00:02:20,000 --> 00:02:23,000
+and then delete them to remove them from the queue
+
+65
+00:02:23,000 --> 00:02:26,000
+and as you can see, messages available is zero.
+
+66
+00:02:26,000 --> 00:02:30,000
+Very, very simple, but that's how SQS works at a high level.
+
+67
+00:02:30,000 --> 00:02:32,000
+Now, if you go back to your queues,
+
+68
+00:02:32,000 --> 00:02:33,000
+you will get a list of all your queues
+
+69
+00:02:33,000 --> 00:02:35,000
+and to finish this hands on, you can go ahead
+
+70
+00:02:35,000 --> 00:02:36,000
+and delete this queue.
+
+71
+00:02:36,000 --> 00:02:38,000
+This won't cost you any money, but it's not bad
+
+72
+00:02:38,000 --> 00:02:40,000
+to clean up after yourself.
+
+73
+00:02:40,000 --> 00:02:41,000
+So that's it.
+
+74
+00:02:41,000 --> 00:02:43,000
+We should enter the word delete, sorry.
+
+75
+00:02:43,000 --> 00:02:45,000
+So that's it for this lecture, I hope you liked it,
+
+76
+00:02:45,000 --> 00:02:47,000
+and I will see you in the next lecture.
+

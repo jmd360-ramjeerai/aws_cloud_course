@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      code {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .quiz-content {
+        padding: 2.4rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0 auto;
+      }
+      .quiz-container {
+        margin: 0 auto;
+        max-width: 84rem;
+        padding: 0;
+      }
+      .question {
+        margin-bottom: 5rem;
+      }
+      .question span {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .question-prompt {
+        margin-top: 0.8rem;
+        font-weight: 700;
+      }
+      .question-answer {
+        margin-top: 1.6rem;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+      .question-answer label {
+        max-width: 80rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        min-width: 18rem;
+        border: solid #1c1d1f 2px;
+      }
+      .question-answer div {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+      }
+      .question-answer div:hover {
+        background-color: #f5f5f5;
+      }
+      .question-answer input {
+        display: none;
+      }
+      .question-answer span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.6rem;
+        top: 0;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+        border: 0.2rem solid #1c1d1f;
+        position: relative;
+      }
+      .selected {
+        background: #1c1d1f;
+        box-shadow: 0 0 0 0.4rem #fff inset;
+      }
+      .score {
+              position: fixed;
+            }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <div id="score" class="score">
+      <span>Score: N/A of N/A</span>
+    </div>
+    <div id="quiz-container" class="quiz-content"></div>
+
+    <script>
+      const quizData = {"pass_percent": 70, "questions": [{"_class": "assessment", "id": 28717498, "assessment_type": "multiple-choice", "prompt": {"question": "<p>A company using Apache ActiveMQ is migrating to the cloud. Which AWS service can it use to easily set up and operate its message brokers in the cloud?</p><p><br></p>", "relatedLectureIds": ["24682606"], "feedbacks": ["Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It is not used to set up and operate message brokers in the cloud.", "Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. It is not used to set up and operate message brokers in the cloud.", "Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud.", "Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. It is not used to set up and operate message brokers in the cloud."], "answers": ["<p>Amazon SQS</p>", "<p>Amazon SNS</p>", "<p>Amazon MQ</p>", "<p>Amazon Kinesis</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "A company using Apache ActiveMQ is migrating to the cloud. Which AWS service can it use to easily set up and operate its message brokers in the cloud?", "related_lectures": [{"_class": "lecture", "id": 24682606, "title": "Amazon MQ Overview", "created": "2021-01-31T19:46:43Z", "is_published": true, "asset": {"_class": "asset", "id": 44310552, "asset_type": "Video", "title": "CCP_-_MQ_v2.mp4", "created": "2022-10-19T10:58:01Z"}, "object_index": 156, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682606"}]}, {"_class": "assessment", "id": 18922986, "assessment_type": "multiple-choice", "prompt": {"answers": ["<p>Simple Notification Service (SNS)</p>", "<p>Simple Queue Service (SQS)</p>", "<p>Auto Scaling Groups (ASG)</p>"], "relatedLectureIds": ["20056154"], "feedbacks": ["Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. It uses a push-based system.", "Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It is not a pub/sub messaging service, and it uses a pull-based system.", "Auto Scaling Groups helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. They are not a messaging service."], "question": "<p>Which service is a fully managed pub/sub messaging service that makes it easy to set up, operate, and send notifications from the cloud, using a push-based system?</p>"}, "correct_response": ["a"], "section": "", "question_plain": "Which service is a fully managed pub/sub messaging service that makes it easy to set up, operate, and send notifications from the cloud, using a push-based system?", "related_lectures": [{"_class": "lecture", "id": 20056154, "title": "SNS Overview", "created": "2020-05-25T18:23:56Z", "is_published": true, "asset": {"_class": "asset", "id": 40630518, "asset_type": "Video", "title": "CCP_-_SNS_-_Overview_v2.mp4", "created": "2022-04-06T23:39:43Z"}, "object_index": 154, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056154"}]}, {"_class": "assessment", "id": 28717492, "assessment_type": "multiple-choice", "prompt": {"feedbacks": ["Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. Kinesis offers four services: Data Firehose, Data Analytics, Data Streams, Video Streams.", "Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. Kinesis offers four services: Data Firehose, Data Analytics, Data Streams, Video Streams."], "relatedLectureIds": ["24682600"], "answers": ["<p>True</p>", "<p>False</p>"], "question": "<p>You can use Kinesis to perform real-time analysis from video streams.</p>"}, "correct_response": ["a"], "section": "", "question_plain": "You can use Kinesis to perform real-time analysis from video streams.", "related_lectures": [{"_class": "lecture", "id": 24682600, "title": "Kinesis Overview", "created": "2021-01-31T19:46:34Z", "is_published": true, "asset": {"_class": "asset", "id": 31073330, "asset_type": "Video", "title": "CCP - Kinesis.mp4", "created": "2021-01-31T19:32:58Z"}, "object_index": 153, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/24682600"}]}, {"_class": "assessment", "id": 18922802, "assessment_type": "multiple-choice", "prompt": {"answers": ["<p>Scalability</p>", "<p>Automation</p>", "<p>Decouple your applications</p>"], "relatedLectureIds": ["20219084"], "feedbacks": ["SQS and SNS are scalable services, but it is not the principle that is mainly applied when using these services.", "SQS or SNS are not automated services. You need to actively publish and subscribe / consume from them", "When using SQS or SNS, you apply the \"decouple your applications\u201d principle. This means that IT systems should be designed in a way that reduces interdependencies\u2014a change or a failure in one component should not cascade to other components."], "question": "<p>Which principle is mainly applied when using Amazon SQS or Amazon SNS?</p>"}, "correct_response": ["c"], "section": "", "question_plain": "Which principle is mainly applied when using Amazon SQS or Amazon SNS?", "related_lectures": [{"_class": "lecture", "id": 20219084, "title": "Cloud Integrations Overview", "created": "2020-06-02T12:22:48Z", "is_published": true, "asset": {"_class": "asset", "id": 43613392, "asset_type": "Video", "title": "CCP - Cloud Integration Section v2.mp4", "created": "2022-09-13T14:29:29Z"}, "object_index": 150, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20219084"}]}, {"_class": "assessment", "id": 18923124, "assessment_type": "multiple-choice", "prompt": {"answers": ["<p>Simple Notification Service (SNS)</p>", "<p>Simple Queue Service (SQS)</p>", "<p>Auto&nbsp;Scaling Groups (ASG)</p>"], "relatedLectureIds": ["20056162"], "feedbacks": ["Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. It uses a push-based system, not a pull-based system.", "Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It uses a pull-based system.", "Auto Scaling Groups helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. They are not a messaging service."], "question": "<p>Which service allows you to send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available, using a pull-based system?</p>"}, "correct_response": ["b"], "section": "", "question_plain": "Which service allows you to send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available, using a pull-based system?", "related_lectures": [{"_class": "lecture", "id": 20056162, "title": "SQS Overview", "created": "2020-05-25T18:24:08Z", "is_published": true, "asset": {"_class": "asset", "id": 49636068, "asset_type": "Video", "title": "CCP_-_SQS_-_Overview_v2.mp4", "created": "2023-06-24T14:50:27Z"}, "object_index": 151, "url": "/course/aws-certified-cloud-practitioner-new/learn/lecture/20056162"}]}]};
+      var correct = 0;
+      var total = 0;
+      const questionData = quizData.questions
+      const passPercent = quizData.pass_percent
+
+      function main() {
+        total = questionData.length;
+
+        var questions = [];
+        for (var i = 0; i < questionData.length; i++) {
+          var question = questionData[i];
+          var questionText = question.prompt.question;
+          var answers = question.prompt.answers;
+          var correctAnswer = question.correct_response[0];
+          var correctAnswerText = answers[correctAnswer.charCodeAt(0) - 97];
+          var questionObj = {
+            question: questionText,
+            correctAnswer: correctAnswerText,
+            answers: answers,
+            id: question.id,
+          };
+          questions.push(questionObj);
+        }
+
+        updateScore();
+
+        // display the questions
+        var questionsContainer = document.getElementById("quiz-container");
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var questionElement = document.createElement("form");
+          questionElement.className = "question";
+          questionElement.innerHTML =
+            "<span>Question " +
+            (i + 1) +
+            ":</span>" +
+            '<div class="question-prompt">' +
+            question.question +
+            "</div>";
+          questionElement.id = question.id;
+          questionElement.classList.add("quiz-container");
+          var answersElement = document.createElement("ul");
+          answersElement.className = "answers";
+          for (var j = 0; j < question.answers.length; j++) {
+            var answer = question.answers[j];
+            var answerElement = document.createElement("li");
+            answerElement.className = "answer";
+            answerElement.innerHTML =
+              '<label for="input-' +
+              question.id +
+              "-" +
+              j +
+              '"><div onclick="select(' +
+              question.id +
+              ", " +
+              j +
+              ')"><span></span><input id="input-' +
+              question.id +
+              "-" +
+              j +
+              '" type="radio" name="question' +
+              i +
+              '" value="' +
+              j +
+              '">' +
+              answer +
+              "</input></div></label>";
+            answerElement.classList.add("question-answer");
+            answersElement.appendChild(answerElement);
+          }
+
+          questionElement.appendChild(answersElement);
+
+          // add a submit button
+          var submitButton = document.createElement("button");
+          submitButton.className = "submit";
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.add("submit-button");
+
+          submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var questionElement = e.target.parentElement;
+            var questionId = questionElement.id;
+            var question = questions.filter(function (q) {
+              return q.id == questionId;
+            })[0];
+
+            // set the border color of all answers to black
+            var answers = questionElement.getElementsByClassName("answer");
+            for (var i = 0; i < answers.length; i++) {
+              console.log(answers[i]);
+              answers[i].children[0].style.borderColor = "#1c1d1f";
+            }
+
+            var answer = questionElement.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (answer) {
+              var answerIndex = answer.value;
+              var answerText = question.answers[answerIndex];
+              if (answerText == question.correctAnswer) {
+                answer.parentElement.parentElement.style.borderColor =
+                  "limegreen";
+                // alert("Correct!");
+                correct++;
+                updateScore();
+              } else {
+                answer.parentElement.parentElement.style.borderColor = "red";
+                // alert("Incorrect!");
+              }
+            } else {
+              alert("Please select an answer.");
+            }
+          });
+
+          // add button
+          questionElement.appendChild(submitButton);
+
+          questionsContainer.appendChild(questionElement);
+        }
+      }
+
+      function select(question, answer) {
+        var questionElement = document.getElementById(question);
+        var answers = questionElement.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          var span = answers[i].children[0].children[0].children[0];
+          var input = answers[i].children[0].children[0].children[1];
+          span.classList.remove("selected");
+          input.checked = false;
+        }
+        var span = answers[answer].children[0].children[0].children[0];
+        var input = answers[answer].children[0].children[0].children[1];
+        span.classList.add("selected");
+        input.checked = true;
+      }
+
+      function updateScore() {
+        var scoreElem = document.getElementById("score");
+        const score = (correct / total) * 100;
+        scoreElem.innerHTML = "Score: " + score + "/" + passPercent + "%";
+      }
+    </script>
+  </body>
+</html>
